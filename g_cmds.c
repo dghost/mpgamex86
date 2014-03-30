@@ -161,6 +161,11 @@ void Cmd_Give_f (edict_t *ent)
 	int			i;
 	qboolean	give_all;
 	edict_t		*it_ent;
+	cvar_t		*gamedir;
+	qboolean	rogue, xatrix;
+	gamedir = gi.cvar("game", "", 0);
+	rogue = !Q_stricmp(gamedir->string,"rogue");
+	xatrix = !Q_stricmp(gamedir->string,"xatrix");
 
 	if (deathmatch->value && !sv_cheats->value)
 	{
@@ -173,12 +178,15 @@ void Cmd_Give_f (edict_t *ent)
 
 	name = gi.args();
 
+#ifdef JETPACK_MOD
 	if(!Q_stricmp(name,"jetpack"))
 	{
 		gitem_t *fuel;
 		fuel = FindItem("fuel");
 		Add_Ammo(ent,fuel,500);
+		return;
 	}
+#endif
 
 	if (Q_stricmp(name, "all") == 0)
 		give_all = true;
@@ -202,19 +210,49 @@ void Cmd_Give_f (edict_t *ent)
 			it = itemlist + i;
 			if (!it->pickup)
 				continue;
-		//	if (!(it->flags & IT_WEAPON))
-			if (it->flags & (IT_ARMOR|IT_WEAPON|IT_AMMO))
+			if (!(it->flags & IT_WEAPON) || (it->flags & IT_AMMO))
 				continue;
 			if (it->classname && !Q_stricmp(it->classname,"item_jetpack") && !developer->value)
 				continue;
 			if (it->classname && !Q_stricmp(it->classname,"item_flashlight") && !developer->value)
 				continue;
+			if (it->classname && !developer->value &&
+				( !Q_stricmp(it->classname,"weapon_disintegrator") 
+				|| !Q_stricmp(it->classname,"weapon_shockwave") ) 
+				)
+			{
+				continue;
+			}
+
+			if (!rogue)
+			{
+				if (it->classname && !developer->value &&
+					( !Q_stricmp(it->classname,"weapon_etf_rifle") 
+					|| !Q_stricmp(it->classname,"weapon_proxlauncher") 
+					|| !Q_stricmp(it->classname,"weapon_plasmabeam") 
+					|| !Q_stricmp(it->classname,"weapon_chainfist") ) 
+					)
+				{
+					continue;
+				}
+			}
+
+			if (!xatrix)
+			{
+				if (it->classname && !developer->value &&
+					( !Q_stricmp(it->classname,"weapon_phalanx") 
+					|| !Q_stricmp(it->classname,"weapon_boomer") ) 
+					)
+				{
+					continue;
+				}
+			}
 			ent->client->pers.inventory[i] += 1;
 		}
 		if (!give_all)
 			return;
 	}
-
+	
 	if (give_all || Q_stricmp(name, "ammo") == 0)
 	{
 		for (i=0 ; i<game.num_items ; i++)
@@ -224,6 +262,31 @@ void Cmd_Give_f (edict_t *ent)
 				continue;
 			if (!(it->flags & IT_AMMO))
 				continue;
+				if (it->classname && !developer->value &&
+				(  !Q_stricmp(it->classname,"ammo_disruptor") 
+				|| !Q_stricmp(it->classname,"ammo_shocksphere") ) 
+				)
+			{
+				continue;
+			}
+
+			if (!rogue)
+			{
+				if (it->classname && !developer->value &&
+					!Q_stricmp(it->classname,"ammo_tesla") )
+				{
+					continue;
+				}
+			}
+
+			if (!xatrix)
+			{
+				if (it->classname && !developer->value &&
+					!Q_stricmp(it->classname,"ammo_trap") ) 
+				{
+					continue;
+				}
+			}
 			Add_Ammo (ent, it, 1000);
 		}
 		if (!give_all)
@@ -281,13 +344,59 @@ void Cmd_Give_f (edict_t *ent)
 	it = FindItem (name);
 	if (!it)
 	{
+		qboolean unknown = false;
 		name = gi.argv(1);
 		it = FindItem (name);
+
 		if (!it)
 		{
 			gi.cprintf (ent, PRINT_HIGH, "unknown item\n");
 			return;
 		}
+	}  else {
+		qboolean unknown = false;
+		if (it->classname && !developer->value &&
+			( !Q_stricmp(it->classname,"weapon_disintegrator") 
+			|| !Q_stricmp(it->classname,"weapon_shockwave") 
+			|| !Q_stricmp(it->classname,"ammo_disruptor") 
+			|| !Q_stricmp(it->classname,"ammo_shocksphere") ) 
+			)
+		{
+			unknown = true;
+		}
+
+		if (!unknown && !rogue)
+		{
+			if (it->classname && !developer->value &&
+				( !Q_stricmp(it->classname,"weapon_etf_rifle") 
+				|| !Q_stricmp(it->classname,"weapon_proxlauncher") 
+				|| !Q_stricmp(it->classname,"weapon_plasmabeam") 
+				|| !Q_stricmp(it->classname,"weapon_chainfist") 
+				|| !Q_stricmp(it->classname,"ammo_tesla") ) 
+				)
+			{
+				unknown = true;
+			}
+		}
+
+		if (!unknown && !xatrix)
+		{
+			if (it->classname && !developer->value &&
+				( !Q_stricmp(it->classname,"weapon_phalanx") 
+				|| !Q_stricmp(it->classname,"weapon_boomer") 
+				|| !Q_stricmp(it->classname,"ammo_trap") ) 
+				)
+			{
+				unknown = true;
+			}
+		}
+		if (unknown)
+		{
+			gi.cprintf (ent, PRINT_HIGH, "unknown item\n");
+			return;
+		}
+
+
 	}
 
 	if (!it->pickup)
@@ -572,8 +681,10 @@ void Cmd_Inven_f (edict_t *ent)
 		// Don't show "No Weapon" or "Homing Rocket Launcher" in inventory
 		if ((i == noweapon_index) || (i == hml_index))
 			gi.WriteShort (0);
+#ifdef JETPACK_MOD
 		else if((i == fuel_index) && (ent->client->jetpack_infinite))
 			gi.WriteShort (0);
+#endif
 		else
 			gi.WriteShort (cl->pers.inventory[i]);
 	}
@@ -1757,9 +1868,11 @@ void ClientCommand (edict_t *ent)
 			level.freeze = false;
 		else
 		{
+#ifdef JETPACK_MOD
 			if(ent->client->jetpack)
 				gi.dprintf("Cannot use freeze while using jetpack\n");
 			else
+#endif
 				level.freeze = true;
 		}
 	}

@@ -4248,11 +4248,13 @@ void Use_Jet ( edict_t *ent, gitem_t *item )
 // Lazarus: Stasis field generator
 void Use_Stasis ( edict_t *ent, gitem_t *item )
 {
+#ifdef JETPACK_MOD
 	if(ent->client->jetpack)
 	{
 		gi.dprintf("Cannot use stasis generator while using jetpack\n");
 		return;
 	}
+#endif
 	ent->client->pers.inventory[ITEM_INDEX(item)]--;
 	ValidateSelectedItem (ent);
 	level.freeze = true;

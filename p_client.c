@@ -3692,7 +3692,11 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 			ent->in_mud = 0;
 // end MUD
 
+#ifdef JETPACK_MOD
 		if (ent->groundentity && !pm.groundentity && (pm.cmd.upmove >= 10) && (pm.waterlevel == 0) && !client->jetpack)
+#else
+		if (ent->groundentity && !pm.groundentity && (pm.cmd.upmove >= 10) && (pm.waterlevel == 0))
+#endif
 		{	// Knightmare- allow disabling of STUPID grunting when jumping
 			if ((deathmatch->value || player_jump_sounds->value) && !ent->vehicle) 
 			{

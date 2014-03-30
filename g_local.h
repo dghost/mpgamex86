@@ -11,7 +11,7 @@
 #include "p_menu.h"
 #include "p_text.h"
 #include "km_cvar.h"
-#define JETPACK_MOD
+//#define JETPACK_MOD
 
 // the "gameversion" client command will print this plus compile date
 #define	GAMEVERSION	"Q2MP4"

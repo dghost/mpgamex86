@@ -2675,12 +2675,12 @@ static void Trap_Think (edict_t *ent)
 	vec3_t	vec;
 	int		len, i;
 	int		oldlen = 8000;
-	//vec3_t	forward, right, up;
+	vec3_t	forward, right, up;
 	
 	if (ent->timestamp < level.time)
 	{
 		ent->s.frame = 6;
-		//BecomeExplosion1(ent);
+		BecomeExplosion1(ent);
 		// note to self
 		// cause explosion damage???
 		return;
@@ -2707,7 +2707,7 @@ static void Trap_Think (edict_t *ent)
 				
 				// Knightmare- forget this, enough gibs are spawned already
 				// Lazarus: Prevent gib showers from causing SZ_GetSpace: overflow
-				/*if(level.framenum > lastgibframe)
+				if(level.framenum > lastgibframe)
 				{
 					gibsthisframe = 0;
 					lastgibframe = level.framenum;
@@ -2769,12 +2769,12 @@ static void Trap_Think (edict_t *ent)
 					if (best->watertype & MASK_WATER)
 						best->waterlevel = 1;
 
-					//best->nextthink = level.time + 0.1;
-					best->nextthink = level.time + 10 + random()*10;
+					best->nextthink = level.time + 0.1;
+					//best->nextthink = level.time + 10 + random()*10;
 					//best->think = G_FreeEdict;
 					best->think = gib_fade;
 					gi.linkentity (best);
-				}*/
+				}
 
 				best = G_Spawn ();
 				VectorCopy (ent->s.origin, best->s.origin);
@@ -2800,14 +2800,14 @@ static void Trap_Think (edict_t *ent)
 			ent->nextthink = level.time + 1.0;
 			ent->think = G_FreeEdict;
 
-/*			best = G_Spawn ();
+			best = G_Spawn ();
 			SP_item_foodcube (best);
 			VectorCopy (ent->s.origin, best->s.origin);
 			best->s.origin[2]+= 16;
 			best->velocity[2] = 400;
 			best->count = ent->mass;
 			gi.linkentity (best);
-*/
+
 			return;
 		}
 		return;
@@ -2886,7 +2886,7 @@ static void Trap_Think (edict_t *ent)
 				ent->enemy = best;
 				ent->wait = 64;
 				VectorCopy (ent->s.origin, ent->s.old_origin);
-				ent->timestamp = level.time + 600;
+				ent->timestamp = level.time + 30;
 				if (deathmatch->value)
 					ent->mass = best->mass/4;
 				else

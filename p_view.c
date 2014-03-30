@@ -771,8 +771,10 @@ void P_FallingDamage (edict_t *ent)
 	if (ent->movetype == MOVETYPE_NOCLIP)
 		return;
 
+#ifdef JETPACK_MOD
 	if (ent->client->jetpack && ent->client->ucmd.upmove > 0)
 		return;
+#endif
 
 	if ((ent->client->oldvelocity[2] < 0) && (ent->velocity[2] > ent->client->oldvelocity[2]) && (!ent->groundentity))
 	{
@@ -1312,8 +1314,10 @@ void G_SetClientSound (edict_t *ent)
 
 	if (ent->waterlevel && (ent->watertype&(CONTENTS_LAVA|CONTENTS_SLIME)) )
 		ent->s.sound = snd_fry;
+#ifdef JETPACK_MOD
 	else if ( ent->client->jetpack && (ent->client->pers.inventory[fuel_index] < 40 ))
 		ent->s.sound = gi.soundindex("jetpack/stutter.wav");
+#endif
 	else if (strcmp(weap, "weapon_railgun") == 0)
 		ent->s.sound = gi.soundindex("weapons/rg_hum.wav");
 #ifdef KMQUAKE2_ENGINE_MOD
