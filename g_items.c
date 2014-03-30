@@ -2050,7 +2050,7 @@ gitem_t	itemlist[] =
 		3, //width
 		0,
 		NULL,
-		IT_ARMOR,
+		IT_ARMOR|IT_ROGUE|IT_XATRIX,
 		0,
 		&bodyarmor_info,
 		ARMOR_BODY,
@@ -2074,7 +2074,7 @@ gitem_t	itemlist[] =
 		3, //width
 		0,
 		NULL,
-		IT_ARMOR,
+		IT_ARMOR|IT_ROGUE|IT_XATRIX,
 		0,
 		&combatarmor_info,
 		ARMOR_COMBAT,
@@ -2098,7 +2098,7 @@ gitem_t	itemlist[] =
 		3, //width
 		0,
 		NULL,
-		IT_ARMOR,
+		IT_ARMOR|IT_ROGUE|IT_XATRIX,
 		0,
 		&jacketarmor_info,
 		ARMOR_JACKET,
@@ -2126,7 +2126,7 @@ gitem_t	itemlist[] =
 		3, //width
 		0,
 		NULL,
-		IT_ARMOR,
+		IT_ARMOR|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		ARMOR_SHARD,
@@ -2155,7 +2155,7 @@ gitem_t	itemlist[] =
 		3, //width
 		0,
 		NULL,
-		IT_ARMOR,
+		IT_ARMOR|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		ARMOR_SHARD,
@@ -2179,7 +2179,7 @@ gitem_t	itemlist[] =
 		0, //width
 		60,
 		NULL,
-		IT_ARMOR,
+		IT_ARMOR|IT_DEVELOPER,
 		0,
 		NULL,
 		0,
@@ -2203,7 +2203,7 @@ gitem_t	itemlist[] =
 		0, //width
 		60,
 		NULL,
-		IT_ARMOR,
+		IT_ARMOR|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		0,
@@ -2230,7 +2230,7 @@ gitem_t	itemlist[] =
 		0,
 		0,
 		NULL,
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_BLASTER,
 		NULL,
 		0,
@@ -2258,7 +2258,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Shells",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_SHOTGUN,
 		NULL,
 		0,
@@ -2282,7 +2282,7 @@ gitem_t	itemlist[] =
 		0,
 		2,
 		"Shells",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_SUPERSHOTGUN,
 		NULL,
 		0,
@@ -2306,7 +2306,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Bullets",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_MACHINEGUN,
 		NULL,
 		0,
@@ -2330,7 +2330,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Bullets",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_CHAINGUN,
 		NULL,
 		0,
@@ -2355,7 +2355,7 @@ gitem_t	itemlist[] =
 		0,													// number of digits for statusbar
 		1,													// amount used / contained
 		"Flechettes",										// ammo type used 
-		IT_WEAPON,											// inventory flags
+		IT_WEAPON|IT_ROGUE,									// inventory flags
 		WEAP_ETFRIFLE,										// visible weapon
 		NULL,												// info (void *)
 		0,													// tag
@@ -2380,7 +2380,7 @@ gitem_t	itemlist[] =
 		3, //width
 		5,
 		"grenades",
-		IT_AMMO|IT_WEAPON,
+		IT_AMMO|IT_WEAPON|IT_ROGUE|IT_XATRIX,
 		WEAP_GRENADES,
 		NULL,
 		AMMO_GRENADES,
@@ -2404,7 +2404,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Grenades",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_GRENADELAUNCHER,
 		NULL,
 		0,
@@ -2429,7 +2429,7 @@ gitem_t	itemlist[] =
 		0,													// number of digits for statusbar
 		1,													// amount used
 		"Prox",												// ammo type used
-		IT_WEAPON,											// inventory flags
+		IT_WEAPON|IT_ROGUE,									// inventory flags
 		WEAP_PROXLAUNCH,									// visible weapon
 		NULL,												// info (void *)
 		AMMO_PROX,											// tag
@@ -2454,7 +2454,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Rockets",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_ROCKETLAUNCHER,
 		NULL,
 		0,
@@ -2478,7 +2478,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Cells",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_HYPERBLASTER,
 		NULL,
 		0,
@@ -2502,12 +2502,12 @@ gitem_t	itemlist[] =
 		"misc/w_pkup.wav",									// pick up sound
 		"models/weapons/g_beamer/tris.md2", 0, EF_ROTATE,	// world model, skinnum, world model flags
 		"models/weapons/v_beamer/tris.md2",					// view model
-		"w_heatbeam",											// icon
-		"Plasma Beam",											// name printed when picked up 
+		"w_heatbeam",										// icon
+		"Plasma Beam",										// name printed when picked up 
 		0,													// number of digits for statusbar
 		2,													// amount used / contained- if this changes, change it in NoAmmoWeaponChange as well
 		"Cells",											// ammo type used 
-		IT_WEAPON,											// inventory flags
+		IT_WEAPON|IT_ROGUE,									// inventory flags
 		WEAP_PLASMA,										// visible weapon
 		NULL,												// info (void *)
 		0,													// tag
@@ -2533,7 +2533,7 @@ gitem_t	itemlist[] =
 		0,
 		2,
 		"Cells",
-		IT_WEAPON,
+		IT_WEAPON|IT_XATRIX,
 		WEAP_BOOMER,
 		NULL,
 		0,
@@ -2561,7 +2561,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Slugs",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_RAILGUN,
 		NULL,
 		0,
@@ -2586,7 +2586,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Magslug",
-		IT_WEAPON,
+		IT_WEAPON|IT_XATRIX,
 		WEAP_PHALANX,
 		NULL,
 		0,
@@ -2614,7 +2614,7 @@ gitem_t	itemlist[] =
 		0,
 		50,
 		"Cells",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_BFG,
 		NULL,
 		0,
@@ -2645,7 +2645,7 @@ gitem_t	itemlist[] =
 		0,												// number of digits for statusbar
 		1,												// amount used / contained
 		"Disruptors",									// ammo type used 
-		IT_WEAPON,										// inventory flags
+		IT_WEAPON|IT_DEVELOPER,							// inventory flags
 		WEAP_DISRUPTOR,									// visible weapon
 		NULL,											// info (void *)
 		1,												// tag
@@ -2669,7 +2669,7 @@ gitem_t	itemlist[] =
 		0,													// number of digits for statusbar
 		0,													// amount used / contained
 		NULL,												// ammo type used 
-		IT_WEAPON | IT_MELEE,								// inventory flags
+		IT_WEAPON | IT_MELEE | IT_ROGUE,					// inventory flags
 		WEAP_CHAINFIST,										// visible weapon
 		NULL,												// info (void *)
 		1,													// tag
@@ -2695,7 +2695,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Shocksphere",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_DEVELOPER,
 		WEAP_SHOCKWAVE,				// visible weapon
 		NULL,
 		0,
@@ -2719,7 +2719,7 @@ gitem_t	itemlist[] =
 		0,
 		1,
 		"Homing Rockets",
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_DEVELOPER,
 		WEAP_ROCKETLAUNCHER,
 		NULL,
 		0,
@@ -2742,7 +2742,7 @@ gitem_t	itemlist[] =
 	  	0,
 		0,
 		NULL,
-		IT_WEAPON|IT_STAY_COOP,
+		IT_WEAPON|IT_STAY_COOP|IT_ROGUE|IT_XATRIX,
 		WEAP_NONE,
 		NULL,
 		0,
@@ -2769,7 +2769,7 @@ gitem_t	itemlist[] =
 		3, //width
 		10,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		AMMO_SHELLS,
@@ -2793,7 +2793,7 @@ gitem_t	itemlist[] =
 		3, //width
 		50,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		AMMO_BULLETS,
@@ -2817,7 +2817,7 @@ gitem_t	itemlist[] =
 		3, //width
 		50,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		AMMO_CELLS,
@@ -2841,7 +2841,7 @@ gitem_t	itemlist[] =
 		3, //width
 		5,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		AMMO_ROCKETS,
@@ -2865,7 +2865,7 @@ gitem_t	itemlist[] =
 		3, //width
 		5,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_DEVELOPER,
 		0,
 		NULL,
 		AMMO_HOMING_ROCKETS,
@@ -2889,7 +2889,7 @@ gitem_t	itemlist[] =
 		3, //width
 		10,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		AMMO_SLUGS,
@@ -2913,7 +2913,7 @@ gitem_t	itemlist[] =
 		3, //width
 		10,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_XATRIX,
 		0,
 		NULL,
 		AMMO_MAGSLUG,
@@ -2940,7 +2940,7 @@ gitem_t	itemlist[] =
 		3,
 		50,
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_ROGUE,
 		0,
 		NULL,
 		AMMO_FLECHETTES
@@ -2963,7 +2963,7 @@ gitem_t	itemlist[] =
 		3,  									// number of digits for status bar
 		15, 									// amount contained
 		NULL,									// ammo type used
-		IT_AMMO,								// inventory flags
+		IT_AMMO|IT_DEVELOPER,					// inventory flags
 		0,										// vwep index
 		NULL,									// info (void *)
 		AMMO_DISRUPTOR,							// tag
@@ -2986,7 +2986,7 @@ gitem_t	itemlist[] =
 		3,										// number of digits for status bar
 		5,										// amount contained
 		NULL,									// ammo type used
-		IT_AMMO,								// inventory flags
+		IT_AMMO|IT_ROGUE,						// inventory flags
 		0,										// vwep index
 		NULL,									// info (void *)
 		AMMO_PROX,								// tag
@@ -3010,7 +3010,7 @@ gitem_t	itemlist[] =
 		3,										// number of digits for status bar
 		1,										// amount contained
 		NULL,									// ammo type used
-		IT_AMMO,								// inventory flags
+		IT_AMMO|IT_DEVELOPER,					// inventory flags
 		0,										// vwep index
 		NULL,									// info (void *)
 		AMMO_SHOCKSPHERE,						// tag
@@ -3035,7 +3035,7 @@ gitem_t	itemlist[] =
 		3,
 		5,
 		"Tesla",						// PGM
-		IT_AMMO | IT_WEAPON,			// inventory flags
+		IT_AMMO | IT_WEAPON | IT_ROGUE,	// inventory flags
 		WEAP_GRENADES,
 		NULL,							// info (void *)
 		AMMO_TESLA,						// tag
@@ -3059,7 +3059,7 @@ gitem_t	itemlist[] =
 		3, //width
 		1,
 		"trap",
-		IT_AMMO|IT_WEAPON,
+		IT_AMMO|IT_WEAPON|IT_XATRIX,
 		WEAP_GRENADES, //WEAP_TRAP
 		NULL,
 		AMMO_TRAP,
@@ -3083,7 +3083,7 @@ gitem_t	itemlist[] =
 		3,  // width 
 		1, // quantity 
 		"A-M Bomb",
-		IT_POWERUP,	
+		IT_POWERUP|IT_ROGUE,	
 		0,
 		NULL,
 		0,
@@ -3107,7 +3107,7 @@ gitem_t	itemlist[] =
 		3, // width 
 		1, // quantity
 		"BLU-86",
-		IT_POWERUP,	
+		IT_POWERUP|IT_DEVELOPER,	
 		0,
 		NULL,
 		0,
@@ -3134,7 +3134,7 @@ model="models/items/ammo/fuel/medium/"
 		4, // width
 		500, // quantity
 		NULL,
-		IT_AMMO,
+		IT_AMMO|IT_DEVELOPER,
 		0,
 		NULL,
 		AMMO_FUEL,
@@ -3164,7 +3164,7 @@ model="models/items/ammo/fuel/medium/"
 		2, //width
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		0,
@@ -3188,7 +3188,7 @@ model="models/items/ammo/fuel/medium/"
 		2, //width
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_ROGUE,
 		0,
 		NULL,
 		0,
@@ -3212,7 +3212,7 @@ model="models/items/ammo/fuel/medium/"
 		2, //width
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_XATRIX,
 		0,
 		NULL,
 		0,
@@ -3236,7 +3236,7 @@ model="models/items/ammo/fuel/medium/"
 		2, //width
 		300,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		0,
@@ -3260,7 +3260,7 @@ model="models/items/ammo/fuel/medium/"
 		2, //width
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		0,
@@ -3284,7 +3284,7 @@ model="models/items/ammo/fuel/medium/"
 		2, //width
 		60,
 		NULL,
-		IT_STAY_COOP|IT_POWERUP,
+		IT_STAY_COOP|IT_POWERUP|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		0,
@@ -3308,7 +3308,7 @@ model="models/items/ammo/fuel/medium/"
 		2, //width
 		60,
 		NULL,
-		IT_STAY_COOP|IT_POWERUP,
+		IT_STAY_COOP|IT_POWERUP|IT_ROGUE|IT_XATRIX,
 		0,
 		NULL,
 		0,
@@ -3333,7 +3333,7 @@ gives +1 to maximum health
 		2, //width
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_ROGUE,
 		0,
 		NULL,
 		0,
@@ -3458,7 +3458,7 @@ model="models/items/jet/"
 		2,
 		600,
 		"Fuel",
-		IT_POWERUP,
+		IT_POWERUP|IT_DEVELOPER,
 		0,
 		NULL,
 		0,
@@ -3510,7 +3510,7 @@ model="models/items/jet/"
 		2,
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_DEVELOPER,
 		0,
 		NULL,
 		0,
@@ -3534,7 +3534,7 @@ model="models/items/jet/"
 		2, //width
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_DEVELOPER,
 		0,
 		NULL,
 		0,
@@ -3558,7 +3558,7 @@ model="models/items/jet/"
 		2, //width
 		60,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_ROGUE,
 		0,
 		NULL,
 		0,
@@ -3582,7 +3582,7 @@ model="models/items/jet/"
 		2, //width
 		120,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_ROGUE,
 		0,
 		NULL,
 		0,
@@ -3606,7 +3606,7 @@ model="models/items/jet/"
 		2, //width
 		60,													// respawn time
 		NULL,												// ammo type used
-		IT_POWERUP,											// inventory flags
+		IT_POWERUP|IT_ROGUE,								// inventory flags
 		0,
 		NULL,												// info (void *)
 		0,													// tag
@@ -3630,7 +3630,7 @@ model="models/items/jet/"
 		0,													// number of digits for statusbar
 		90,													// respawn time
 		NULL,												// ammo type used 
-		IT_POWERUP,											// inventory flags
+		IT_POWERUP|IT_ROGUE,								// inventory flags
 		0,
 		NULL,												// info (void *)
 		0,													// tag
@@ -3654,7 +3654,7 @@ model="models/items/jet/"
 		2,
 		30,
 		NULL,
-		IT_POWERUP,
+		IT_POWERUP|IT_DEVELOPER,
 		0,
 		NULL,
 		0,

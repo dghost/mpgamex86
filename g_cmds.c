@@ -50,6 +50,10 @@ void SelectNextItem (edict_t *ent, int itflags)
 	gclient_t	*cl;
 	int			i, index;
 	gitem_t		*it;
+	cvar_t		*gamedir;
+	int	gametype;
+	gamedir = gi.cvar("game", "", 0);
+	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -75,10 +79,14 @@ void SelectNextItem (edict_t *ent, int itflags)
 		index = (cl->pers.selected_item + i)%MAX_ITEMS;
 		if (!cl->pers.inventory[index])
 			continue;
+		if (index == noweapon_index)
+			continue;
 		it = &itemlist[index];
 		if (!it->use)
 			continue;
-		if (!(it->flags & itflags))
+		if (! (it->flags & itflags) || !(it->flags & gametype ))
+			continue;
+		if ((it->flags & IT_DEVELOPER) && !developer->value)
 			continue;
 
 		cl->pers.selected_item = index;
@@ -93,6 +101,10 @@ void SelectPrevItem (edict_t *ent, int itflags)
 	gclient_t	*cl;
 	int			i, index;
 	gitem_t		*it;
+	cvar_t		*gamedir;
+	int	gametype;
+	gamedir = gi.cvar("game", "", 0);
+	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -118,10 +130,14 @@ void SelectPrevItem (edict_t *ent, int itflags)
 		index = (cl->pers.selected_item + MAX_ITEMS - i)%MAX_ITEMS;
 		if (!cl->pers.inventory[index])
 			continue;
+		if (index == noweapon_index)
+			continue;
 		it = &itemlist[index];
 		if (!it->use)
 			continue;
-		if (!(it->flags & itflags))
+		if (! (it->flags & itflags) || !(it->flags & gametype ))
+			continue;
+		if ((it->flags & IT_DEVELOPER) && !developer->value)
 			continue;
 
 		cl->pers.selected_item = index;
@@ -162,10 +178,10 @@ void Cmd_Give_f (edict_t *ent)
 	qboolean	give_all;
 	edict_t		*it_ent;
 	cvar_t		*gamedir;
-	qboolean	rogue, xatrix;
+	int	gametype;
 	gamedir = gi.cvar("game", "", 0);
-	rogue = !Q_stricmp(gamedir->string,"rogue");
-	xatrix = !Q_stricmp(gamedir->string,"xatrix");
+	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
+
 
 	if (deathmatch->value && !sv_cheats->value)
 	{
@@ -181,10 +197,17 @@ void Cmd_Give_f (edict_t *ent)
 #ifdef JETPACK_MOD
 	if(!Q_stricmp(name,"jetpack"))
 	{
-		gitem_t *fuel;
-		fuel = FindItem("fuel");
-		Add_Ammo(ent,fuel,500);
-		return;
+		if(!developer->value)
+		{
+			gi.dprintf ("item unavailable outside of developer mode\n");
+			return;
+		}
+		else
+		{
+			gitem_t *fuel;
+			fuel = FindItem("fuel");
+			Add_Ammo(ent,fuel,500);
+		}
 	}
 #endif
 
@@ -210,43 +233,11 @@ void Cmd_Give_f (edict_t *ent)
 			it = itemlist + i;
 			if (!it->pickup)
 				continue;
-			if (!(it->flags & IT_WEAPON) || (it->flags & IT_AMMO))
+			if (!(it->flags & IT_WEAPON) || (it->flags & IT_AMMO) || !(it->flags & gametype))
 				continue;
-			if (it->classname && !Q_stricmp(it->classname,"item_jetpack") && !developer->value)
+			if ((it->flags & IT_DEVELOPER) && !developer->value)
 				continue;
-			if (it->classname && !Q_stricmp(it->classname,"item_flashlight") && !developer->value)
-				continue;
-			if (it->classname && !developer->value &&
-				( !Q_stricmp(it->classname,"weapon_disintegrator") 
-				|| !Q_stricmp(it->classname,"weapon_shockwave") ) 
-				)
-			{
-				continue;
-			}
-
-			if (!rogue)
-			{
-				if (it->classname && !developer->value &&
-					( !Q_stricmp(it->classname,"weapon_etf_rifle") 
-					|| !Q_stricmp(it->classname,"weapon_proxlauncher") 
-					|| !Q_stricmp(it->classname,"weapon_plasmabeam") 
-					|| !Q_stricmp(it->classname,"weapon_chainfist") ) 
-					)
-				{
-					continue;
-				}
-			}
-
-			if (!xatrix)
-			{
-				if (it->classname && !developer->value &&
-					( !Q_stricmp(it->classname,"weapon_phalanx") 
-					|| !Q_stricmp(it->classname,"weapon_boomer") ) 
-					)
-				{
-					continue;
-				}
-			}
+		
 			ent->client->pers.inventory[i] += 1;
 		}
 		if (!give_all)
@@ -260,33 +251,10 @@ void Cmd_Give_f (edict_t *ent)
 			it = itemlist + i;
 			if (!it->pickup)
 				continue;
-			if (!(it->flags & IT_AMMO))
+			if (!(it->flags & IT_AMMO) || !(it->flags & gametype))
 				continue;
-				if (it->classname && !developer->value &&
-				(  !Q_stricmp(it->classname,"ammo_disruptor") 
-				|| !Q_stricmp(it->classname,"ammo_shocksphere") ) 
-				)
-			{
+			if ((it->flags & IT_DEVELOPER) && !developer->value)
 				continue;
-			}
-
-			if (!rogue)
-			{
-				if (it->classname && !developer->value &&
-					!Q_stricmp(it->classname,"ammo_tesla") )
-				{
-					continue;
-				}
-			}
-
-			if (!xatrix)
-			{
-				if (it->classname && !developer->value &&
-					!Q_stricmp(it->classname,"ammo_trap") ) 
-				{
-					continue;
-				}
-			}
 			Add_Ammo (ent, it, 1000);
 		}
 		if (!give_all)
@@ -336,6 +304,12 @@ void Cmd_Give_f (edict_t *ent)
 				continue;										// ROGUE
 			if (it->flags & (IT_ARMOR|IT_WEAPON|IT_AMMO))
 				continue;
+			// if it's not a key and not from the mission pack skip it
+			if (!(it->flags & gametype) && !(it->flags & IT_KEY))
+				continue;
+			if ((it->flags & IT_DEVELOPER) && !developer->value)
+				continue;
+
 			ent->client->pers.inventory[i] = 1;
 		}
 		return;
@@ -354,49 +328,11 @@ void Cmd_Give_f (edict_t *ent)
 			return;
 		}
 	}  else {
-		qboolean unknown = false;
-		if (it->classname && !developer->value &&
-			( !Q_stricmp(it->classname,"weapon_disintegrator") 
-			|| !Q_stricmp(it->classname,"weapon_shockwave") 
-			|| !Q_stricmp(it->classname,"ammo_disruptor") 
-			|| !Q_stricmp(it->classname,"ammo_shocksphere") ) 
-			)
-		{
-			unknown = true;
-		}
-
-		if (!unknown && !rogue)
-		{
-			if (it->classname && !developer->value &&
-				( !Q_stricmp(it->classname,"weapon_etf_rifle") 
-				|| !Q_stricmp(it->classname,"weapon_proxlauncher") 
-				|| !Q_stricmp(it->classname,"weapon_plasmabeam") 
-				|| !Q_stricmp(it->classname,"weapon_chainfist") 
-				|| !Q_stricmp(it->classname,"ammo_tesla") ) 
-				)
-			{
-				unknown = true;
-			}
-		}
-
-		if (!unknown && !xatrix)
-		{
-			if (it->classname && !developer->value &&
-				( !Q_stricmp(it->classname,"weapon_phalanx") 
-				|| !Q_stricmp(it->classname,"weapon_boomer") 
-				|| !Q_stricmp(it->classname,"ammo_trap") ) 
-				)
-			{
-				unknown = true;
-			}
-		}
-		if (unknown)
+		if (!(it->flags & gametype))
 		{
 			gi.cprintf (ent, PRINT_HIGH, "unknown item\n");
 			return;
 		}
-
-
 	}
 
 	if (!it->pickup)
@@ -412,6 +348,13 @@ void Cmd_Give_f (edict_t *ent)
 		return;							
 	}
 //ROGUE
+
+	if ((it->flags & IT_DEVELOPER) && !developer->value)
+	{
+		gi.dprintf ("item unavailable outside of developer mode\n");
+		return;							
+	}
+
 
 	index = ITEM_INDEX(it);
 
@@ -744,6 +687,10 @@ void Cmd_WeapPrev_f (edict_t *ent)
 	int			i, index;
 	gitem_t		*it;
 	int			selected_weapon;
+	cvar_t		*gamedir;
+	int	gametype;
+	gamedir = gi.cvar("game", "", 0);
+	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -769,7 +716,9 @@ void Cmd_WeapPrev_f (edict_t *ent)
 			continue;
 		if (!it->use)
 			continue;
-		if (! (it->flags & IT_WEAPON) )
+		if (! (it->flags & IT_WEAPON) || !(it->flags & gametype ))
+			continue;
+		if ((it->flags & IT_DEVELOPER) && !developer->value)
 			continue;
 		it->use (ent, it);
 		// PMM - prevent scrolling through ALL weapons
@@ -797,6 +746,10 @@ void Cmd_WeapNext_f (edict_t *ent)
 	int			i, index;
 	gitem_t		*it;
 	int			selected_weapon;
+	cvar_t		*gamedir;
+	int	gametype;
+	gamedir = gi.cvar("game", "", 0);
+	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -822,7 +775,9 @@ void Cmd_WeapNext_f (edict_t *ent)
 			continue;
 		if (!it->use)
 			continue;
-		if (! (it->flags & IT_WEAPON) )
+		if (! (it->flags & IT_WEAPON) || !(it->flags & gametype ))
+			continue;
+		if ((it->flags & IT_DEVELOPER) && !developer->value)
 			continue;
 		it->use (ent, it);
 		// PMM - prevent scrolling through ALL weapons
@@ -849,6 +804,10 @@ void Cmd_WeapLast_f (edict_t *ent)
 	gclient_t	*cl;
 	int			index;
 	gitem_t		*it;
+	cvar_t		*gamedir;
+	int	gametype;
+	gamedir = gi.cvar("game", "", 0);
+	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -861,7 +820,9 @@ void Cmd_WeapLast_f (edict_t *ent)
 	it = &itemlist[index];
 	if (!it->use)
 		return;
-	if (! (it->flags & IT_WEAPON) )
+	if (! (it->flags & IT_WEAPON) || !(it->flags & gametype ))
+		return;
+	if ((it->flags & IT_DEVELOPER) && !developer->value)
 		return;
 	it->use (ent, it);
 }

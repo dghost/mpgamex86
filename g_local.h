@@ -11,7 +11,7 @@
 #include "p_menu.h"
 #include "p_text.h"
 #include "km_cvar.h"
-//#define JETPACK_MOD
+#define JETPACK_MOD
 
 // the "gameversion" client command will print this plus compile date
 #define	GAMEVERSION	"Q2MP4"
@@ -313,6 +313,10 @@ typedef struct
 #define IT_MELEE			0x00000040
 #define IT_NOT_GIVEABLE		0x00000080	// item can not be given
 // ROGUE
+
+#define IT_XATRIX			0x00000100
+#define IT_ROGUE			0x00000200
+#define IT_DEVELOPER		0x00000400
 
 // gitem_t->weapmodel for weapons indicates model index
 #define WEAP_BLASTER			1 
