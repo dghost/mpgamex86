@@ -50,9 +50,7 @@ void SelectNextItem (edict_t *ent, int itflags)
 	gclient_t	*cl;
 	int			i, index;
 	gitem_t		*it;
-	cvar_t		*gamedir;
 	int	gametype;
-	gamedir = gi.cvar("game", "", 0);
 	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
@@ -101,9 +99,7 @@ void SelectPrevItem (edict_t *ent, int itflags)
 	gclient_t	*cl;
 	int			i, index;
 	gitem_t		*it;
-	cvar_t		*gamedir;
 	int	gametype;
-	gamedir = gi.cvar("game", "", 0);
 	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
@@ -177,9 +173,7 @@ void Cmd_Give_f (edict_t *ent)
 	int			i;
 	qboolean	give_all;
 	edict_t		*it_ent;
-	cvar_t		*gamedir;
 	int	gametype;
-	gamedir = gi.cvar("game", "", 0);
 	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 
@@ -687,9 +681,7 @@ void Cmd_WeapPrev_f (edict_t *ent)
 	int			i, index;
 	gitem_t		*it;
 	int			selected_weapon;
-	cvar_t		*gamedir;
 	int	gametype;
-	gamedir = gi.cvar("game", "", 0);
 	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
@@ -746,9 +738,7 @@ void Cmd_WeapNext_f (edict_t *ent)
 	int			i, index;
 	gitem_t		*it;
 	int			selected_weapon;
-	cvar_t		*gamedir;
 	int	gametype;
-	gamedir = gi.cvar("game", "", 0);
 	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
@@ -804,9 +794,7 @@ void Cmd_WeapLast_f (edict_t *ent)
 	gclient_t	*cl;
 	int			index;
 	gitem_t		*it;
-	cvar_t		*gamedir;
 	int	gametype;
-	gamedir = gi.cvar("game", "", 0);
 	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
