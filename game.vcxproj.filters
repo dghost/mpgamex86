@@ -144,145 +144,145 @@
     <ClCompile Include="km_cvar.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="m_actor.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_actor_weap.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_berserk.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_boss2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_boss3.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_boss31.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_boss32.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_boss5.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_brain.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_brainbeta.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_carrier.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_chick.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_dog.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_fixbot.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_flash.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_flipper.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_float.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_flyer.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_gekk.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_gladb.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_gladiator.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_gunner.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_hover.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_infantry.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_insane.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_medic.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_move.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_mutant.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_parasite.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_soldier.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_stalker.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_supertank.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_tank.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_turret.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_widow.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="m_widow2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_chasecam.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_client.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_hud.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_menu.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_text.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_trail.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_view.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="p_weapon.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="q_shared.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="z_anim.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="z_sentien.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_chasecam.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_client.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_hud.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_menu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_text.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_trail.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_view.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player\p_weapon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_actor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_actor_weap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_berserk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_boss2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_boss3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_boss31.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_boss32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_boss5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_brain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_brainbeta.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_carrier.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_chick.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_dog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_fixbot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_flipper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_float.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_flyer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_gekk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_gladb.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_gladiator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_gunner.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_hover.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_infantry.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_insane.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_medic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_move.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_mutant.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_parasite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_soldier.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_stalker.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_supertank.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_tank.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_turret.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_widow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="monster\m_widow2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\qcommon\shared\m_flash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\qcommon\shared\q_shared.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -308,112 +308,121 @@
     <ClInclude Include="m_actor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="m_berserk.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_boss2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_boss31.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_boss32.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_brain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_chick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_dog.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_fiend.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_fixbot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_flipper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_float.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_flyer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_gekk.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_gladiator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_gunner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_hover.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_infantry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_insane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_medic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_mutant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_parasite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_rider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_soldier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_soldierh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_supertank.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_tank.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_turret.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="m_zombie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="p_menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="p_text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pak.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="q_shared.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="z_anim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="z_sentien.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\shared\q_shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="player\p_menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="player\p_text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_berserk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_boss2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_boss31.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_boss32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_brain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_carrier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_chick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_dog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_fixbot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_flipper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_float.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_flyer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_gekk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_widow2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_widow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_turret.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_tank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_supertank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_stalker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_soldierh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_soldier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_rider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_parasite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_mutant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_medic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_insane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_infantry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_hover.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_gunner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="monster\m_gladiator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,7 @@
 // g_misc.c
 
 #include "g_local.h"
-#include "m_gekk.h"
+#include "monster/m_gekk.h"
 
 int	gibsthisframe=0;
 int lastgibframe=0;

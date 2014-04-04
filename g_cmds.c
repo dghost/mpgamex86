@@ -1,5 +1,5 @@
 #include "g_local.h"
-#include "m_player.h"
+#include "monster/m_player.h"
 
 int	nostatus = 0;
 

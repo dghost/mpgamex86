@@ -1,6 +1,6 @@
 // g_local.h -- local definitions for game module
 
-#include "./q_shared.h"
+#include "../qcommon/shared/q_shared.h"
 #include "laz_misc.h"
 
 // define GAME_INCLUDE so that game.h does not define the
@@ -8,8 +8,8 @@
 // because we define the full size ones in this file
 #define	GAME_INCLUDE
 #include "game.h"
-#include "p_menu.h"
-#include "p_text.h"
+#include "player/p_menu.h"
+#include "player/p_text.h"
 #include "km_cvar.h"
 #define JETPACK_MOD
 
