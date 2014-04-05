@@ -115,7 +115,6 @@ extern	cvar_t	*hyperblaster_speed;
 extern	cvar_t	*hyperblaster_color;
 
 extern	cvar_t	*railgun_damage;
-extern	cvar_t	*rail_color;
 
 extern	cvar_t	*bfg_damage;
 extern	cvar_t	*bfg_damage2;

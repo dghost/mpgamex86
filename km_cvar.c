@@ -71,7 +71,6 @@ cvar_t	*hyperblaster_speed;
 cvar_t	*hyperblaster_color;  //hyperblaster color- 1=yellow, 2=green, 3=blue, 4=red
 
 cvar_t	*railgun_damage;
-cvar_t	*rail_color;
 
 cvar_t	*bfg_damage;
 cvar_t	*bfg_damage2;
@@ -370,7 +369,6 @@ void lithium_defaults(void)
 	hyperblaster_color = gi.cvar("hyperblaster_color", "1", 0);
 
 	railgun_damage = gi.cvar("railgun_damage", "150", 0);
-	rail_color = gi.cvar("rail_color", "1", 0);
 
 	bfg_damage = gi.cvar("bfg_damage", "500", 0);
 	bfg_damage2 = gi.cvar("bfg_damage2", "10", 0);

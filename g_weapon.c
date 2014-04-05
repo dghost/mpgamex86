@@ -1938,13 +1938,8 @@ void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick
 	qboolean	water;
 	int			tempevent;
 
-	//Knightmare- changeable trail color
-#ifdef KMQUAKE2_ENGINE_MOD
-	if (self->client && rail_color->value == 2)
-		tempevent = TE_RAILTRAIL2;
-	else
-#endif
-		tempevent = TE_RAILTRAIL;
+
+	tempevent = TE_RAILTRAIL;
 
 	VectorMA (start, 8192, aimdir, end);
 	VectorCopy (start, from);
@@ -1997,6 +1992,74 @@ void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick
 		PlayerNoise(self, tr.endpos, PNOISE_IMPACT);
 }
 
+/*
+=================
+fire_rail_alt
+=================
+*/
+void fire_rail_alt (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick)
+{
+	vec3_t		from;
+	vec3_t		end;
+	trace_t		tr;
+	edict_t		*ignore;
+	int			mask;
+	qboolean	water;
+	int			tempevent;
+
+	//Knightmare- changeable trail color
+	tempevent = TE_RAILTRAIL2;
+
+	VectorMA (start, 8192, aimdir, end);
+	VectorCopy (start, from);
+	ignore = self;
+	water = false;
+	mask = MASK_SHOT|CONTENTS_SLIME|CONTENTS_LAVA;
+	while (ignore)
+	{
+		tr = gi.trace (from, NULL, NULL, end, ignore, mask);
+
+		if (tr.contents & (CONTENTS_SLIME|CONTENTS_LAVA))
+		{
+			mask &= ~(CONTENTS_SLIME|CONTENTS_LAVA);
+			water = true;
+		}
+		else
+		{
+			//ZOID--added so rail goes through SOLID_BBOX entities (gibs, etc)
+			if ((tr.ent->svflags & SVF_MONSTER) || (tr.ent->client) ||
+				(tr.ent->svflags & SVF_DAMAGEABLE) ||
+				(tr.ent->solid == SOLID_BBOX))
+				ignore = tr.ent;
+			else
+				ignore = NULL;
+
+			if ((tr.ent != self) && (tr.ent->takedamage))
+				T_Damage (tr.ent, self, self, aimdir, tr.endpos, tr.plane.normal, damage, kick, 0, MOD_RAILGUN);
+		}
+
+		VectorCopy (tr.endpos, from);
+	}
+
+	// send gun puff / flash
+	gi.WriteByte (svc_temp_entity);
+	gi.WriteByte (tempevent);
+	gi.WritePosition (start);
+	gi.WritePosition (tr.endpos);
+	gi.multicast (self->s.origin, MULTICAST_PHS);
+//	gi.multicast (start, MULTICAST_PHS);
+	if (water)
+	{
+		gi.WriteByte (svc_temp_entity);
+		gi.WriteByte (tempevent);
+		gi.WritePosition (start);
+		gi.WritePosition (tr.endpos);
+		gi.multicast (tr.endpos, MULTICAST_PHS);
+	}
+
+	if (self->client)
+		PlayerNoise(self, tr.endpos, PNOISE_IMPACT);
+}
 
 /*
 =================

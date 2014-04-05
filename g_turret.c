@@ -206,7 +206,7 @@ void turret_breach_fire (edict_t *self)
 			case 1: // railgun
 			{
 				damage = 150;
-				fire_rail (owner, start, forward, damage, 0);
+				fire_rail_alt (owner, start, forward, damage, 0);
 				gi.positioned_sound (start, self, CHAN_WEAPON, gi.soundindex("weapons/railgf1a.wav"), 1, ATTN_NORM, 0);
 				// was level.time + 1.3
 				self->delay = level.time + max((self->wait + ((2 - skill->value) / 2)), self->wait); 

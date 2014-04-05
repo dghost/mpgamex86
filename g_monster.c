@@ -361,7 +361,7 @@ void monster_fire_railgun (edict_t *self, vec3_t start, vec3_t aimdir, int damag
 {
 	// PMM
 	if (!(gi.pointcontents (start) & MASK_SOLID))
-		fire_rail (self, start, aimdir, damage, kick);
+		fire_rail_alt (self, start, aimdir, damage, kick);
 
 	gi.WriteByte (svc_muzzleflash2);
 	gi.WriteShort (self - g_edicts);
