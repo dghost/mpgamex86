@@ -1372,7 +1372,7 @@ void SP_target_playback (edict_t *ent)
 	if (ent->fadeout < 0)
 		ent->fadeout = 0;
 
-	strlwr(ent->message);
+	Q_strlwr(ent->message);
 	if( strstr(ent->message,".mod") ||
 		strstr(ent->message,".s3m") ||
 		strstr(ent->message,".xm")  ||

@@ -1751,7 +1751,7 @@ void ClientCommand (edict_t *ent)
 		{
 			edict_t *temp;
 
-			strlwr(parm);
+			Q_strlwr(parm);
 			temp = G_Spawn();
 			temp->message = parm;
 			temp->volume = 255;

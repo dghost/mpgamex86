@@ -227,7 +227,7 @@ void Text_Prev (edict_t *ent)
 
 void Do_Text_Display (edict_t *activator, int flags, char *message)
 {
-	int			i, L;
+	int			L;
 	char		*p1, *p2, *p3;
 	char		sound[64];
 	texthnd_t	*hnd;
