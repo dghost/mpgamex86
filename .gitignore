@@ -215,7 +215,7 @@ pip-log.txt
 .mr.developer.cfg
 
 external/
-vrgamex86.so
+mpgamex86.so
 
 #cmake crap
 CMakeCache.txt
