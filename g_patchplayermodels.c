@@ -7,9 +7,16 @@
 //   PatchPlayerModels (ent);
 
 
+#ifdef WIN32
 #include <direct.h>
+#else
+#include <unistd.h>
+#endif
 #include "g_local.h"
 
+#ifndef _WIN32
+#define _mkdir(x) mkdir(x, 0755)
+#endif
 
 // id md2 stuff
 #define MAX_MD2SKINS	32

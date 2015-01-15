@@ -1004,7 +1004,7 @@ qboolean LoadAliasFile (char *name)
 						for(k=0; k<numitems && !in_pak; k++)
 						{
 							fread(&pakitem,1,sizeof(pak_item_t),fpak);
-							if (!stricmp(pakitem.name,textname))
+							if (!Q_stricmp(pakitem.name,textname))
 							{
 								in_pak = true;
 								fseek(fpak,pakitem.start,SEEK_SET);
@@ -1352,6 +1352,11 @@ void G_FindTeams (void)
 
 	gi.dprintf ("%i teams with %i entities\n", c, c2);
 }
+
+
+#ifndef _MAX_PATH
+#define _MAX_PATH 2048
+#endif
 
 void trans_ent_filename (char *);
 void ReadEdict (FILE *f, edict_t *ent);

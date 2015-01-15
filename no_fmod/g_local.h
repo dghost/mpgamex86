@@ -8,8 +8,8 @@
 // because we define the full size ones in this file
 #define	GAME_INCLUDE
 #include "../game.h"
-#include "../p_menu.h"
-#include "../p_text.h"
+#include "../player/p_menu.h"
+#include "../player/p_text.h"
 #include "../km_cvar.h"
 #define JETPACK_MOD
 
@@ -27,7 +27,7 @@
 //==================================================================
 
 #ifndef _WIN32
-#include <nan.h>
+#include <math.h>
 #define min(a,b) ((a) < (b) ? (a) : (b))
 #define max(a,b) ((a) > (b) ? (a) : (b))
 #ifdef __sun__

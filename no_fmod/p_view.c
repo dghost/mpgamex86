@@ -1,6 +1,6 @@
 
 #include "./g_local.h"
-#include "../m_player.h"
+#include "../monster/m_player.h"
 
 
 
@@ -667,7 +667,7 @@ void SV_CalcBlend (edict_t *ent)
 		float alpha;
 
 		// Turn off fade for dead software players or they won't see menu
-		if((ent->health <= 0) && (stricmp(vid_ref->string,"gl")) && (stricmp(vid_ref->string,"kmgl")))
+		if((ent->health <= 0) && (Q_stricmp(vid_ref->string,"gl")) && (Q_stricmp(vid_ref->string,"kmgl")))
 			ent->client->fadein = 0;
 
 		if(ent->client->fadein > level.framenum)

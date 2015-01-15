@@ -33,7 +33,7 @@ void Text_Close (edict_t *ent)
 void Text_BuildDisplay (texthnd_t *hnd)
 {
 	int i, imax, n;
-	char *p1, *p2, *p3;
+	byte *p1, *p2, *p3;
 
 	for(i=0; i<hnd->page_length+2; i++)
 		text[i].text = NULL;
@@ -85,7 +85,7 @@ void Text_Update (edict_t *ent)
 	int	x0, y0;
 	text_t *p;
 	int x, xlast;
-	char *t, *tnext;
+	byte *t, *tnext;
 	qboolean alt = false;
 	char string[2048];
 	texthnd_t *hnd;
@@ -228,7 +228,7 @@ void Text_Prev (edict_t *ent)
 void Do_Text_Display (edict_t *activator, int flags, char *message)
 {
 	int			L;
-	char		*p1, *p2, *p3;
+	byte		*p1, *p2, *p3;
 	char		sound[64];
 	texthnd_t	*hnd;
 	byte		*temp_buffer;
@@ -307,7 +307,7 @@ void Do_Text_Display (edict_t *activator, int flags, char *message)
 						for (k=0; k<numitems && !in_pak; k++)
 						{
 							fread(&pakitem,1,sizeof(pak_item_t),f);
-							if (!stricmp(pakitem.name,textname))
+							if (!Q_stricmp(pakitem.name,textname))
 							{
 								in_pak = true;
 								fseek(f,pakitem.start,SEEK_SET);

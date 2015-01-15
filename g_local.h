@@ -24,10 +24,15 @@
 #define	svc_inventory		5
 #define	svc_stufftext		11
 
+
+#ifndef _MAX_PATH
+#define _MAX_PATH 2048
+#endif
+
 //==================================================================
 
 #ifndef _WIN32
-#include <nan.h>
+#include <math.h>
 #define min(a,b) ((a) < (b) ? (a) : (b))
 #define max(a,b) ((a) > (b) ? (a) : (b))
 #ifdef __sun__

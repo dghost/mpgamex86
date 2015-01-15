@@ -6,7 +6,7 @@
 void Fog_Init()
 {
 }
-void Fog(vec3_t viewpoint)
+void Fog(edict_t *ent)
 {
 }
 void Fog_Off()
@@ -436,7 +436,7 @@ void Fog (edict_t *ent) //vec3_t viewpoint)
 	viewpoint[2] += ent->viewheight;
 
 	//Knightmare- also ref_kmgl.dll
-	if(stricmp(vid_ref->string,"gl") && stricmp(vid_ref->string,"kmgl"))
+	if(Q_stricmp(vid_ref->string,"gl") && Q_stricmp(vid_ref->string,"kmgl"))
 	{
 		last_software_frame = level.framenum;
 		level.active_fog = 0;

@@ -1191,75 +1191,186 @@ qboolean IsIdMap (void)
 	return false;
 }
 
+//Knightmare added
 /*
-====================
-IsRogueMap
-====================
-*/
+ ====================
+ IsXatrixMap
+ 
+ Checks if the current map is from the Xatrix mission pack.
+ This is used for certain hacks.
+ ====================
+ */
+qboolean IsXatrixMap (void)
+{
+    if (Q_stricmp(level.mapname, "badlands") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "industry") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "outbase") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "refinery") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "w_treat") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xcompnd1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xcompnd2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xhangar1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xhangar2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xintell") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xmoon1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xmoon2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xreactor") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xsewer1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xsewer2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xship") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xswamp") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xware") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xdm1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xdm2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xdm3") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xdm4") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xdm5") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xdm6") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "xdm7") == 0)
+        return true;
+    
+    return false;
+}
 
-//Knightmare- IsRogueMap checks if the current map is from the Rogue mission pack.
-//	this is used for certain hacks.
-
+//Knightmare added
+/*
+ ====================
+ IsRogueMap
+ 
+ Checks if the current map is from the Rogue mission pack.
+ This is used for certain hacks.
+ ====================
+ */
 qboolean IsRogueMap (void)
 {
-	if (Q_stricmp(level.mapname, "rammo1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rammo2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rbase1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rbase2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rboss") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rhangar1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rhangar2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rlava1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rlava2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rmine1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rmine2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rsewer1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rsewer2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rware1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rware2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm1") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm2") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm3") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm4") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm5") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm6") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm7") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm8") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm9") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm10") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm11") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm12") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm13") == 0)
-		return true;
-	if (Q_stricmp(level.mapname, "rdm14") == 0)
-		return true;
+    if (Q_stricmp(level.mapname, "rammo1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rammo2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rbase1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rbase2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rboss") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rhangar1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rhangar2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rlava1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rlava2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rmine1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rmine2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rsewer1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rsewer2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rware1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rware2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm1") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm2") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm3") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm4") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm5") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm6") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm7") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm8") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm9") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm10") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm11") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm12") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm13") == 0)
+        return true;
+    if (Q_stricmp(level.mapname, "rdm14") == 0)
+        return true;
+    
+    return false;
+}
 
-	return false;
+//Knightmare added
+/*
+ ====================
+ UseSpecialGoodGuyFlag
+ 
+ Checks the classname to see if a monster should use
+ a non-standard goodguy flag (e.g. gekk and stalker).
+ ====================
+ */
+qboolean UseSpecialGoodGuyFlag (edict_t *monster)
+{
+    // check for bad entity reference
+    if (!monster || !monster->inuse || !monster->classname)
+        return false;
+    
+    if (!strcmp(monster->classname, "monster_gekk")
+        || !strcmp(monster->classname, "monster_stalker"))
+        return true;
+    
+    return false;
+}
+
+//Knightmare added
+/*
+ ====================
+ UseRegularGoodGuyFlag
+ 
+ Checks the classname to see if a monster should use
+ the standard goodguy flag (e.g. not a gekk, stalker, turret, or fixbot).
+ ====================
+ */
+qboolean UseRegularGoodGuyFlag (edict_t *monster)
+{
+    // check for bad entity reference
+    if (!monster || !monster->inuse || !monster->classname)
+        return false;
+    
+    if (strcmp(monster->classname, "monster_gekk")
+        && strcmp(monster->classname, "monster_stalker")
+        && strcmp(monster->classname, "monster_turret")
+        && strcmp(monster->classname, "monster_fixbot"))
+        return true;
+    
+    return false;
 }

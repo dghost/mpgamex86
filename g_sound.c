@@ -1,6 +1,5 @@
 #include "./g_local.h"
 #include "fmod.h"
-#include <windows.h>
 
 #define SF_PLAYBACK_LOOP          1
 #define SF_PLAYBACK_TOGGLE        2
@@ -12,9 +11,10 @@
 #define SF_PLAYBACK_TURNED_OFF  256	 // Internal use, set when a target_playback is TURNED OFF rather
                                      // than simply reaching the end
 
-HMODULE		hFMOD=(HMODULE)NULL;	// Handle of fmod.dll
 
 #ifdef FMOD_FOOTSTEPS
+#include <windows.h>
+HMODULE		hFMOD=(HMODULE)NULL;	// Handle of fmod.dll
 qboolean	qFMOD_Footsteps;		// Set to false in SP_worldspawn for DM/coop
 
 struct texsurf_s

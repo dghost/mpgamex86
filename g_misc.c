@@ -16,6 +16,10 @@ int lastgibframe=0;
 #define GIB_WOOD    8
 #define GIB_TECH    9
 
+#ifndef _WIN32
+#define _mkdir(x) mkdir(x, 0755)
+#endif
+
 extern void M_WorldEffects (edict_t *ent);
 
 /*QUAKED func_group (0 0 0) ?
@@ -5206,7 +5210,11 @@ MISC_DEADSOLDIER MODEL PATCH
 #define MAX_SKINNAME	64
 #define DEADSOLDIER_MODEL "models/deadbods/dude/tris.md2"
 
+#ifdef WIN32
 #include <direct.h>
+#else
+#include <unistd.h>
+#endif
 #include "pak.h"
 
 int PatchDeadSoldier ()
@@ -5292,7 +5300,7 @@ int PatchDeadSoldier ()
 		for(k=0; k<numitems && !data; k++)
 		{
 			fread(&pakitem,1,sizeof(pak_item_t),fpak);
-			if(!stricmp(pakitem.name,DEADSOLDIER_MODEL))
+			if(!Q_stricmp(pakitem.name,DEADSOLDIER_MODEL))
 			{
 				fseek(fpak,pakitem.start,SEEK_SET);
 				fread(&model, sizeof(dmdl_t), 1, fpak);

@@ -1,5 +1,5 @@
 #include "./g_local.h"
-#include "../m_player.h"
+#include "../monster/m_player.h"
 
 int	nostatus = 0;
 
@@ -459,7 +459,7 @@ void Cmd_Use_f (edict_t *ent)
 	}
 	index = ITEM_INDEX(it);
 #ifdef JETPACK_MOD
-	if(!stricmp(s,"jetpack"))
+	if(!Q_stricmp(s,"jetpack"))
 	{
 		// Special case - turns on/off
 		if(!ent->client->jetpack)
@@ -482,7 +482,7 @@ void Cmd_Use_f (edict_t *ent)
 	}
 #endif
 	// added stasis generator support
-	if (!stricmp(s,"stasis generator"))
+	if (!Q_stricmp(s,"stasis generator"))
 	{
 		// Special case - turn freeze off if already on
 		if(level.freeze)
@@ -604,7 +604,7 @@ void Cmd_InvUse_f (edict_t *ent)
 		return;
 	}
 #ifdef JETPACK_MOD
-	if(!stricmp(it->classname,"item_jetpack"))
+	if(!Q_stricmp(it->classname,"item_jetpack"))
 	{
 		if(!ent->client->jetpack)
 		{
