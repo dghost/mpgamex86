@@ -794,20 +794,16 @@ mmove_t chick_move_end_slash = {FRAME_attak213, FRAME_attak216, chick_frames_end
 void chick_reslash(edict_t *self)
 {
 	if (self->enemy->health > 0)
-	{
-		if (range (self, self->enemy) == RANGE_MELEE)
-			if (random() <= 0.9)
-			{				
-				self->monsterinfo.currentmove = &chick_move_slash;
-				return;
-			}
-			else
-			{
-				self->monsterinfo.currentmove = &chick_move_end_slash;
-				return;
-			}
-	}
-	self->monsterinfo.currentmove = &chick_move_end_slash;
+    {
+        if (range (self, self->enemy) == RANGE_MELEE) {
+            if (random() <= 0.9)
+            {
+                self->monsterinfo.currentmove = &chick_move_slash;
+                return;
+            }
+        }
+    }
+    self->monsterinfo.currentmove = &chick_move_end_slash;
 }
 
 void chick_slash(edict_t *self)

@@ -1263,12 +1263,14 @@ void medic_cable_attack (edict_t *self)
 	}
 	else
 	{
-		if (self->s.frame == FRAME_attack44)
+        if (self->s.frame == FRAME_attack44) {
 			// PMM - medic commander sounds
-			if (strcmp(self->classname, "monster_medic_commander"))
+            if (strcmp(self->classname, "monster_medic_commander")) {
 				gi.sound (self, CHAN_WEAPON, sound_hook_heal, 1, ATTN_NORM, 0);
-			else
+            } else {
 				gi.sound (self, CHAN_WEAPON, commander_sound_hook_heal, 1, ATTN_NORM, 0);
+            }
+        }
 	}
 
 	// adjust start for beam origin being in middle of a segment
@@ -1500,7 +1502,7 @@ void medic_spawngrows (edict_t *self)
 	int		num_summoned; // should be 1, 3, or 5
 	int		num_success = 0;
 	float	current_yaw;
-	qboolean	behind = false;
+//	qboolean	behind = false;
 
 	// if we've been directed to turn around
 	if (self->monsterinfo.aiflags & AI_MANUAL_STEERING)

@@ -42,7 +42,7 @@ void use_target_steam (edict_t *self, edict_t *other, edict_t *activator)
     if (!self->wait) {
         if (other) {
 			self->wait = other->wait * 1000;
-        } else {
+        } else {
 			self->wait = 1000;
         }
     }
