@@ -1476,6 +1476,7 @@ void InitiallyDead (edict_t *self)
 #ifdef WIN32
 #include <direct.h>
 #else
+#include <sys/stat.h>
 #include <unistd.h>
 #endif
 #include "pak.h"

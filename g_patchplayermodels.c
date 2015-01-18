@@ -10,6 +10,7 @@
 #ifdef WIN32
 #include <direct.h>
 #else
+#include <sys/stat.h>
 #include <unistd.h>
 #endif
 #include "g_local.h"
