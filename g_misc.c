@@ -3105,7 +3105,7 @@ void SP_misc_strogg_ship (edict_t *ent)
 	ent->movetype = MOVETYPE_PUSH;
 	ent->solid = SOLID_NOT;
 	//Mappack
-	if ((ent->spawnflags && STROGG_CRASH) || (ent->spawnflags && STROGG_GIB))
+	if ((ent->spawnflags & STROGG_CRASH) || (ent->spawnflags & STROGG_GIB))
 	{
 		if (!ent->health)
 		{
