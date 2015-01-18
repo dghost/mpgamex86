@@ -287,7 +287,7 @@ void Cmd_Chasecam_Toggle (edict_t *ent)
 
 ////////////////////////////////////
 // ADDED
-	if((ent->client->resp.spectator == true))// ||
+	if(ent->client->resp.spectator == true)// ||
 	   //(ent->client->resp.team == CTF_NOTEAM && ent->client->resp.player_class == NO_CLASS))
 	{
 		if (ent->client->chase_target) 

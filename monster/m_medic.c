@@ -1083,7 +1083,7 @@ void medic_cable_attack (edict_t *self)
 		gi.dprintf ("medic - aborting heal due to proximity to target ");
 		abortHeal (self, true, false, false);
 		return;
-	}*.
+	}*/
 
 	// check for min/max pitch
 	// PMM -- took out since it doesn't look bad when it fails
