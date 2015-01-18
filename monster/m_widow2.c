@@ -20,7 +20,7 @@ static int	sound_pain2;
 static int	sound_pain3;
 static int	sound_death;
 static int	sound_search1;
-static int	sound_disrupt;
+//static int	sound_disrupt;
 static int	sound_tentacles_retract;
 
 // sqrt(64*64*2) + sqrt(28*28*2) => 130.1

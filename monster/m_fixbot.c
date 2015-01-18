@@ -264,8 +264,8 @@ void use_scanner (edict_t *self)
 	vec3_t	vec;
 	
 	int len;
-	int oldlen = 0x10000;
-	edict_t *tempent = NULL; 
+//	int oldlen = 0x10000;
+//	edict_t *tempent = NULL; 
 
 	while ((ent = findradius(ent, self->s.origin, radius)) != NULL)
 	{

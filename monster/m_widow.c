@@ -32,7 +32,7 @@ static int	sound_pain2;
 static int	sound_pain3;
 static int	sound_search1;
 static int	sound_rail;
-static int	sound_sight;
+//static int	sound_sight;
 
 static unsigned long shotsfired;
 

@@ -561,16 +561,16 @@ void Grenade_Evade (edict_t *monster)
 	}
 }
 
-static void Grenade_Add_To_Chain (edict_t *grenade)
-{
-	edict_t	*ancestor;
-
-	ancestor = world;
-	while(ancestor->next_grenade && ancestor->next_grenade->inuse)
-		ancestor = ancestor->next_grenade;
-	ancestor->next_grenade = grenade;
-	grenade->prev_grenade = ancestor;
-}
+//static void Grenade_Add_To_Chain (edict_t *grenade)
+//{
+//	edict_t	*ancestor;
+//
+//	ancestor = world;
+//	while(ancestor->next_grenade && ancestor->next_grenade->inuse)
+//		ancestor = ancestor->next_grenade;
+//	ancestor->next_grenade = grenade;
+//	grenade->prev_grenade = ancestor;
+//}
 
 static void Grenade_Remove_From_Chain (edict_t *grenade)
 {
