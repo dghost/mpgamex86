@@ -542,69 +542,69 @@ void fly_vertical2 (edict_t *self)
 
 mframe_t fixbot_frames_landing [] =
 {
-	ai_move, 0,  NULL,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
+	{ai_move, 0,  NULL},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
 
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
 
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
 
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
 
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
 
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2,
-	ai_move, 0, fly_vertical2
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2},
+	{ai_move, 0, fly_vertical2}
 };
 mmove_t fixbot_move_landing = { FRAME_landing_01, FRAME_landing_58, fixbot_frames_landing, NULL };
 
@@ -613,26 +613,26 @@ mmove_t fixbot_move_landing = { FRAME_landing_01, FRAME_landing_58, fixbot_frame
 */
 mframe_t fixbot_frames_stand [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
 
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, change_to_roam
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, change_to_roam}
 	
 };
 mmove_t	fixbot_move_stand = {FRAME_ambient_01, FRAME_ambient_19, fixbot_frames_stand, NULL};
@@ -640,26 +640,26 @@ mmove_t	fixbot_move_stand = {FRAME_ambient_01, FRAME_ambient_19, fixbot_frames_s
 mframe_t fixbot_frames_stand2 [] =
 {
 	
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL}
 	
 };
 mmove_t	fixbot_move_stand2 = {FRAME_ambient_01, FRAME_ambient_19, fixbot_frames_stand2, NULL};
@@ -672,35 +672,35 @@ mmove_t	fixbot_move_stand2 = {FRAME_ambient_01, FRAME_ambient_19, fixbot_frames_
 */
 mframe_t fixbot_frames_pickup [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
 
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
 
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL}
 	
 };
 mmove_t fixbot_move_pickup = { FRAME_pickup_01, FRAME_pickup_27, fixbot_frames_pickup, NULL};
@@ -710,7 +710,7 @@ mmove_t fixbot_move_pickup = { FRAME_pickup_01, FRAME_pickup_27, fixbot_frames_p
 */
 mframe_t fixbot_frames_roamgoal [] =
 {
-	ai_move, 0, roam_goal
+	{ai_move, 0, roam_goal}
 };
 mmove_t fixbot_move_roamgoal = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_roamgoal, NULL};
 
@@ -732,7 +732,7 @@ void ai_facing (edict_t *self, float dist)
 
 mframe_t fixbot_frames_turn [] =
 {
-	ai_facing,	0,	NULL
+	{ai_facing,	0,	NULL}
 };
 mmove_t fixbot_move_turn = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_turn, NULL};
 
@@ -748,23 +748,23 @@ void go_roam (edict_t *self)
 */
 mframe_t fixbot_frames_takeoff [] =
 {
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
 
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical,
-	ai_move,	0.01,	fly_vertical
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical},
+	{ai_move,	0.01,	fly_vertical}
 };
 mmove_t fixbot_move_takeoff = {FRAME_takeoff_01, FRAME_takeoff_16, fixbot_frames_takeoff, NULL};
 
@@ -772,26 +772,26 @@ mmove_t fixbot_move_takeoff = {FRAME_takeoff_01, FRAME_takeoff_16, fixbot_frames
 /* findout what this is */
 mframe_t fixbot_frames_paina [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL}
 };
 mmove_t fixbot_move_paina = {FRAME_paina_01, FRAME_paina_06, fixbot_frames_paina, fixbot_run};
 
 /* findout what this is */
 mframe_t fixbot_frames_painb [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL}
 };
 mmove_t fixbot_move_painb = {FRAME_painb_01, FRAME_painb_08, fixbot_frames_painb, fixbot_run};
 
@@ -802,7 +802,7 @@ mmove_t fixbot_move_painb = {FRAME_painb_01, FRAME_painb_08, fixbot_frames_painb
 */
 mframe_t fixbot_frames_pain3 [] =
 {
-	ai_move,	-1,	NULL
+	{ai_move,	-1,	NULL}
 };
 mmove_t fixbot_move_pain3 = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_pain3, fixbot_run};
 
@@ -813,7 +813,7 @@ mmove_t fixbot_move_pain3 = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_pai
 */
 mframe_t fixbot_frames_land [] =
 {
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL}
 };
 mmove_t fixbot_move_land = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_land, NULL};
 
@@ -829,7 +829,7 @@ void ai_movetogoal (edict_t *self, float dist)
 */
 mframe_t fixbot_frames_forward [] =
 {
-	ai_movetogoal,	5,	use_scanner
+	{ai_movetogoal,	5,	use_scanner}
 };
 mmove_t fixbot_move_forward = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_forward, NULL};
 
@@ -839,7 +839,7 @@ mmove_t fixbot_move_forward = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_f
 */
 mframe_t fixbot_frames_walk [] =
 {
-	ai_walk,	5,	NULL
+	{ai_walk,	5,	NULL}
 };
 mmove_t fixbot_move_walk = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_walk, NULL};
 
@@ -849,7 +849,7 @@ mmove_t fixbot_move_walk = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_walk
 */
 mframe_t fixbot_frames_run [] =
 {
-	ai_run,	10,	NULL
+	{ai_run,	10,	NULL}
 };
 mmove_t fixbot_move_run = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_run, NULL};
 
@@ -861,21 +861,21 @@ mmove_t fixbot_move_run = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_run, 
 */
 mframe_t fixbot_frames_death1 [] =
 {
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL}
 };
 mmove_t fixbot_move_death1 = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_death1, fixbot_dead};
 
 //
 mframe_t fixbot_frames_backward [] =
 {
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL}
 };
 mmove_t fixbot_move_backward = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_backward, NULL};
 
 //
 mframe_t fixbot_frames_start_attack [] =
 {
-	ai_charge,	0,	NULL
+	{ai_charge,	0,	NULL}
 };
 mmove_t fixbot_move_start_attack = {FRAME_freeze_01, FRAME_freeze_01, fixbot_frames_start_attack, fixbot_attack};
 
@@ -886,12 +886,12 @@ mmove_t fixbot_move_start_attack = {FRAME_freeze_01, FRAME_freeze_01, fixbot_fra
 */
 mframe_t fixbot_frames_attack1 [] =
 {
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	-10,  fixbot_fire_blaster
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	-10,  fixbot_fire_blaster}
 };
 mmove_t fixbot_move_attack1 = {FRAME_shoot_01, FRAME_shoot_06, fixbot_frames_attack1, NULL};
 
@@ -996,12 +996,12 @@ void fixbot_fire_laser (edict_t *self)
 
 mframe_t fixbot_frames_laserattack [] =
 {
-	ai_charge,	0,	fixbot_fire_laser,
-	ai_charge,	0,	fixbot_fire_laser,
-	ai_charge,	0,	fixbot_fire_laser,
-	ai_charge,	0,	fixbot_fire_laser,
-	ai_charge,	0,	fixbot_fire_laser,
-	ai_charge,	0,  fixbot_fire_laser
+	{ai_charge,	0,	fixbot_fire_laser},
+	{ai_charge,	0,	fixbot_fire_laser},
+	{ai_charge,	0,	fixbot_fire_laser},
+	{ai_charge,	0,	fixbot_fire_laser},
+	{ai_charge,	0,	fixbot_fire_laser},
+	{ai_charge,	0,  fixbot_fire_laser}
 };
 mmove_t fixbot_move_laserattack = {FRAME_shoot_01, FRAME_shoot_06, fixbot_frames_laserattack, NULL};
 
@@ -1012,40 +1012,40 @@ mmove_t fixbot_move_laserattack = {FRAME_shoot_01, FRAME_shoot_06, fixbot_frames
 */
 mframe_t fixbot_frames_attack2 [] =
 {
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
 
-	ai_charge,	-10, NULL,
-	ai_charge,  -10, NULL,
-	ai_charge,	-10, NULL,
-	ai_charge,  -10, NULL,
-	ai_charge,	-10, NULL,
-	ai_charge,  -10, NULL,
-	ai_charge,	-10, NULL,
-	ai_charge,  -10, NULL,
-	ai_charge,	-10, NULL,
-	ai_charge,  -10, NULL,
+	{ai_charge,	-10, NULL},
+	{ai_charge,  -10, NULL},
+	{ai_charge,	-10, NULL},
+	{ai_charge,  -10, NULL},
+	{ai_charge,	-10, NULL},
+	{ai_charge,  -10, NULL},
+	{ai_charge,	-10, NULL},
+	{ai_charge,  -10, NULL},
+	{ai_charge,	-10, NULL},
+	{ai_charge,  -10, NULL},
 
-	ai_charge,	0,	fixbot_fire_blaster,
-	ai_charge,  0,  NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,  0,  NULL,
-	ai_charge,  0,  NULL,
+	{ai_charge,	0,	fixbot_fire_blaster},
+	{ai_charge,  0,  NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,  0,  NULL},
+	{ai_charge,  0,  NULL},
 
-	ai_charge,  0,  NULL
+	{ai_charge,  0,  NULL}
 };
 mmove_t fixbot_move_attack2 = {FRAME_charging_01, FRAME_charging_31, fixbot_frames_attack2, fixbot_run};
 
@@ -1084,40 +1084,40 @@ void ai_move2 (edict_t *self, float dist)
 
 mframe_t fixbot_frames_weld_start [] = 
 {
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, NULL,
-	ai_move2, 0, weldstate
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, NULL},
+	{ai_move2, 0, weldstate}
 };
 mmove_t fixbot_move_weld_start = {FRAME_weldstart_01, FRAME_weldstart_10, fixbot_frames_weld_start, NULL};
 
 mframe_t fixbot_frames_weld [] =
 {
-	ai_move2, 0, fixbot_fire_welder,
-	ai_move2, 0, fixbot_fire_welder,
-	ai_move2, 0, fixbot_fire_welder,
-	ai_move2, 0, fixbot_fire_welder,
-	ai_move2, 0, fixbot_fire_welder,
-	ai_move2, 0, fixbot_fire_welder,
-	ai_move2, 0, weldstate
+	{ai_move2, 0, fixbot_fire_welder},
+	{ai_move2, 0, fixbot_fire_welder},
+	{ai_move2, 0, fixbot_fire_welder},
+	{ai_move2, 0, fixbot_fire_welder},
+	{ai_move2, 0, fixbot_fire_welder},
+	{ai_move2, 0, fixbot_fire_welder},
+	{ai_move2, 0, weldstate}
 };
 mmove_t fixbot_move_weld = {FRAME_weldmiddle_01, FRAME_weldmiddle_07, fixbot_frames_weld, NULL};
 
 mframe_t fixbot_frames_weld_end [] =
 {
-	ai_move2, -2, NULL,
-	ai_move2, -2, NULL,
-	ai_move2, -2, NULL,
-	ai_move2, -2, NULL,
-	ai_move2, -2, NULL,
-	ai_move2, -2, NULL,
-	ai_move2, -2, weldstate
+	{ai_move2, -2, NULL},
+	{ai_move2, -2, NULL},
+	{ai_move2, -2, NULL},
+	{ai_move2, -2, NULL},
+	{ai_move2, -2, NULL},
+	{ai_move2, -2, NULL},
+	{ai_move2, -2, weldstate}
 };
 mmove_t fixbot_move_weld_end = {FRAME_weldend_01, FRAME_weldend_07, fixbot_frames_weld_end, NULL};
 

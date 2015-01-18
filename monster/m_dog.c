@@ -32,15 +32,15 @@ void dog_sight (edict_t *self, edict_t *other)
 
 mframe_t dog_frames_stand [] =
 {
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL}
 };
 mmove_t	dog_move_stand = {FRAME_stand1, FRAME_stand9, dog_frames_stand, NULL};
 
@@ -53,14 +53,14 @@ void dog_stand (edict_t *self)
 
 mframe_t dog_frames_walk [] =
 {
-	ai_walk, 7, dog_idle,
-	ai_walk, 7, NULL,
-	ai_walk, 7, NULL,
-	ai_walk, 7, NULL,
-	ai_walk, 7, NULL,
-	ai_walk, 7, NULL,
-	ai_walk, 7, NULL,
-	ai_walk, 7, NULL
+	{ai_walk, 7, dog_idle},
+	{ai_walk, 7, NULL},
+	{ai_walk, 7, NULL},
+	{ai_walk, 7, NULL},
+	{ai_walk, 7, NULL},
+	{ai_walk, 7, NULL},
+	{ai_walk, 7, NULL},
+	{ai_walk, 7, NULL}
 };
 mmove_t dog_move_walk = {FRAME_walk1, FRAME_walk8, dog_frames_walk, NULL};
 
@@ -73,18 +73,18 @@ void dog_walk (edict_t *self)
 
 mframe_t dog_frames_run [] =
 {
-	ai_run, 12, dog_idle,
-	ai_run, 20, NULL,
-	ai_run, 20, NULL,
-	ai_run, 16, NULL,
-	ai_run, 22, NULL,
-	ai_run, 20, NULL,
-	ai_run, 12, NULL,
-	ai_run, 20, NULL,
-	ai_run, 20, NULL,
-	ai_run, 16, NULL,
-	ai_run, 22, NULL,
-	ai_run, 20, NULL
+	{ai_run, 12, dog_idle},
+	{ai_run, 20, NULL},
+	{ai_run, 20, NULL},
+	{ai_run, 16, NULL},
+	{ai_run, 22, NULL},
+	{ai_run, 20, NULL},
+	{ai_run, 12, NULL},
+	{ai_run, 20, NULL},
+	{ai_run, 20, NULL},
+	{ai_run, 16, NULL},
+	{ai_run, 22, NULL},
+	{ai_run, 20, NULL}
 };
 mmove_t dog_move_run = {FRAME_run1, FRAME_run12, dog_frames_run, NULL};
 
@@ -100,33 +100,33 @@ void dog_run (edict_t *self)
 
 mframe_t dog_frames_pain1 [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL}
 };
 mmove_t dog_move_pain1 = {FRAME_pain1, FRAME_pain6, dog_frames_pain1, dog_run};
 
 mframe_t dog_frames_pain2 [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, -4, NULL,
-	ai_move, -12,NULL,
-	ai_move, -12,NULL,
-	ai_move, -2, NULL,
-	ai_move, 0,	NULL,
-	ai_move, -4,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, -10,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0,	NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, -4, NULL},
+	{ai_move, -12,NULL},
+	{ai_move, -12,NULL},
+	{ai_move, -2, NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, -4,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, -10,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0,	NULL}
 };
 mmove_t dog_move_pain2 = {FRAME_painb1, FRAME_painb16, dog_frames_pain2, dog_run};
 
@@ -177,14 +177,14 @@ static void dog_checkrefire (edict_t *self)
 
 mframe_t dog_frames_attack []=
 {
-	ai_charge, 10, NULL,
-	ai_charge, 10, NULL,
-	ai_charge, 10, NULL,
-	ai_charge, 10, dog_bite,
-	ai_charge, 10, NULL,
-	ai_charge, 10, NULL,
-	ai_charge, 10, NULL,
-	ai_charge, 10, dog_checkrefire
+	{ai_charge, 10, NULL},
+	{ai_charge, 10, NULL},
+	{ai_charge, 10, NULL},
+	{ai_charge, 10, dog_bite},
+	{ai_charge, 10, NULL},
+	{ai_charge, 10, NULL},
+	{ai_charge, 10, NULL},
+	{ai_charge, 10, dog_checkrefire}
 };
 mmove_t dog_move_attack = {FRAME_attack1, FRAME_attack8, dog_frames_attack, dog_run};
 
@@ -263,15 +263,15 @@ static void dogchecklanding (edict_t *self)
 
 mframe_t dog_frames_leap [] =
 {
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	dogtakeoff,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	dogchecklanding
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	dogtakeoff},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	dogchecklanding}
 };
 mmove_t dog_move_leap = {FRAME_leap1, FRAME_leap9, dog_frames_leap, dog_run};
 
@@ -373,29 +373,29 @@ void dog_dead (edict_t *self)
 
 mframe_t dog_frames_death1 [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL}
 };
 mmove_t dog_move_death1 = {FRAME_death1, FRAME_death9, dog_frames_death1, dog_dead};
 
 mframe_t dog_frames_death2 [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL}
 };
 mmove_t dog_move_death2 = {FRAME_deathb1, FRAME_deathb9, dog_frames_death2, dog_dead};
 

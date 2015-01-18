@@ -162,51 +162,51 @@ void stalker_idle_noise (edict_t *self)
 
 mframe_t stalker_frames_idle [] =
 {
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, stalker_idle_noise,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, stalker_idle_noise},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL}
 };
 mmove_t stalker_move_idle = {FRAME_idle01, FRAME_idle21, stalker_frames_idle, stalker_stand};
 
 mframe_t stalker_frames_idle2 [] =
 {
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL}
 };
 mmove_t stalker_move_idle2 = {FRAME_idle201, FRAME_idle213, stalker_frames_idle2, stalker_stand};
 
@@ -224,31 +224,31 @@ void stalker_idle (edict_t *self)
 
 mframe_t stalker_frames_stand [] =
 {
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, stalker_idle_noise,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, stalker_idle_noise},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL}
 };
 mmove_t	stalker_move_stand = {FRAME_idle01, FRAME_idle21, stalker_frames_stand, stalker_stand};
 
@@ -266,10 +266,10 @@ void stalker_stand (edict_t *self)
 
 mframe_t stalker_frames_run [] =
 {
-	ai_run, 13, NULL,
-	ai_run, 17, NULL,
-	ai_run, 21, NULL,
-	ai_run, 18, NULL
+	{ai_run, 13, NULL},
+	{ai_run, 17, NULL},
+	{ai_run, 21, NULL},
+	{ai_run, 18, NULL}
 
 /*	ai_run, 15, NULL,
 	ai_run, 20, NULL,
@@ -293,15 +293,15 @@ void stalker_run (edict_t *self)
 
 mframe_t stalker_frames_walk [] =
 {
-	ai_walk, 4, NULL,
-	ai_walk, 6, NULL,
-	ai_walk, 8, NULL,
-	ai_walk, 5, NULL,
+	{ai_walk, 4, NULL},
+	{ai_walk, 6, NULL},
+	{ai_walk, 8, NULL},
+	{ai_walk, 5, NULL},
 
-	ai_walk, 4, NULL,
-	ai_walk, 6, NULL,
-	ai_walk, 8, NULL,
-	ai_walk, 4, NULL
+	{ai_walk, 4, NULL},
+	{ai_walk, 6, NULL},
+	{ai_walk, 8, NULL},
+	{ai_walk, 4, NULL}
 };
 mmove_t stalker_move_walk = {FRAME_walk01, FRAME_walk08, stalker_frames_walk, stalker_walk};
 
@@ -316,10 +316,10 @@ void stalker_walk (edict_t *self)
 // ******************
 mframe_t stalker_frames_reactivate [] = 
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL}
 };
 mmove_t stalker_move_false_death_end = { FRAME_reactive01, FRAME_reactive04, stalker_frames_reactivate, stalker_run };
 
@@ -353,17 +353,17 @@ void stalker_heal (edict_t *self)
 
 mframe_t stalker_frames_false_death [] =
 {
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal,
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal},
 
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal,
-	ai_move, 0, stalker_heal
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal},
+	{ai_move, 0, stalker_heal}
 };
 mmove_t stalker_move_false_death = {FRAME_twitch01, FRAME_twitch10, stalker_frames_false_death, stalker_false_death};
 
@@ -374,16 +374,16 @@ void stalker_false_death (edict_t *self)
 
 mframe_t stalker_frames_false_death_start [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
 
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
 };
 mmove_t stalker_move_false_death_start = {FRAME_death01, FRAME_death09, stalker_frames_false_death_start, stalker_false_death};
 
@@ -403,10 +403,10 @@ void stalker_false_death_start (edict_t *self)
 
 mframe_t stalker_frames_pain [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0,	NULL,
-	ai_move, 0, NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0,	NULL},
+	{ai_move, 0, NULL}
 };
 mmove_t stalker_move_pain = {FRAME_pain01, FRAME_pain04, stalker_frames_pain, stalker_run};
 
@@ -564,10 +564,10 @@ void stalker_shoot_attack2 (edict_t *self)
 
 mframe_t stalker_frames_shoot [] =
 {
-	ai_charge, 13, NULL,
-	ai_charge, 17, stalker_shoot_attack,
-	ai_charge, 21, NULL,
-	ai_charge, 18, stalker_shoot_attack2
+	{ai_charge, 13, NULL},
+	{ai_charge, 17, stalker_shoot_attack},
+	{ai_charge, 21, NULL},
+	{ai_charge, 18, stalker_shoot_attack2}
 };
 mmove_t stalker_move_shoot = {FRAME_run01, FRAME_run04, stalker_frames_shoot, stalker_run};
 
@@ -610,25 +610,25 @@ void stalker_swing_attack (edict_t *self)
 
 mframe_t stalker_frames_swing_l [] =
 {
-	ai_charge, 2, NULL,
-	ai_charge, 4, NULL,
-	ai_charge, 6, NULL,
-	ai_charge, 10, NULL,
+	{ai_charge, 2, NULL},
+	{ai_charge, 4, NULL},
+	{ai_charge, 6, NULL},
+	{ai_charge, 10, NULL},
 
-	ai_charge, 5, stalker_swing_attack,
-	ai_charge, 5, NULL,
-	ai_charge, 5, NULL,
-	ai_charge, 5, NULL  // stalker_swing_check_l
+	{ai_charge, 5, stalker_swing_attack},
+	{ai_charge, 5, NULL},
+	{ai_charge, 5, NULL},
+	{ai_charge, 5, NULL}  // stalker_swing_check_l
 };
 mmove_t stalker_move_swing_l = {FRAME_attack01, FRAME_attack08, stalker_frames_swing_l, stalker_run};
 
 mframe_t stalker_frames_swing_r [] =
 {
-	ai_charge, 4, NULL,
-	ai_charge, 6, NULL,
-	ai_charge, 6, stalker_swing_attack,
-	ai_charge, 10, NULL,
-	ai_charge, 5, NULL	// stalker_swing_check_r
+	{ai_charge, 4, NULL},
+	{ai_charge, 6, NULL},
+	{ai_charge, 6, stalker_swing_attack},
+	{ai_charge, 10, NULL},
+	{ai_charge, 5, NULL}	// stalker_swing_check_r
 };
 mmove_t stalker_move_swing_r = {FRAME_attack11, FRAME_attack15, stalker_frames_swing_r, stalker_run};
 
@@ -890,10 +890,10 @@ void stalker_jump_straightup (edict_t *self)
 
 mframe_t stalker_frames_jump_straightup [] =
 {
-	ai_move, 1,  stalker_jump_straightup,
-	ai_move, 1,  stalker_jump_wait_land,
-	ai_move, -1, NULL,
-	ai_move, -1, NULL
+	{ai_move, 1,  stalker_jump_straightup},
+	{ai_move, 1,  stalker_jump_wait_land},
+	{ai_move, -1, NULL},
+	{ai_move, -1, NULL}
 };
 
 mmove_t	stalker_move_jump_straightup = {FRAME_jump04, FRAME_jump07, stalker_frames_jump_straightup, stalker_run};
@@ -909,10 +909,10 @@ void stalker_dodge_jump (edict_t *self)
 
 mframe_t stalker_frames_dodge_run [] =
 {
-	ai_run, 13, NULL,
-	ai_run, 17, NULL,
-	ai_run, 21, NULL,
-	ai_run, 18, monster_done_dodge
+	{ai_run, 13, NULL},
+	{ai_run, 17, NULL},
+	{ai_run, 21, NULL},
+	{ai_run, 18, monster_done_dodge}
 };
 mmove_t stalker_move_dodge_run = {FRAME_run01, FRAME_run04, stalker_frames_dodge_run, NULL};
 
@@ -998,27 +998,27 @@ void stalker_jump_wait_land (edict_t *self)
 
 mframe_t stalker_frames_jump_up [] =
 {
-	ai_move, -8, NULL,
-	ai_move, -8, NULL,
-	ai_move, -8, NULL,
-	ai_move, -8, NULL,
+	{ai_move, -8, NULL},
+	{ai_move, -8, NULL},
+	{ai_move, -8, NULL},
+	{ai_move, -8, NULL},
 
-	ai_move, 0, stalker_jump_up,
-	ai_move, 0, stalker_jump_wait_land,
-	ai_move, 0, NULL
+	{ai_move, 0, stalker_jump_up},
+	{ai_move, 0, stalker_jump_wait_land},
+	{ai_move, 0, NULL}
 };
 mmove_t stalker_move_jump_up = { FRAME_jump01, FRAME_jump07, stalker_frames_jump_up, stalker_run };
 
 mframe_t stalker_frames_jump_down [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
 	
-	ai_move, 0, stalker_jump_down,
-	ai_move, 0, stalker_jump_wait_land,
-	ai_move, 0, NULL
+	{ai_move, 0, stalker_jump_down},
+	{ai_move, 0, stalker_jump_wait_land},
+	{ai_move, 0, NULL}
 };
 mmove_t stalker_move_jump_down = { FRAME_jump01, FRAME_jump07, stalker_frames_jump_down, stalker_run };
 
@@ -1135,17 +1135,17 @@ void stalker_dead (edict_t *self)
 
 mframe_t stalker_frames_death [] =
 {
-	ai_move, 0,	 NULL,
-	ai_move, -5,	 NULL,
-	ai_move, -10,	 NULL,
-	ai_move, -20,	 NULL,
+	{ai_move, 0,	 NULL},
+	{ai_move, -5,	 NULL},
+	{ai_move, -10,	 NULL},
+	{ai_move, -20,	 NULL},
 	
-	ai_move, -10,	 NULL,
-	ai_move, -10,	 NULL,
-	ai_move, -5,	 NULL,
-	ai_move, -5,	 NULL,
+	{ai_move, -10,	 NULL},
+	{ai_move, -10,	 NULL},
+	{ai_move, -5,	 NULL},
+	{ai_move, -5,	 NULL},
 
-	ai_move, 0,	 NULL
+	{ai_move, 0,	 NULL}
 };
 mmove_t stalker_move_death = {FRAME_death01, FRAME_death09, stalker_frames_death, stalker_dead};
 

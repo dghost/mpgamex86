@@ -184,95 +184,95 @@ void sentian_sound_die2(edict_t *self)
   =========================================================================*/
 mframe_t sentien_frames_stand1 []=
 {
-   ai_stand, 0, sentien_sound_idle1,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL
+   {ai_stand, 0, sentien_sound_idle1},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL}
 };
 
 mframe_t sentien_frames_stand2 []=
 {
-   ai_stand, 0, sentien_sound_idle2,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
+   {ai_stand, 0, sentien_sound_idle2},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
 };
 
 mframe_t sentien_frames_stand3 []=
 {
-   ai_stand, 0, sentien_sound_idle1,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
-   ai_stand, 0, NULL,
+   {ai_stand, 0, sentien_sound_idle1},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
+   {ai_stand, 0, NULL},
 };
 
 void sentien_stand(edict_t *self);
@@ -334,50 +334,50 @@ void sentien_stand_earwax(edict_t *self)
   =========================================================================*/
 mframe_t sentien_frames_walk_start []=
 {
-   ai_walk, 0.0, NULL,
-   ai_walk, 1.5, NULL,
-   ai_walk, 2.9, NULL,
-   ai_walk, 2.4, NULL,
-   ai_walk, 2.1, NULL,
-   ai_walk, 2.6, NULL,
-   ai_walk, 2.1, NULL,
-   ai_walk, 1.8, sentien_sound_footstep,
+   {ai_walk, 0.0, NULL},
+   {ai_walk, 1.5, NULL},
+   {ai_walk, 2.9, NULL},
+   {ai_walk, 2.4, NULL},
+   {ai_walk, 2.1, NULL},
+   {ai_walk, 2.6, NULL},
+   {ai_walk, 2.1, NULL},
+   {ai_walk, 1.8, sentien_sound_footstep},
    //ai_walk, 0.3, NULL
 };
 
 mframe_t sentien_frames_walk []=
 {
-   ai_walk, 0.3, NULL,
-   ai_walk, 2.4, NULL,
-   ai_walk, 4.0, NULL,
-   ai_walk, 3.5, NULL,
-   ai_walk, 3.6, NULL,
-   ai_walk, 3.7 * 1.1, NULL,
-   ai_walk, 3.1 * 1.3, NULL,
-   ai_walk, 4.1 * 1.2, sentien_sound_footstep,
+   {ai_walk, 0.3, NULL},
+   {ai_walk, 2.4, NULL},
+   {ai_walk, 4.0, NULL},
+   {ai_walk, 3.5, NULL},
+   {ai_walk, 3.6, NULL},
+   {ai_walk, 3.7 * 1.1, NULL},
+   {ai_walk, 3.1 * 1.3, NULL},
+   {ai_walk, 4.1 * 1.2, sentien_sound_footstep},
    //ai_walk, 2.0, NULL, // change leg
 
-   ai_walk, 2.0, NULL,
-   ai_walk, 2.6, NULL, // 2.4
-   ai_walk, 3.8, NULL, // 3.9
-   ai_walk, 3.6, NULL,
-   ai_walk, 3.6, NULL,
-   ai_walk, 4.3, NULL,
-   ai_walk, 4.2 * 1.2, NULL,
-   ai_walk, 5.2, sentien_sound_footstep, // 4.1
+   {ai_walk, 2.0, NULL},
+   {ai_walk, 2.6, NULL}, // 2.4
+   {ai_walk, 3.8, NULL}, // 3.9
+   {ai_walk, 3.6, NULL},
+   {ai_walk, 3.6, NULL},
+   {ai_walk, 4.3, NULL},
+   {ai_walk, 4.2 * 1.2, NULL},
+   {ai_walk, 5.2, sentien_sound_footstep}, // 4.1
    //ai_walk, 0.8, NULL  // 2.0 change leg
 };
 
 mframe_t sentien_frames_walk_end []=
 {
-   ai_walk, 0.8, NULL,
-   ai_walk, 1.0, NULL,
-   ai_walk, 1.6, NULL,
-   ai_walk, 1.4, NULL,
-   ai_walk, 1.5, NULL,
-   ai_walk, 1.4, NULL,
-   ai_walk, 1.5, NULL,
-   ai_walk, 1.8, sentien_sound_footstep,
+   {ai_walk, 0.8, NULL},
+   {ai_walk, 1.0, NULL},
+   {ai_walk, 1.6, NULL},
+   {ai_walk, 1.4, NULL},
+   {ai_walk, 1.5, NULL},
+   {ai_walk, 1.4, NULL},
+   {ai_walk, 1.5, NULL},
+   {ai_walk, 1.8, sentien_sound_footstep},
    //ai_walk, 2.3, NULL // ??? I dunno about that one (Max)
 };
 
@@ -417,50 +417,50 @@ void sentien_walk(edict_t *self)
   =========================================================================*/
 mframe_t sentien_frames_run_start []=
 {
-   ai_run, 0.0, NULL,
-   ai_run, 1.5, NULL,
-   ai_run, 2.9, NULL,
-   ai_run, 2.4, NULL,
-   ai_run, 2.1, NULL,
-   ai_run, 2.6, NULL,
-   ai_run, 2.1, NULL,
-   ai_run, 1.8, sentien_sound_footstep,
+   {ai_run, 0.0, NULL},
+   {ai_run, 1.5, NULL},
+   {ai_run, 2.9, NULL},
+   {ai_run, 2.4, NULL},
+   {ai_run, 2.1, NULL},
+   {ai_run, 2.6, NULL},
+   {ai_run, 2.1, NULL},
+   {ai_run, 1.8, sentien_sound_footstep},
    //ai_run, 0.3, NULL
 };
 
 mframe_t sentien_frames_run []=
 {
-   ai_run, 0.3 * 1.2, NULL,
-   ai_run, 2.4, NULL,
-   ai_run, 4.0, NULL,
-   ai_run, 3.5, NULL,
-   ai_run, 3.6, NULL,
-   ai_run, 3.7 * 1.1, NULL,
-   ai_run, 3.1 * 1.3, NULL,
-   ai_run, 4.1 * 1.2, sentien_sound_footstep,
+   {ai_run, 0.3 * 1.2, NULL},
+   {ai_run, 2.4, NULL},
+   {ai_run, 4.0, NULL},
+   {ai_run, 3.5, NULL},
+   {ai_run, 3.6, NULL},
+   {ai_run, 3.7 * 1.1, NULL},
+   {ai_run, 3.1 * 1.3, NULL},
+   {ai_run, 4.1 * 1.2, sentien_sound_footstep},
    //ai_run, 2.0, NULL, // change leg
 
-   ai_run, 2.0, NULL,
-   ai_run, 2.6, NULL, // 2.4
-   ai_run, 3.8, NULL, // 3.9
-   ai_run, 3.6, NULL,
-   ai_run, 3.6, NULL,
-   ai_run, 4.3, NULL,
-   ai_run, 4.2 * 1.2, NULL,
-   ai_run, 5.2, sentien_sound_footstep, // 4.1
+   {ai_run, 2.0, NULL},
+   {ai_run, 2.6, NULL}, // 2.4
+   {ai_run, 3.8, NULL}, // 3.9
+   {ai_run, 3.6, NULL},
+   {ai_run, 3.6, NULL},
+   {ai_run, 4.3, NULL},
+   {ai_run, 4.2 * 1.2, NULL},
+   {ai_run, 5.2, sentien_sound_footstep}, // 4.1
    //ai_run, 0.8, NULL  // 2.0 change leg
 };
 
 mframe_t sentien_frames_run_end []=
 {
-   ai_run, 0.8, NULL,
-   ai_run, 1.0, NULL,
-   ai_run, 1.6, NULL,
-   ai_run, 1.4, NULL,
-   ai_run, 1.5, NULL,
-   ai_run, 1.4, NULL,
-   ai_run, 1.5, NULL,
-   ai_run, 1.8, sentien_sound_footstep,
+   {ai_run, 0.8, NULL},
+   {ai_run, 1.0, NULL},
+   {ai_run, 1.6, NULL},
+   {ai_run, 1.4, NULL},
+   {ai_run, 1.5, NULL},
+   {ai_run, 1.4, NULL},
+   {ai_run, 1.5, NULL},
+   {ai_run, 1.8, sentien_sound_footstep},
    //ai_run, 2.3, NULL // ??? I dunno about that one (Max)
 };
 
@@ -508,28 +508,28 @@ void sentien_do_blast(edict_t *self);
 
 mframe_t sentien_frames_pre_blast_attack []=
 {
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL}
 };
 
 mframe_t sentien_frames_blast_attack []=
 {
-   ai_charge, 0, sentien_do_blast,
-   ai_charge, 0, sentien_do_blast,
-   ai_charge, 0, sentien_do_blast,
-   ai_charge, 0, sentien_do_blast,
-   ai_charge, 0, sentien_do_blast,
-   ai_charge, 0, sentien_do_blast,
+   {ai_charge, 0, sentien_do_blast},
+   {ai_charge, 0, sentien_do_blast},
+   {ai_charge, 0, sentien_do_blast},
+   {ai_charge, 0, sentien_do_blast},
+   {ai_charge, 0, sentien_do_blast},
+   {ai_charge, 0, sentien_do_blast},
 };
 
 mframe_t sentien_frames_post_blast_attack []=
 {
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
 };
 
 void sentien_blast_attack(edict_t *self);
@@ -601,13 +601,13 @@ void sentien_fire_bullet (edict_t *self, vec3_t start, vec3_t dir, int damage)
 vec3_t sentien_flash_offset [] =
 {
    // frames 116+ (hex fire)
-   23.7, 25.4, 29.6,
-   23.7, 25.3, 26.7,
-   23.7, 27.7, 28.1,
-   23.7, 27.4, 31.2,
-   23.7, 24.9, 32.3,
-   23.7, 22.5, 30.6,
-   23.7, 22.7, 27.8
+   {23.7, 25.4, 29.6},
+   {23.7, 25.3, 26.7},
+   {23.7, 27.7, 28.1},
+   {23.7, 27.4, 31.2},
+   {23.7, 24.9, 32.3},
+   {23.7, 22.5, 30.6},
+   {23.7, 22.7, 27.8}
 };
 
 void sentien_do_blast(edict_t *self)
@@ -655,34 +655,34 @@ void sentien_do_laser(edict_t *self);
 
 mframe_t sentien_frames_pre_laser_attack []=
 {
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL}
 };
 
 mframe_t sentien_frames_laser_attack []=
 {
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser,
-   NULL, 0, sentien_do_laser
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser},
+   {NULL, 0, sentien_do_laser}
 };
 
 mframe_t sentien_frames_post_laser_attack []=
 {
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL,
-   ai_charge, 0, NULL
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL},
+   {ai_charge, 0, NULL}
 };
 
 void sentien_laser_attack(edict_t *self);
@@ -722,17 +722,17 @@ void blaster_touch (edict_t *self, edict_t *other, cplane_t *plane, csurface_t *
 
 vec3_t sentien_laser_offset [] =
 {
-   43.8, -22.8 + 1, 43.6 - 0.8,
-   44.2, -22.9 + 1, 43.9 - 0.8,
-   43.9, -22.8 + 1, 44.0 - 0.8,
-   43.2, -23.0 + 1, 44.0 - 0.8,
-   42.4, -23.4 + 1, 43.9 - 0.8,
-   42.0, -23.5 + 1, 44.0 - 0.8,
-   42.4, -23.3 + 1, 44.0 - 0.8,
-   43.1, -23.1 + 1, 43.9 - 0.8,
-   43.8, -22.9 + 1, 43.9 - 0.8,
-   44.2, -22.8 + 1, 44.1 - 0.8,
-   43.8, -22.8 + 1, 43.5 - 0.8
+   {43.8, -22.8 + 1, 43.6 - 0.8},
+   {44.2, -22.9 + 1, 43.9 - 0.8},
+   {43.9, -22.8 + 1, 44.0 - 0.8},
+   {43.2, -23.0 + 1, 44.0 - 0.8},
+   {42.4, -23.4 + 1, 43.9 - 0.8},
+   {42.0, -23.5 + 1, 44.0 - 0.8},
+   {42.4, -23.3 + 1, 44.0 - 0.8},
+   {43.1, -23.1 + 1, 43.9 - 0.8},
+   {43.8, -22.9 + 1, 43.9 - 0.8},
+   {44.2, -22.8 + 1, 44.1 - 0.8},
+   {43.8, -22.8 + 1, 43.5 - 0.8}
 };
 
 void sentien_do_laser(edict_t *self)
@@ -849,21 +849,21 @@ void sentien_fend_hold (edict_t *self)
 
 mframe_t sentien_frames_fend [] =
 {
-	ai_move, 0,  sentian_sound_fend,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  sentien_fend_ready,
-	ai_move, 0,  sentien_fend_hold, 
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL,
-	ai_move, 0,  NULL
+	{ai_move, 0,  sentian_sound_fend},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  sentien_fend_ready},
+	{ai_move, 0,  sentien_fend_hold},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL},
+	{ai_move, 0,  NULL}
 };
 mmove_t sentien_move_fend = {FRAME_dodgeStart, FRAME_dodgeEnd, sentien_frames_fend, sentien_run};
 
@@ -902,45 +902,45 @@ void sentien_fend (edict_t *self, edict_t *attacker, float eta, trace_t *tr)
   =========================================================================*/
 mframe_t sentien_frames_pain1 [] =
 {
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL}
 };
 
 mframe_t sentien_frames_pain2 [] =
 {
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL}
 };
 
 mframe_t sentien_frames_pain3 [] =
 {
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL,
-   ai_move, 0, NULL
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL},
+   {ai_move, 0, NULL}
 };
 
 mmove_t sentien_move_pain1 = {FRAME_pain1Start, FRAME_pain1End,
@@ -1011,67 +1011,67 @@ void sentien_pain (edict_t *self, edict_t *other, float kick, int damage)
   =========================================================================*/
 mframe_t sentien_frames_death1 [] =
 {
-   ai_move, 0,  sentian_sound_die1,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL
+   {ai_move, 0,  sentian_sound_die1},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL}
 };
 
 mframe_t sentien_frames_death2 [] =
 {
-   ai_move, 0,  sentian_sound_die2,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL,
-   ai_move, 0,  NULL
+   {ai_move, 0,  sentian_sound_die2},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL},
+   {ai_move, 0,  NULL}
 };
 
 void sentien_dead(edict_t *self);
@@ -1086,8 +1086,8 @@ vec3_t sentien_death_offset [] =
    // right, forward
    // VectorSet (self->mins, -50, 6, -16);
    // VectorSet (self->maxs, -12, 44, 0);
-   6, -50, 0,
-   44, -12, 0
+   {6, -50, 0},
+   {44, -12, 0}
 };
 
 #define MIN(x, y) (x < y) ? x: y

@@ -497,17 +497,17 @@ void widow_step (edict_t *self)
 
 mframe_t widow_frames_stand [] =
 {
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL}
 };
 mmove_t	widow_move_stand = {FRAME_idle01, FRAME_idle11, widow_frames_stand, NULL};
 
@@ -530,38 +530,38 @@ mframe_t widow_frames_walk [] =
 	ai_run,	6.5,	NULL
 */
 	// auto generated numbers
-	ai_walk,	2.79,	widow_step,
-	ai_walk,	2.77,	NULL,
-	ai_walk,	3.53,	NULL,
-	ai_walk,	3.97,	NULL,
-	ai_walk,	4.13,	NULL,			//5
-	ai_walk,	4.09,	NULL,
-	ai_walk,	3.84,	NULL,
-	ai_walk,	3.62,	widow_step,
-	ai_walk,	3.29,	NULL,
-	ai_walk,	6.08,	NULL,			//10
-	ai_walk,	6.94,	NULL,
-	ai_walk,	5.73,	NULL,
-	ai_walk,	2.85,	NULL
+	{ai_walk,	2.79,	widow_step},
+	{ai_walk,	2.77,	NULL},
+	{ai_walk,	3.53,	NULL},
+	{ai_walk,	3.97,	NULL},
+	{ai_walk,	4.13,	NULL},			//5
+	{ai_walk,	4.09,	NULL},
+	{ai_walk,	3.84,	NULL},
+	{ai_walk,	3.62,	widow_step},
+	{ai_walk,	3.29,	NULL},
+	{ai_walk,	6.08,	NULL},			//10
+	{ai_walk,	6.94,	NULL},
+	{ai_walk,	5.73,	NULL},
+	{ai_walk,	2.85,	NULL}
 };
 mmove_t widow_move_walk = {FRAME_walk01, FRAME_walk13, widow_frames_walk, NULL};
 
 
 mframe_t widow_frames_run [] =
 {
-	ai_run,	2.79,	widow_step,
-	ai_run,	2.77,	NULL,
-	ai_run,	3.53,	NULL,
-	ai_run,	3.97,	NULL,
-	ai_run,	4.13,	NULL,			//5
-	ai_run,	4.09,	NULL,
-	ai_run,	3.84,	NULL,
-	ai_run,	3.62,	widow_step,
-	ai_run,	3.29,	NULL,
-	ai_run,	6.08,	NULL,			//10
-	ai_run,	6.94,	NULL,
-	ai_run,	5.73,	NULL,
-	ai_run,	2.85,	NULL
+	{ai_run,	2.79,	widow_step},
+	{ai_run,	2.77,	NULL},
+	{ai_run,	3.53,	NULL},
+	{ai_run,	3.97,	NULL},
+	{ai_run,	4.13,	NULL},			//5
+	{ai_run,	4.09,	NULL},
+	{ai_run,	3.84,	NULL},
+	{ai_run,	3.62,	widow_step},
+	{ai_run,	3.29,	NULL},
+	{ai_run,	6.08,	NULL},			//10
+	{ai_run,	6.94,	NULL},
+	{ai_run,	5.73,	NULL},
+	{ai_run,	2.85,	NULL}
 };
 mmove_t widow_move_run = {FRAME_walk01, FRAME_walk13, widow_frames_run, NULL};
 
@@ -573,14 +573,14 @@ void widow_stepshoot (edict_t *self)
 
 mframe_t widow_frames_run_attack [] =
 {
-	ai_charge,	13,	widow_stepshoot,
-	ai_charge,	11.72,	WidowBlaster,
-	ai_charge,	18.04,	WidowBlaster,
-	ai_charge,	14.58,	WidowBlaster,
-	ai_charge,	13,	widow_stepshoot,			//5
-	ai_charge,	12.12,	WidowBlaster,
-	ai_charge,	19.63,	WidowBlaster,
-	ai_charge,	11.37,	WidowBlaster
+	{ai_charge,	13,	widow_stepshoot},
+	{ai_charge,	11.72,	WidowBlaster},
+	{ai_charge,	18.04,	WidowBlaster},
+	{ai_charge,	14.58,	WidowBlaster},
+	{ai_charge,	13,	widow_stepshoot},			//5
+	{ai_charge,	12.12,	WidowBlaster},
+	{ai_charge,	19.63,	WidowBlaster},
+	{ai_charge,	11.37,	WidowBlaster}
 };
 mmove_t widow_move_run_attack = {FRAME_run01, FRAME_run08, widow_frames_run_attack, widow_run};
 
@@ -610,61 +610,61 @@ void widow_start_run_12 (edict_t *self)
 
 mframe_t widow_frames_attack_pre_blaster [] =
 {
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	widow_attack_blaster
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	widow_attack_blaster}
 };
 mmove_t widow_move_attack_pre_blaster = {FRAME_fired01, FRAME_fired02a, widow_frames_attack_pre_blaster, NULL};
 
 // Loop this
 mframe_t widow_frames_attack_blaster [] =
 {
-	ai_charge,	0,	widow_reattack_blaster,		// straight ahead
-	ai_charge,	0,	widow_reattack_blaster,		// 100 degrees right
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,		// 50 degrees right
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,		// straight
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster,		// 50 degrees left
-	ai_charge,	0,	widow_reattack_blaster,
-	ai_charge,	0,	widow_reattack_blaster		// 70 degrees left
+	{ai_charge,	0,	widow_reattack_blaster},		// straight ahead
+	{ai_charge,	0,	widow_reattack_blaster},		// 100 degrees right
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},		// 50 degrees right
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},		// straight
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster},		// 50 degrees left
+	{ai_charge,	0,	widow_reattack_blaster},
+	{ai_charge,	0,	widow_reattack_blaster}		// 70 degrees left
 };
 mmove_t widow_move_attack_blaster = {FRAME_fired02a, FRAME_fired20, widow_frames_attack_blaster, NULL};
 
 mframe_t widow_frames_attack_post_blaster [] =
 {
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL}
 };
 mmove_t widow_move_attack_post_blaster = {FRAME_fired21, FRAME_fired22, widow_frames_attack_post_blaster, widow_run};
 
 mframe_t widow_frames_attack_post_blaster_r [] =
 {
-	ai_charge,	-2,	NULL,
-	ai_charge,	-10,	NULL,
-	ai_charge,	-2,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	widow_start_run_12
+	{ai_charge,	-2,	NULL},
+	{ai_charge,	-10,	NULL},
+	{ai_charge,	-2,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	widow_start_run_12}
 };
 mmove_t widow_move_attack_post_blaster_r = {FRAME_transa01, FRAME_transa05, widow_frames_attack_post_blaster_r, NULL};
 
 mframe_t widow_frames_attack_post_blaster_l [] =
 {
-	ai_charge,	0,	NULL,
-	ai_charge,	14,	NULL,
-	ai_charge,	-2,	NULL,
-	ai_charge,	10,	NULL,
-	ai_charge,	10,	widow_start_run_12
+	{ai_charge,	0,	NULL},
+	{ai_charge,	14,	NULL},
+	{ai_charge,	-2,	NULL},
+	{ai_charge,	10,	NULL},
+	{ai_charge,	10,	widow_start_run_12}
 };
 mmove_t widow_move_attack_post_blaster_l = {FRAME_transb01, FRAME_transb05, widow_frames_attack_post_blaster_l, NULL};
 
@@ -730,52 +730,52 @@ void widow_rail_done (edict_t *self)
 
 mframe_t widow_frames_attack_pre_rail [] =
 {
-	ai_charge,	0,	widow_start_rail,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	widow_attack_rail
+	{ai_charge,	0,	widow_start_rail},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	widow_attack_rail}
 };
 mmove_t widow_move_attack_pre_rail = {FRAME_transc01, FRAME_transc04, widow_frames_attack_pre_rail, NULL};
 
 mframe_t widow_frames_attack_rail [] =
 {
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, WidowSaveLoc,
-	ai_charge, -10, WidowRail,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, widow_rail_done
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, WidowSaveLoc},
+	{ai_charge, -10, WidowRail},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, widow_rail_done}
 };
 mmove_t widow_move_attack_rail = {FRAME_firea01, FRAME_firea09, widow_frames_attack_rail, widow_run};
 
 mframe_t widow_frames_attack_rail_r [] =
 {
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, WidowSaveLoc,
-	ai_charge, -10, WidowRail,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, widow_rail_done
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, WidowSaveLoc},
+	{ai_charge, -10, WidowRail},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, widow_rail_done}
 };
 mmove_t widow_move_attack_rail_r = {FRAME_fireb01, FRAME_fireb09, widow_frames_attack_rail_r, widow_run};
 
 mframe_t widow_frames_attack_rail_l [] =
 {
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, WidowSaveLoc,
-	ai_charge, -10, WidowRail,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, NULL,
-	ai_charge, 0, widow_rail_done
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, WidowSaveLoc},
+	{ai_charge, -10, WidowRail},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, NULL},
+	{ai_charge, 0, widow_rail_done}
 };
 mmove_t widow_move_attack_rail_l = {FRAME_firec01, FRAME_firec09, widow_frames_attack_rail_l, widow_run};
 
@@ -806,50 +806,50 @@ void widow_done_spawn (edict_t *self)
 
 mframe_t widow_frames_spawn [] =
 {
-	ai_charge,	0,	NULL,						//1
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	widow_start_spawn,
-	ai_charge,	0,	NULL,						//5
-	ai_charge,	0,	WidowBlaster,				//6
-	ai_charge,	0,	widow_ready_spawn,			//7
-	ai_charge,	0,	WidowBlaster,
-	ai_charge,	0,	WidowBlaster,				//9
-	ai_charge,	0,	widow_spawn_check,
-	ai_charge,	0,	WidowBlaster,				//11
-	ai_charge,	0,	WidowBlaster,
-	ai_charge,	0,	WidowBlaster,				//13
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	0,	widow_done_spawn
+	{ai_charge,	0,	NULL},						//1
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	widow_start_spawn},
+	{ai_charge,	0,	NULL},						//5
+	{ai_charge,	0,	WidowBlaster},				//6
+	{ai_charge,	0,	widow_ready_spawn},			//7
+	{ai_charge,	0,	WidowBlaster},
+	{ai_charge,	0,	WidowBlaster},				//9
+	{ai_charge,	0,	widow_spawn_check},
+	{ai_charge,	0,	WidowBlaster},				//11
+	{ai_charge,	0,	WidowBlaster},
+	{ai_charge,	0,	WidowBlaster},				//13
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	0,	widow_done_spawn}
 };
 mmove_t widow_move_spawn = {FRAME_spawn01, FRAME_spawn18, widow_frames_spawn, widow_run};
 
 mframe_t widow_frames_pain_heavy [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL}
 };
 mmove_t widow_move_pain_heavy = {FRAME_pain01, FRAME_pain13, widow_frames_pain_heavy, widow_run};
 
 mframe_t widow_frames_pain_light [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL}
 };
 mmove_t widow_move_pain_light = {FRAME_pain201, FRAME_pain203, widow_frames_pain_light, widow_run};
 
@@ -909,37 +909,37 @@ void spawn_out_do (edict_t *self)
 
 mframe_t widow_frames_death [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,		//5
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	spawn_out_start,	//10
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,				//15
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,				//20
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,				//25
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,				//30
-	ai_move,	0,	spawn_out_do
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},		//5
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	spawn_out_start},	//10
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},				//15
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},				//20
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},				//25
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},				//30
+	{ai_move,	0,	spawn_out_do}
 };
 mmove_t widow_move_death = {FRAME_death01, FRAME_death31, widow_frames_death, NULL};
 
@@ -958,14 +958,14 @@ void widow_attack_kick (edict_t *self)
 
 mframe_t widow_frames_attack_kick [] =
 {
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, widow_attack_kick,
-	ai_move, 0, NULL,				// 5
-	ai_move, 0, NULL,
-	ai_move, 0, NULL,
-	ai_move, 0, NULL
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, widow_attack_kick},
+	{ai_move, 0, NULL},				// 5
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL},
+	{ai_move, 0, NULL}
 };
 
 mmove_t widow_move_attack_kick = {FRAME_kick01, FRAME_kick08, widow_frames_attack_kick, widow_run};

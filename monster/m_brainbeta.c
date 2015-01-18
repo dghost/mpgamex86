@@ -46,38 +46,38 @@ void brainbeta_dead (edict_t *self);
 
 mframe_t brainbeta_frames_stand [] =
 {
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
 
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
 
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL}
 };
 mmove_t brainbeta_move_stand = {FRAME_stand01, FRAME_stand30, brainbeta_frames_stand, NULL};
 
@@ -93,38 +93,38 @@ void brainbeta_stand (edict_t *self)
 
 mframe_t brainbeta_frames_idle [] =
 {
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
 
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
 
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL,
-	ai_stand,	0,	NULL
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL},
+	{ai_stand,	0,	NULL}
 };
 mmove_t brainbeta_move_idle = {FRAME_stand31, FRAME_stand60, brainbeta_frames_idle, brainbeta_stand};
 
@@ -150,17 +150,17 @@ void brainbeta_idle (edict_t *self)
 //
 mframe_t brainbeta_frames_walk1 [] =
 {
-	ai_walk,	7,	NULL,
-	ai_walk,	2,	NULL,
-	ai_walk,	3,	NULL,
-	ai_walk,	3,	NULL,
-	ai_walk,	1,	NULL,
-	ai_walk,	0,	NULL,
-	ai_walk,	0,	NULL,
-	ai_walk,	9,	NULL,
-	ai_walk,	-4,	NULL,
-	ai_walk,	-1,	NULL,
-	ai_walk,	2,	NULL
+	{ai_walk,	7,	NULL},
+	{ai_walk,	2,	NULL},
+	{ai_walk,	3,	NULL},
+	{ai_walk,	3,	NULL},
+	{ai_walk,	1,	NULL},
+	{ai_walk,	0,	NULL},
+	{ai_walk,	0,	NULL},
+	{ai_walk,	9,	NULL},
+	{ai_walk,	-4,	NULL},
+	{ai_walk,	-1,	NULL},
+	{ai_walk,	2,	NULL}
 };
 mmove_t brainbeta_move_walk1 = {FRAME_walk101, FRAME_walk111, brainbeta_frames_walk1, NULL};
 
@@ -233,78 +233,78 @@ void brainbeta_walk (edict_t *self)
 
 mframe_t brainbeta_frames_defense [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL}
 };
 mmove_t brainbeta_move_defense = {FRAME_defens01, FRAME_defens08, brainbeta_frames_defense, NULL};
 
 mframe_t brainbeta_frames_pain3 [] =
 {
-	ai_move,	-2,	NULL,
-	ai_move,	2,	NULL,
-	ai_move,	1,	NULL,
-	ai_move,	3,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	-4,	NULL
+	{ai_move,	-2,	NULL},
+	{ai_move,	2,	NULL},
+	{ai_move,	1,	NULL},
+	{ai_move,	3,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	-4,	NULL}
 };
 mmove_t brainbeta_move_pain3 = {FRAME_pain301, FRAME_pain306, brainbeta_frames_pain3, brainbeta_run};
 
 mframe_t brainbeta_frames_pain2 [] =
 {
-	ai_move,	-2,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	3,	NULL,
-	ai_move,	1,	NULL,
-	ai_move,	-2,	NULL
+	{ai_move,	-2,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	3,	NULL},
+	{ai_move,	1,	NULL},
+	{ai_move,	-2,	NULL}
 };
 mmove_t brainbeta_move_pain2 = {FRAME_pain201, FRAME_pain208, brainbeta_frames_pain2, brainbeta_run};
 
 mframe_t brainbeta_frames_pain1 [] =
 {
-	ai_move,	-6,	NULL,
-	ai_move,	-2,	NULL,
-	ai_move,	-6,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	2,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	2,	NULL,
-	ai_move,	1,	NULL,
-	ai_move,	7,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	3,	NULL,
-	ai_move,	-1,	NULL
+	{ai_move,	-6,	NULL},
+	{ai_move,	-2,	NULL},
+	{ai_move,	-6,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	2,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	2,	NULL},
+	{ai_move,	1,	NULL},
+	{ai_move,	7,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	3,	NULL},
+	{ai_move,	-1,	NULL}
 };
 mmove_t brainbeta_move_pain1 = {FRAME_pain101, FRAME_pain121, brainbeta_frames_pain1, brainbeta_run};
 
 mframe_t brainbeta_frames_duck [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	-2,	monster_duck_down,
-	ai_move,	17,	monster_duck_hold,
-	ai_move,	-3,	NULL,
-	ai_move,	-1,	monster_duck_up,
-	ai_move,	-5,	NULL,
-	ai_move,	-6,	NULL,
-	ai_move,	-6,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	-2,	monster_duck_down},
+	{ai_move,	17,	monster_duck_hold},
+	{ai_move,	-3,	NULL},
+	{ai_move,	-1,	monster_duck_up},
+	{ai_move,	-5,	NULL},
+	{ai_move,	-6,	NULL},
+	{ai_move,	-6,	NULL}
 };
 mmove_t brainbeta_move_duck = {FRAME_duck01, FRAME_duck08, brainbeta_frames_duck, brainbeta_run};
 
@@ -372,34 +372,34 @@ void brainbeta_dodge (edict_t *self, edict_t *attacker, float eta, trace_t *tr)
 
 mframe_t brainbeta_frames_death2 [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	9,	NULL,
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	9,	NULL},
+	{ai_move,	0,	NULL}
 };
 mmove_t brainbeta_move_death2 = {FRAME_death201, FRAME_death205, brainbeta_frames_death2, brainbeta_dead};
 
 mframe_t brainbeta_frames_death1 [] =
 {
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	-2,	NULL,
-	ai_move,	9,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL,
-	ai_move,	0,	NULL
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	-2,	NULL},
+	{ai_move,	9,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL},
+	{ai_move,	0,	NULL}
 };
 mmove_t brainbeta_move_death1 = {FRAME_death101, FRAME_death118, brainbeta_frames_death1, brainbeta_dead};
 
@@ -438,24 +438,24 @@ void brainbeta_hit_left (edict_t *self)
 
 mframe_t brainbeta_frames_attack1 [] =
 {
-	ai_charge,	8,	NULL,
-	ai_charge,	3,	NULL,
-	ai_charge,	5,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	-3,	brainbeta_swing_right,
-	ai_charge,	0,	NULL,
-	ai_charge,	-5,	NULL,
-	ai_charge,	-7,	brainbeta_hit_right,
-	ai_charge,	0,	NULL,
-	ai_charge,	6,	brainbeta_swing_left,
-	ai_charge,	1,	NULL,
-	ai_charge,	2,	brainbeta_hit_left,
-	ai_charge,	-3,	NULL,
-	ai_charge,	6,	NULL,
-	ai_charge,	-1,	NULL,
-	ai_charge,	-3,	NULL,
-	ai_charge,	2,	NULL,
-	ai_charge,	-11,NULL
+	{ai_charge,	8,	NULL},
+	{ai_charge,	3,	NULL},
+	{ai_charge,	5,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	-3,	brainbeta_swing_right},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	-5,	NULL},
+	{ai_charge,	-7,	brainbeta_hit_right},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	6,	brainbeta_swing_left},
+	{ai_charge,	1,	NULL},
+	{ai_charge,	2,	brainbeta_hit_left},
+	{ai_charge,	-3,	NULL},
+	{ai_charge,	6,	NULL},
+	{ai_charge,	-1,	NULL},
+	{ai_charge,	-3,	NULL},
+	{ai_charge,	2,	NULL},
+	{ai_charge,	-11,NULL}
 };
 mmove_t brainbeta_move_attack1 = {FRAME_attak101, FRAME_attak118, brainbeta_frames_attack1, brainbeta_run};
 
@@ -488,23 +488,23 @@ void brainbeta_chest_closed (edict_t *self)
 
 mframe_t brainbeta_frames_attack2 [] =
 {
-	ai_charge,	5,	NULL,
-	ai_charge,	-4,	NULL,
-	ai_charge,	-4,	NULL,
-	ai_charge,	-3,	NULL,
-	ai_charge,	0,	brainbeta_chest_open,
-	ai_charge,	0,	NULL,
-	ai_charge,	13,	brainbeta_tentacle_attack,
-	ai_charge,	0,	NULL,
-	ai_charge,	2,	NULL,
-	ai_charge,	0,	NULL,
-	ai_charge,	-9,	brainbeta_chest_closed,
-	ai_charge,	0,	NULL,
-	ai_charge,	4,	NULL,
-	ai_charge,	3,	NULL,
-	ai_charge,	2,	NULL,
-	ai_charge,	-3,	NULL,
-	ai_charge,	-6,	NULL
+	{ai_charge,	5,	NULL},
+	{ai_charge,	-4,	NULL},
+	{ai_charge,	-4,	NULL},
+	{ai_charge,	-3,	NULL},
+	{ai_charge,	0,	brainbeta_chest_open},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	13,	brainbeta_tentacle_attack},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	2,	NULL},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	-9,	brainbeta_chest_closed},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	4,	NULL},
+	{ai_charge,	3,	NULL},
+	{ai_charge,	2,	NULL},
+	{ai_charge,	-3,	NULL},
+	{ai_charge,	-6,	NULL}
 };
 mmove_t brainbeta_move_attack2 = {FRAME_attak201, FRAME_attak217, brainbeta_frames_attack2, brainbeta_run};
 
@@ -699,39 +699,39 @@ void brainbeta_laserbeam_reattack (edict_t *self)
 
 mframe_t brainbeta_frames_attack3 [] =
 {
-	ai_charge,	5,	NULL,
-	ai_charge,	-4,	NULL,
-	ai_charge,	-4,	NULL,
-	ai_charge,	-3,	NULL,
-	ai_charge,	0,	brainbeta_chest_open,
-	ai_charge,	0,	brainbeta_tounge_attack,
-	ai_charge,	13,	NULL,
-	ai_charge,	0,	brainbeta_tentacle_attack,
-	ai_charge,	2,	NULL,
-	ai_charge,	0,	brainbeta_tounge_attack,
-	ai_charge,	-9,	brainbeta_chest_closed,
-	ai_charge,	0,	NULL,
-	ai_charge,	4,	NULL,
-	ai_charge,	3,	NULL,
-	ai_charge,	2,	NULL,
-	ai_charge,	-3,	NULL,
-	ai_charge,	-6,	NULL
+	{ai_charge,	5,	NULL},
+	{ai_charge,	-4,	NULL},
+	{ai_charge,	-4,	NULL},
+	{ai_charge,	-3,	NULL},
+	{ai_charge,	0,	brainbeta_chest_open},
+	{ai_charge,	0,	brainbeta_tounge_attack},
+	{ai_charge,	13,	NULL},
+	{ai_charge,	0,	brainbeta_tentacle_attack},
+	{ai_charge,	2,	NULL},
+	{ai_charge,	0,	brainbeta_tounge_attack},
+	{ai_charge,	-9,	brainbeta_chest_closed},
+	{ai_charge,	0,	NULL},
+	{ai_charge,	4,	NULL},
+	{ai_charge,	3,	NULL},
+	{ai_charge,	2,	NULL},
+	{ai_charge,	-3,	NULL},
+	{ai_charge,	-6,	NULL}
 };
 mmove_t brainbeta_move_attack3 = {FRAME_attak201, FRAME_attak217, brainbeta_frames_attack3, brainbeta_run};
 
 mframe_t brainbeta_frames_attack4 [] =
 {
-	ai_charge,	9,	brainbeta_laserbeam,
-	ai_charge,	2,	brainbeta_laserbeam,
-	ai_charge,	3,	brainbeta_laserbeam,
-	ai_charge,	3,	brainbeta_laserbeam,
-	ai_charge,	1,	brainbeta_laserbeam,
-	ai_charge,	0,	brainbeta_laserbeam,
-	ai_charge,	0,	brainbeta_laserbeam,
-	ai_charge,	10,	brainbeta_laserbeam,
-	ai_charge,	-4,	brainbeta_laserbeam,
-	ai_charge,	-1,	brainbeta_laserbeam,
-	ai_charge,	2,	brainbeta_laserbeam_reattack
+	{ai_charge,	9,	brainbeta_laserbeam},
+	{ai_charge,	2,	brainbeta_laserbeam},
+	{ai_charge,	3,	brainbeta_laserbeam},
+	{ai_charge,	3,	brainbeta_laserbeam},
+	{ai_charge,	1,	brainbeta_laserbeam},
+	{ai_charge,	0,	brainbeta_laserbeam},
+	{ai_charge,	0,	brainbeta_laserbeam},
+	{ai_charge,	10,	brainbeta_laserbeam},
+	{ai_charge,	-4,	brainbeta_laserbeam},
+	{ai_charge,	-1,	brainbeta_laserbeam},
+	{ai_charge,	2,	brainbeta_laserbeam_reattack}
 };
 mmove_t brainbeta_move_attack4 = {FRAME_walk101, FRAME_walk111, brainbeta_frames_attack4, brainbeta_run};
 
@@ -769,17 +769,17 @@ void brainbeta_attack (edict_t *self)
 
 mframe_t brainbeta_frames_run [] =
 {
-	ai_run,	9,	NULL,
-	ai_run,	2,	NULL,
-	ai_run,	3,	NULL,
-	ai_run,	3,	NULL,
-	ai_run,	1,	NULL,
-	ai_run,	0,	NULL,
-	ai_run,	0,	NULL,
-	ai_run,	10,	NULL,
-	ai_run,	-4,	NULL,
-	ai_run,	-1,	NULL,
-	ai_run,	2,	NULL
+	{ai_run,	9,	NULL},
+	{ai_run,	2,	NULL},
+	{ai_run,	3,	NULL},
+	{ai_run,	3,	NULL},
+	{ai_run,	1,	NULL},
+	{ai_run,	0,	NULL},
+	{ai_run,	0,	NULL},
+	{ai_run,	10,	NULL},
+	{ai_run,	-4,	NULL},
+	{ai_run,	-1,	NULL},
+	{ai_run,	2,	NULL}
 };
 mmove_t brainbeta_move_run = {FRAME_walk101, FRAME_walk111, brainbeta_frames_run, NULL};
 

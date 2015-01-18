@@ -232,8 +232,8 @@ void turret_search (edict_t *self)
 
 mframe_t turret_frames_stand [] =
 {
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL}
 };
 mmove_t turret_move_stand = {FRAME_stand01, FRAME_stand02, turret_frames_stand, NULL};
 
@@ -245,15 +245,15 @@ void turret_stand (edict_t *self)
 
 mframe_t turret_frames_ready_gun [] =
 {
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
-	ai_stand, 0, NULL,
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
+	{ai_stand, 0, NULL},
 	
-	ai_stand, 0, NULL
+	{ai_stand, 0, NULL}
 };
 mmove_t turret_move_ready_gun = { FRAME_active01, FRAME_run01, turret_frames_ready_gun, turret_run };
 
@@ -264,8 +264,8 @@ void turret_ready_gun (edict_t *self)
 
 mframe_t turret_frames_seek [] =
 {
-	ai_walk, 0, TurretAim,
-	ai_walk, 0, TurretAim
+	{ai_walk, 0, TurretAim},
+	{ai_walk, 0, TurretAim}
 };
 mmove_t turret_move_seek = {FRAME_run01, FRAME_run02, turret_frames_seek, NULL};
 
@@ -280,8 +280,8 @@ void turret_walk (edict_t *self)
 
 mframe_t turret_frames_run [] =
 {
-	ai_run, 0, TurretAim,
-	ai_run, 0, TurretAim
+	{ai_run, 0, TurretAim},
+	{ai_run, 0, TurretAim}
 };
 mmove_t turret_move_run = {FRAME_run01, FRAME_run02, turret_frames_run, turret_run};
 
@@ -521,10 +521,10 @@ void TurretFireBlind (edict_t *self)
 
 mframe_t turret_frames_fire [] =
 {
-	ai_run,   0, TurretFire,
-	ai_run,   0, TurretAim,
-	ai_run,   0, TurretAim,
-	ai_run,   0, TurretAim
+	{ai_run,   0, TurretFire},
+	{ai_run,   0, TurretAim},
+	{ai_run,   0, TurretAim},
+	{ai_run,   0, TurretAim}
 };
 mmove_t turret_move_fire = {FRAME_pow01, FRAME_pow04, turret_frames_fire, turret_run};
 
@@ -533,10 +533,10 @@ mmove_t turret_move_fire = {FRAME_pow01, FRAME_pow04, turret_frames_fire, turret
 // the blind frames need to aim first
 mframe_t turret_frames_fire_blind [] =
 {
-	ai_run,   0, TurretAim,
-	ai_run,   0, TurretAim,
-	ai_run,   0, TurretAim,
-	ai_run,   0, TurretFireBlind
+	{ai_run,   0, TurretAim},
+	{ai_run,   0, TurretAim},
+	{ai_run,   0, TurretAim},
+	{ai_run,   0, TurretFireBlind}
 };
 mmove_t turret_move_fire_blind = {FRAME_pow01, FRAME_pow04, turret_frames_fire_blind, turret_run};
 //pmm
