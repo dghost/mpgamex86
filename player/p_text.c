@@ -60,7 +60,7 @@ void Text_BuildDisplay (texthnd_t *hnd)
 
 	i = 0;
 	p2 = p1;
-	text[i].text = p2;
+	text[i].text = (char *) p2;
 	if(hnd->nlines > hnd->page_length)
 		imax = hnd->page_length-2;
 	else
@@ -71,7 +71,7 @@ void Text_BuildDisplay (texthnd_t *hnd)
 		{
 			i++;
 			p2++;
-			text[i].text = p2;
+			text[i].text = (char *) p2;
 		}
 		else
 			p2++;
@@ -85,7 +85,7 @@ void Text_Update (edict_t *ent)
 	int	x0, y0;
 	text_t *p;
 	int x, xlast;
-	byte *t, *tnext;
+	char *t, *tnext;
 	qboolean alt = false;
 	char string[2048];
 	texthnd_t *hnd;
@@ -379,7 +379,7 @@ void Do_Text_Display (edict_t *activator, int flags, char *message)
 		memcpy(hnd->buffer,message,L);
 	}
 	
-	hnd->size = strlen(hnd->buffer) + 1;
+	hnd->size = strlen((const char *) hnd->buffer) + 1;
 
 	// Default page length:
 	hnd->page_length = MAX_LINES-2;
@@ -396,24 +396,24 @@ void Do_Text_Display (edict_t *activator, int flags, char *message)
 		while ((p3 < hnd->buffer+hnd->size) && (*p3 != 13))
 			p3++;
 
-		p2 = strstr(p1,"L=");
+		p2 = (byte *) strstr((const char *) p1,"L=");
 		if (p2 && (p2 < p3))
 		{
 			p2 += 2;
-			sscanf(p2,"%d",&hnd->page_length);
+			sscanf((const char *) p2,"%d",&hnd->page_length);
 			hnd->page_length += 1;
 		}
-		p2 = strstr(p1,"W=");
+		p2 = (byte *) strstr((const char *) p1,"W=");
 		if (p2 && (p2 < p3))
 		{
 			p2 += 2;
-			sscanf(p2,"%d",&hnd->page_width);
+			sscanf((const char *) p2,"%d",&hnd->page_width);
 		}
-		p2 = strstr(p1,"I=");
+		p2 = (byte *) strstr((const char *) p1,"I=");
 		if (p2 && (p2 < p3))
 		{
 			p2 += 2;
-			sscanf(p2,"%s",hnd->background_image);
+			sscanf((const char *) p2,"%s",hnd->background_image);
 		}
 		p3++;
 		if (*p3 == 10) p3++;
@@ -702,7 +702,7 @@ done_linebreaks:
 				p1++;
 				if (*p1 == 'a')
 				{
-					strcpy(sound,p1+1);
+					strcpy(sound,(const char *)p1+1);
 					p1--;
 					p2=p1;
 					while (*p2 != 0)
