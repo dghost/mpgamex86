@@ -1898,10 +1898,7 @@ void Chaingun_Fire (edict_t *ent, qboolean altfire)
 	int			damage;
 	int			kick = 2;
 
-	if (deathmatch->value)
-		damage = 		damage = chaingun_damage->value;
-	else
-		damage = 		damage = chaingun_damage->value;
+    damage = chaingun_damage->value;
 
 	if (ent->client->ps.gunframe == 5)
 		gi.sound(ent, CHAN_AUTO, gi.soundindex("weapons/chngnu1a.wav"), 1, ATTN_IDLE, 0);
