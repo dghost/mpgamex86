@@ -1251,7 +1251,7 @@ edict_t *StartFire(edict_t *fireOwner, vec3_t fireOrigin, float fireDuration, fl
 	return fire;
 }
 
-static void Incendiary_Explode (edict_t *ent)
+void Incendiary_Explode (edict_t *ent)
 {
 	vec3_t		origin;
 
@@ -1276,7 +1276,7 @@ static void Incendiary_Explode (edict_t *ent)
 
 }
 
-static void Incendiary_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf)
+void Incendiary_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf)
 {
 	if (other == ent->owner)
 		return;
@@ -1466,7 +1466,7 @@ void Nuke_Quake (edict_t *self)
 }
 
 
-static void Nuke_Explode (edict_t *ent)
+void Nuke_Explode (edict_t *ent)
 {
 //	vec3_t		origin;
 
@@ -1744,7 +1744,7 @@ void Nbomb_Quake (edict_t *self)
 }
 
 
-static void Nbomb_Explode (edict_t *ent)
+void Nbomb_Explode (edict_t *ent)
 {
 	if (ent->teammaster->client)
 		PlayerNoise(ent->teammaster, ent->s.origin, PNOISE_IMPACT);
@@ -2326,7 +2326,7 @@ void SP_tesla (edict_t *tesla)
 // *************************
 
 #ifdef INCLUDE_BEAMS
-static void fire_beams (edict_t *self, vec3_t start, vec3_t aimdir, vec3_t offset, int damage, int kick, int te_beam, int te_impact, int mod)
+void fire_beams (edict_t *self, vec3_t start, vec3_t aimdir, vec3_t offset, int damage, int kick, int te_beam, int te_impact, int mod)
 {
 	trace_t		tr;
 	vec3_t		dir;

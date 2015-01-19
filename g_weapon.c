@@ -116,7 +116,7 @@ fire_lead
 This is an internal support routine used for bullet/pellet based weapons.
 =================
 */
-static void fire_lead (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick, int te_impact, int hspread, int vspread, int mod)
+void fire_lead (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick, int te_impact, int hspread, int vspread, int mod)
 {
 	trace_t		tr;
 	vec3_t		dir;
@@ -572,7 +572,7 @@ void Grenade_Evade (edict_t *monster)
 //	grenade->prev_grenade = ancestor;
 //}
 
-static void Grenade_Remove_From_Chain (edict_t *grenade)
+void Grenade_Remove_From_Chain (edict_t *grenade)
 {
 	if(grenade->prev_grenade)
 	{
@@ -642,7 +642,7 @@ void Grenade_Explode (edict_t *ent)
 	G_FreeEdict (ent);
 }
 
-static void Grenade_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf)
+void Grenade_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf)
 {
 	if (other == ent->owner)
 		return;
@@ -673,7 +673,7 @@ static void Grenade_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurfa
 	Grenade_Explode (ent);
 }
 
-static void ContactGrenade_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf)
+void ContactGrenade_Touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *surf)
 {
 	if (other == ent->owner)
 		return;
@@ -1305,7 +1305,7 @@ void missile_touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *s
 	G_FreeEdict (ent);
 }
 
-static void missile_explode (edict_t *ent)
+void missile_explode (edict_t *ent)
 {
 	vec3_t	origin;
 	int		type;
@@ -1334,7 +1334,7 @@ static void missile_explode (edict_t *ent)
 	G_FreeEdict (ent);
 }
 
-static void missile_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
+void missile_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
 {
 	self->takedamage = DAMAGE_NO;
 	self->nextthink = level.time + FRAMETIME;
@@ -1669,7 +1669,7 @@ void rocket_touch (edict_t *ent, edict_t *other, cplane_t *plane, csurface_t *su
 	G_FreeEdict (ent);
 }
 
-static void rocket_explode (edict_t *ent)
+void rocket_explode (edict_t *ent)
 {
 	vec3_t	origin;
 	int		type;
@@ -1698,7 +1698,7 @@ static void rocket_explode (edict_t *ent)
 	G_FreeEdict (ent);
 }
 
-static void rocket_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
+void rocket_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
 {
 	self->takedamage = DAMAGE_NO;
 	self->nextthink = level.time + FRAMETIME;
@@ -2731,7 +2731,7 @@ extern void SP_item_foodcube (edict_t *best);
 extern int	gibsthisframe;
 extern int lastgibframe;
 
-static void Trap_Think (edict_t *ent)
+void Trap_Think (edict_t *ent)
 {
 	edict_t	*target = NULL;
 	edict_t	*best = NULL;
