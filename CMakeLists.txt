@@ -90,7 +90,63 @@ set(GAME_SOURCES
 	z_sentien.c
 )
 
+set(GAME_HEADERS
+	../qcommon/shared/q_shared.h
+	fmod.h
+	game.h
+	km_cvar.h
+	laz_misc.h
+	menu.h
+	monster/m_actor.h
+	monster/m_berserk.h
+	monster/m_boss2.h
+	monster/m_boss31.h
+	monster/m_boss32.h
+	monster/m_brain.h
+	monster/m_carrier.h
+	monster/m_chick.h
+	monster/m_dog.h
+	monster/m_fixbot.h
+	monster/m_flipper.h
+	monster/m_float.h
+	monster/m_flyer.h
+	monster/m_gekk.h
+	monster/m_gladiator.h
+	monster/m_gunner.h
+	monster/m_hover.h
+	monster/m_infantry.h
+	monster/m_insane.h
+	monster/m_medic.h
+	monster/m_mutant.h
+	monster/m_parasite.h
+	monster/m_player.h
+	monster/m_rider.h
+	monster/m_soldier.h
+	monster/m_soldierh.h
+	monster/m_stalker.h
+	monster/m_supertank.h
+	monster/m_tank.h
+	monster/m_turret.h
+	monster/m_widow.h
+	monster/m_widow2.h
+	no_fmod/g_local.h
+	no_fmod/q_shared.h
+	no_fmod/resource.h
+	pak.h
+	player/p_menu.h
+	player/p_text.h
+	tables/clientfields.h
+	tables/fields.h
+	tables/gamefunc_decs.h
+	tables/gamefunc_list.h
+	tables/gamemmove_decs.h
+	tables/gamemmove_list.h
+	tables/levelfields.h
+	z_anim.h
+	z_sentien.h
+)
+
 add_definitions(-DDISABLE_FOG)
-add_library(mpgamex86 MODULE ${GAME_SOURCES})
+add_library(mpgamex86 MODULE ${GAME_SOURCES} ${GAME_HEADERS})
 set_target_properties(mpgamex86 PROPERTIES PREFIX "")
 target_compile_options(mpgamex86 PRIVATE -fvisibility=hidden)
