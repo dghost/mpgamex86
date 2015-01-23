@@ -38,7 +38,7 @@
 #ifdef __sun__
 #define _isnan(a) (NaN((a)))
 #else
-#define _isnan(a) ((a)==NAN)
+#define _isnan(a) (isnan(a))
 #endif
 #endif
 
