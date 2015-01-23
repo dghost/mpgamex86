@@ -201,7 +201,7 @@ field_t clientfields[] = {
  */
 void InitGame (void)
 {
-	gi.dprintf ("==== InitGame ====\n");
+	gi.dprintf ("\n==== InitGame ====\n");
 //Knightmare
 	lithium_defaults();
 	gun_x = gi.cvar ("gun_x", "0", 0);
@@ -297,7 +297,6 @@ void InitGame (void)
 	m_yaw = gi.cvar("m_yaw", "0.022", 0);
 	monsterjump = gi.cvar("monsterjump", "1", CVAR_SERVERINFO|CVAR_LATCH);
 	rocket_strafe = gi.cvar("rocket_strafe", "0", 0);
-	s_primary = gi.cvar("s_primary", "0", 0);
 #ifdef KMQUAKE2_ENGINE_MOD
 	sv_maxgibs = gi.cvar("sv_maxgibs", "160", CVAR_SERVERINFO);
 #else
