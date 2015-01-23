@@ -1103,7 +1103,7 @@ qboolean M_CheckAttack (edict_t *self)
 			self->monsterinfo.attack_state = AS_STRAIGHT;
 	}
 // do we want the monsters strafing?
-#ifdef SLIDING_TROOPS
+#ifdef ROGUE
 	else
 	{
 		if (random() < 0.4)

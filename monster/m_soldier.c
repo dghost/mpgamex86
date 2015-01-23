@@ -10,8 +10,7 @@ SOLDIER
 #include "m_soldier.h"
 
 //ROGUE
-#define RUN_SHOOT		1
-#define CHECK_TARGET	1
+#define ROGUE		1
 //ROGUE
 
 static int	sound_idle;
@@ -301,7 +300,7 @@ mframe_t soldier_frames_start_run [] =
 };
 mmove_t soldier_move_start_run = {FRAME_run01, FRAME_run02, soldier_frames_start_run, soldier_run};
 
-#ifdef RUN_SHOOT
+#ifdef ROGUE
 void soldier_fire (edict_t *self, int);
 
 void soldier_fire_run (edict_t *self)
@@ -505,11 +504,11 @@ void soldier_fire (edict_t *self, int in_flash_number)
 	float	r, u;
 	int		flash_index;
 	int		flash_number;
-#ifdef RUN_SHOOT
+#ifdef ROGUE
 	vec3_t	aim_norm;
 	float	angle;
 #endif
-#ifdef CHECK_TARGET
+#ifdef ROGUE
 	trace_t	tr;
 	vec3_t aim_good;
 #endif
@@ -555,10 +554,10 @@ void soldier_fire (edict_t *self, int in_flash_number)
 		}
 
 		VectorSubtract (end, start, aim);
-#ifdef CHECK_TARGET
+#ifdef ROGUE
 		VectorCopy (end, aim_good);
 #endif
-#ifdef RUN_SHOOT
+#ifdef ROGUE
 		//PMM
 		if (in_flash_number < 0)
 		{
@@ -600,7 +599,7 @@ void soldier_fire (edict_t *self, int in_flash_number)
 		VectorSubtract (end, start, aim);
 		VectorNormalize (aim);
 	}
-#ifdef CHECK_TARGET
+#ifdef ROGUE
 	if (!(flash_number == 5 || flash_number == 6)) // he's dead
 	{
 		tr = gi.trace (start, NULL, NULL, aim_good, self, MASK_SHOT);
