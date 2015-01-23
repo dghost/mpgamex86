@@ -668,15 +668,6 @@ void G_FreeEdict (edict_t *ed)
 	if (ed->speaker) //recursively remove train's speaker entity
 		G_FreeEdict(ed->speaker);
 
-	//Knightmare- stop target_playback
-	if (!strcmp(ed->classname, "target_playback"))
-	{	// if it's 3D, decrement level 3D count for efficiency
-		if (ed->spawnflags & SF_PLAYBACK_3D)
-			level.num_3D_sounds--;
-
-		FMOD_StopSound (ed, false);
-	}
-
 	gi.unlinkentity (ed);		// unlink from world
 
 	if ((ed - g_edicts) <= (maxclients->value + BODY_QUEUE_SIZE))
@@ -977,7 +968,7 @@ void GameDirRelativePath(char *filename, char *output)
 
 	basedir = gi.cvar("basedir", "", 0);
 	gamedir = gi.cvar("gamedir", "", 0);
-	if(strlen(gamedir->string))
+	if (strlen(gamedir->string))
 		sprintf(output,"%s/%s/%s",basedir->string,gamedir->string,filename);
 	else
 		sprintf(output,"%s/%s",basedir->string,filename);

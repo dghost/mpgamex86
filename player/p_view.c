@@ -190,51 +190,51 @@ void P_DamageFeedback (edict_t *player)
 //end Skid
 ======================================================================*/
 
-static void CommonViewOffsets(edict_t *ent, vec3_t v)
-{
-	// absolutely bound offsets
-	// so the view can never be outside the player box
-
-//CHASECAM added
-	if (ent->client->chaseactive)
-	{
-		VectorSet (v, 0, 0, 0);
-		if (ent->client->chasecam != NULL)
-		{
-			ent->client->ps.pmove.origin[0] = ent->client->chasecam->s.origin[0]*8;
-			ent->client->ps.pmove.origin[1] = ent->client->chasecam->s.origin[1]*8;
-			ent->client->ps.pmove.origin[2] = ent->client->chasecam->s.origin[2]*8;
-			VectorCopy (ent->client->chasecam->s.angles, ent->client->ps.viewangles);
-		}
-	}
-//CHASECAM added	
-	//Lazarus
-	else if(ent->client->spycam)
-	{
-		VectorSet (v, 0, 0, 0);
-        VectorCopy (ent->client->spycam->s.angles, ent->client->ps.viewangles); 
-		if(ent->client->spycam->svflags & SVF_MONSTER)
-			ent->client->ps.viewangles[PITCH] = ent->client->spycam->move_angles[PITCH];
-	}
-//	if (!ent->client->chasetoggle)
-	else
-	{
-		if (v[0] < -14)
-			v[0] = -14;
-		else if (v[0] > 14)
-			v[0] = 14;
-		if (v[1] < -14)
-			v[1] = -14;
-		else if (v[1] > 14)
-			v[1] = 14;
-		if (v[2] < -22)
-			v[2] = -22;
-		else if (v[2] > 30)
-			v[2] = 30;
-	}
-
-	VectorCopy (v, ent->client->ps.viewoffset);
-}
+//static void CommonViewOffsets(edict_t *ent, vec3_t v)
+//{
+//	// absolutely bound offsets
+//	// so the view can never be outside the player box
+//
+////CHASECAM added
+//	if (ent->client->chaseactive)
+//	{
+//		VectorSet (v, 0, 0, 0);
+//		if (ent->client->chasecam != NULL)
+//		{
+//			ent->client->ps.pmove.origin[0] = ent->client->chasecam->s.origin[0]*8;
+//			ent->client->ps.pmove.origin[1] = ent->client->chasecam->s.origin[1]*8;
+//			ent->client->ps.pmove.origin[2] = ent->client->chasecam->s.origin[2]*8;
+//			VectorCopy (ent->client->chasecam->s.angles, ent->client->ps.viewangles);
+//		}
+//	}
+////CHASECAM added	
+//	//Lazarus
+//	else if(ent->client->spycam)
+//	{
+//		VectorSet (v, 0, 0, 0);
+//        VectorCopy (ent->client->spycam->s.angles, ent->client->ps.viewangles); 
+//		if(ent->client->spycam->svflags & SVF_MONSTER)
+//			ent->client->ps.viewangles[PITCH] = ent->client->spycam->move_angles[PITCH];
+//	}
+////	if (!ent->client->chasetoggle)
+//	else
+//	{
+//		if (v[0] < -14)
+//			v[0] = -14;
+//		else if (v[0] > 14)
+//			v[0] = 14;
+//		if (v[1] < -14)
+//			v[1] = -14;
+//		else if (v[1] > 14)
+//			v[1] = 14;
+//		if (v[2] < -22)
+//			v[2] = -22;
+//		else if (v[2] > 30)
+//			v[2] = 30;
+//	}
+//
+//	VectorCopy (v, ent->client->ps.viewoffset);
+//}
 
 /*
 ===============
@@ -516,7 +516,6 @@ void SV_CalcBlend (edict_t *ent)
 		ent->client->ps.blend[2] = ent->client->ps.blend[3] = 0;
 
 	// add for contents
-//	if (ent->client->chasetoggle)
 	if (ent->client->chaseactive) //Knightmare- different check for chasecam mode
 		VectorCopy (ent->client->chasecam->s.origin, vieworg);
 	else
@@ -668,7 +667,7 @@ void SV_CalcBlend (edict_t *ent)
 		float alpha;
 
 		// Turn off fade for dead software players or they won't see menu
-		if ((ent->health <= 0) && (stricmp(vid_ref->string,"gl")) && (stricmp(vid_ref->string,"kmgl")))
+		if((ent->health <= 0) && (Q_stricmp(vid_ref->string,"gl")) && (Q_stricmp(vid_ref->string,"kmgl")))
 			ent->client->fadein = 0;
 
 		if(ent->client->fadein > level.framenum)
@@ -771,10 +770,8 @@ void P_FallingDamage (edict_t *ent)
 	if (ent->movetype == MOVETYPE_NOCLIP)
 		return;
 
-#ifdef JETPACK_MOD
 	if (ent->client->jetpack && ent->client->ucmd.upmove > 0)
 		return;
-#endif
 
 	if ((ent->client->oldvelocity[2] < 0) && (ent->velocity[2] > ent->client->oldvelocity[2]) && (!ent->groundentity))
 	{
@@ -804,11 +801,7 @@ void P_FallingDamage (edict_t *ent)
 	if (delta < 7) //Knightmare- was 15, changed to 7
 	{
 		if (!(ent->watertype & CONTENTS_MUD) && !ent->vehicle && !ent->turret && (ent->groundentity || PlayerOnFloor(ent)) )
-#ifndef FMOD_FOOTSTEPS
 			ent->s.event = EV_FOOTSTEP; //Knightmare- move Lazarus footsteps client-side
-#else
-			FootStep(ent);
-#endif
 		return;
 	}
 
@@ -851,12 +844,7 @@ void P_FallingDamage (edict_t *ent)
 		return;
 	}
 	else // if delta > 7
-#ifndef FMOD_FOOTSTEPS
 		ent->s.event = EV_LOUDSTEP; //Knightmare- loud footstep for softer landing
-#else
-		FootStep(ent);
-#endif
-
 }
 
 
@@ -1205,54 +1193,30 @@ void G_SetClientEvent (edict_t *ent)
 		if (!ent->waterlevel && (xyspeed > 225) && !ent->vehicle)
 		{
 			if ( (int)(current_client->bobtime+bobmove) != bobcycle )
-		#ifndef FMOD_FOOTSTEPS
-				ent->s.event = EV_FOOTSTEP;	 // Knightmare- move Lazarus footsteps client-side
-		#else
-				FootStep(ent);
-		#endif
+				ent->s.event = EV_FOOTSTEP;	 //Knightmare- move Lazarus footsteps client-side
 		}
-		else if (ent->in_mud && (ent->waterlevel == 1) && (xyspeed > 40))
+		else if( ent->in_mud && (ent->waterlevel == 1) && (xyspeed > 40))
 		{
 			if ( (level.framenum % 10) == 0 )
-			{
-			#ifndef FMOD_FOOTSTEPS
-					ent->s.event = EV_WADE_MUD; // Knightmare- move this client-side
-			#else
-				if ( rand() & 1 )
-				//	gi.sound(ent, CHAN_BODY, gi.soundindex("mud/wade_mud1.wav"), 1, ATTN_NORM, 0);
-					PlayFootstep(ent,FOOTSTEP_MUD_WADE1);
-				else
-				//	gi.sound(ent, CHAN_BODY, gi.soundindex("mud/wade_mud2.wav"), 1, ATTN_NORM, 0);
-					PlayFootstep(ent,FOOTSTEP_MUD_WADE2);
-			#endif
-			}
+				ent->s.event = EV_WADE_MUD; //Knightmare- move this client-side
 		}
 		else if ( ((ent->waterlevel == 1) || (ent->waterlevel == 2)) && (xyspeed > 100) && !(ent->in_mud) )
 		{
 			if ( (int)(current_client->bobtime+bobmove) != bobcycle )
 			{
-			#ifndef FMOD_FOOTSTEPS
 				if (ent->waterlevel == 1)
-					ent->s.event = EV_SLOSH;	 // Knightmare- move Lazarus footsteps client-side
+					ent->s.event = EV_SLOSH;	 //Knightmare- move Lazarus footsteps client-side
 				else if (ent->waterlevel == 2)
-					ent->s.event = EV_WADE;	 // Knightmare- move Lazarus footsteps client-side
-			#else
-				FootStep(ent);
-			#endif
+					ent->s.event = EV_WADE;	 //Knightmare- move Lazarus footsteps client-side
 			}
 		}
 	}
-	// Knightmare- swimming sounds
-	else if ((ent->waterlevel == 2) && (xyspeed > 60) && !(ent->in_mud) && (world->effects & FX_WORLDSPAWN_STEPSOUNDS))
+	//Knightmare- swimming sounds
+	else if ((ent->waterlevel == 2) && (xyspeed > 60) && !(ent->in_mud))
 	{
 		if ( (int)(current_client->bobtime+bobmove) != bobcycle )
-	#ifndef FMOD_FOOTSTEPS
-			ent->s.event = EV_WADE;	 // Knightmare- move Lazarus footsteps client-side
-	#else
-			FootStep(ent);
-	#endif
+			ent->s.event = EV_WADE;	 //Knightmare- move Lazarus footsteps client-side
 	}
-	// Ladder sounds
 	else if( (level.framenum % 4) == 0)
 	{
 		if(!ent->waterlevel && (ent->movetype != MOVETYPE_NOCLIP) && (fabs(ent->velocity[2]) > 50))
@@ -1263,23 +1227,7 @@ void G_SetClientEvent (edict_t *ent)
 			VectorMA(ent->s.origin,2,forward,end);
 			tr = gi.trace(ent->s.origin,ent->mins,ent->maxs,end,ent,CONTENTS_LADDER);
 			if(tr.fraction < 1.0)
-		#ifndef FMOD_FOOTSTEPS
-				ent->s.event = EV_CLIMB_LADDER;	 // Knightmare- move Lazarus footsteps client-side
-		#else
-			{
-				int	r;
-				r = rand() & 1 + ent->client->leftfoot*2;
-				ent->client->leftfoot = 1 - ent->client->leftfoot;
-
-				switch (r)
-				{
-				case 0: PlayFootstep(ent,FOOTSTEP_LADDER1); break;
-				case 1: PlayFootstep(ent,FOOTSTEP_LADDER3); break;
-				case 2: PlayFootstep(ent,FOOTSTEP_LADDER2); break;
-				case 3: PlayFootstep(ent,FOOTSTEP_LADDER4); break;
-				}
-			}
-		#endif //FMOD_FOOTSTEPS
+				ent->s.event = EV_CLIMB_LADDER;	 //Knightmare- move Lazarus footsteps client-side
 		}
 	}
 }
@@ -1473,13 +1421,12 @@ newanim:
 			client->anim_end = FRAME_crstnd19;
 		}
 		else
-		{	
+		{
 			ent->s.frame = FRAME_stand01;
 			client->anim_end = FRAME_stand40;
 		}
 	}
 }
-
 
 /*
 =================

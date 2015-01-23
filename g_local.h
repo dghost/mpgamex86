@@ -895,7 +895,6 @@ extern	cvar_t	*corpse_fadetime;
 extern	cvar_t	*crosshair;
 extern	cvar_t	*crossh;
 extern	cvar_t	*developer;
-extern	cvar_t	*fmod_nomusic;
 extern	cvar_t	*footstep_sounds;
 extern	cvar_t	*fov;
 extern	cvar_t	*gl_clear;
@@ -919,7 +918,6 @@ extern	cvar_t	*lightsmin;
 extern	cvar_t	*m_pitch;
 extern	cvar_t	*m_yaw;
 extern	cvar_t	*monsterjump;
-extern	cvar_t	*packet_fmod_playback;
 extern	cvar_t	*readout;
 extern	cvar_t	*rocket_strafe;
 extern	cvar_t	*rotate_distance;
@@ -1075,6 +1073,7 @@ void stuffcmd(edict_t *ent, char *s);
 qboolean point_infront (edict_t *self, vec3_t point);
 void AnglesNormalize(vec3_t vec);
 float SnapToEights(float x);
+
 // Lazarus
 float AtLeast(float x, float dx);
 edict_t	*LookingAt(edict_t *ent, int filter, vec3_t endpos, float *range);
@@ -1085,7 +1084,6 @@ qboolean IsRogueMap (void); //Knightmare added
 qboolean IsXatrixMap (void); //Knightmare added
 qboolean UseSpecialGoodGuyFlag (edict_t *monster); //Knightmare added
 qboolean UseRegularGoodGuyFlag (edict_t *monster); //Knightmare added
-
 
 //ROGUE
 void	G_ProjectSource2 (vec3_t point, vec3_t distance, vec3_t forward, vec3_t right, vec3_t up, vec3_t result);
@@ -1634,25 +1632,6 @@ void ReflectExplosion (int type, vec3_t origin);
 void ReflectSparks (int type, vec3_t origin, vec3_t movedir);
 void ReflectSteam (vec3_t origin,vec3_t movedir,int count,int sounds,int speed, int wait, int nextid);
 void ReflectTrail (int type, vec3_t start, vec3_t end);
-//
-// g_sound.c (interface to FMOD)
-//
-qboolean FMOD_IsPlaying(edict_t *ent);
-void FMOD_Shutdown();
-void FMOD_Stop();
-void FMOD_StopSound(edict_t *ent, qboolean free);
-int FMOD_PlaySound(edict_t *ent);
-void FMOD_UpdateListenerPos();
-void FMOD_UpdateSpeakerPos(edict_t *speaker);
-qboolean FMOD_Init();
-//Knightmare- this is now handled client-side
-#ifdef FMOD_FOOTSTEPS
-void FootStep(edict_t *ent);
-void PlayFootstep(edict_t *ent, footstep_t index);
-extern qboolean qFMOD_Footsteps;
-#endif
-void target_playback_delayed_restart (edict_t *ent);
-void target_playback_delayed_start (edict_t *ent);
 
 //
 // g_spawn.c
@@ -2112,7 +2091,7 @@ struct edict_s
 	edict_t		*next_grenade;
 	edict_t		*prev_grenade;
 
-	// FMOD
+	// old FMOD stuff
 	int			*stream;	// Actually a FSOUND_STREAM * or FMUSIC_MODULE *
 	int			channel;
 

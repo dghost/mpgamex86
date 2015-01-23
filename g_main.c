@@ -74,7 +74,6 @@ cvar_t	*corpse_fadetime;
 cvar_t	*crosshair;
 cvar_t	*crossh;
 cvar_t	*developer;
-cvar_t	*fmod_nomusic;
 cvar_t	*footstep_sounds;
 cvar_t	*fov;
 cvar_t	*gl_clear;
@@ -98,7 +97,6 @@ cvar_t	*lightsmin;
 cvar_t	*m_pitch;
 cvar_t	*m_yaw;
 cvar_t	*monsterjump;
-cvar_t	*packet_fmod_playback;
 cvar_t	*readout;
 cvar_t	*rocket_strafe;
 cvar_t	*rotate_distance;
@@ -154,8 +152,6 @@ void ShutdownGame (void)
 	// Lazarus: Turn off fog if it's on
 	if(!dedicated->value)
 		Fog_Off();
-	// and shut down FMOD
-	FMOD_Shutdown();
 
 	gi.FreeTags (TAG_LEVEL);
 	gi.FreeTags (TAG_GAME);
@@ -197,7 +193,12 @@ Returns a pointer to the structure with all entry points
 and global variables
 =================
 */
-game_export_t *GetGameAPI (game_import_t *import)
+#ifdef __GNUC__
+#define EXPORT __attribute__((visibility("default")))
+#else
+#define EXPORT
+#endif
+EXPORT game_export_t *GetGameAPI (game_import_t *import)
 {
 	gi = *import;
 
@@ -524,13 +525,9 @@ void G_RunFrame (void)
 			ClientBeginServerFrame (ent);
 			continue;
 		}
-
 		G_RunEntity (ent);
 	}
 
-	// FMOD stuff:
-	if ( (level.num_3D_sounds > 0) && (game.maxclients == 1))
-		FMOD_UpdateListenerPos();
 
 	// see if it is time to end a deathmatch
 	CheckDMRules ();

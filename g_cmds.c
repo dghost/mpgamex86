@@ -1,4 +1,4 @@
-#include "g_local.h"
+#include "./g_local.h"
 #include "monster/m_player.h"
 
 int	nostatus = 0;
@@ -312,7 +312,6 @@ void Cmd_Give_f (edict_t *ent)
 	it = FindItem (name);
 	if (!it)
 	{
-		qboolean unknown = false;
 		name = gi.argv(1);
 		it = FindItem (name);
 
@@ -505,7 +504,7 @@ void Cmd_Use_f (edict_t *ent)
 	}
 	index = ITEM_INDEX(it);
 #ifdef JETPACK_MOD
-	if(!stricmp(s,"jetpack"))
+	if(!Q_stricmp(s,"jetpack"))
 	{
 		// Special case - turns on/off
 		if(!ent->client->jetpack)
@@ -528,7 +527,7 @@ void Cmd_Use_f (edict_t *ent)
 	}
 #endif
 	// added stasis generator support
-	if (!stricmp(s,"stasis generator"))
+	if (!Q_stricmp(s,"stasis generator"))
 	{
 		// Special case - turn freeze off if already on
 		if(level.freeze)
@@ -652,7 +651,7 @@ void Cmd_InvUse_f (edict_t *ent)
 		return;
 	}
 #ifdef JETPACK_MOD
-	if(!stricmp(it->classname,"item_jetpack"))
+	if(!Q_stricmp(it->classname,"item_jetpack"))
 	{
 		if(!ent->client->jetpack)
 		{
@@ -1223,6 +1222,7 @@ void DrawBBox(edict_t *ent)
 	gi.WritePosition (p2);
 	gi.multicast (p1, MULTICAST_ALL);
 }
+
 void Cmd_Bbox_f (edict_t *ent)
 {
 	edict_t	*viewing;
@@ -1312,7 +1312,7 @@ void SetSensitivities (edict_t *ent,qboolean reset)
 	sprintf(string,"m_pitch %g;m_yaw %g;joy_pitchsensitivity %g;joy_yawsensitivity %g\n",
 		m_pitch->value,m_yaw->value,joy_pitchsensitivity->value,joy_yawsensitivity->value);
 	stuffcmd(ent,string);
-#endif
+#endif	
 }
 
 /*
@@ -1494,11 +1494,6 @@ void ForcewallOff(edict_t *player)
 ClientCommand
 =================
 */
-void Restart_FMOD(edict_t *self)
-{
-	FMOD_Init();
-	G_FreeEdict(self);
-}
 void ClientCommand (edict_t *ent)
 {
 	char	*cmd;
@@ -1644,11 +1639,10 @@ void ClientCommand (edict_t *ent)
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
-			if(!parm)
-			{
+			if(!parm) {
 				gi.dprintf("syntax: zoom [0/1]  (0=off, 1=on)\n");
 			}
-			else if (!atoi(parm))
+			else if(!atoi(parm))
 			{
 				ent->client->ps.fov = ent->client->original_fov;
 				ent->client->zooming = 0;
@@ -1735,48 +1729,6 @@ void ClientCommand (edict_t *ent)
 				}
 			}
 		}
-	}
-	else if(!Q_stricmp(cmd, "playsound"))
-	{
-		vec3_t	pos = {0, 0, 0};
-		vec3_t	vel = {0, 0, 0};
-		if(s_primary->value)
-		{
-			gi.dprintf("target_playback requires s_primary be set to 0.\n"
-				       "At the console type:\n"
-					   "s_primary 0;sound_restart\n");
-			return;
-		}
-		if(parm)
-		{
-			edict_t *temp;
-
-			Q_strlwr(parm);
-			temp = G_Spawn();
-			temp->message = parm;
-			temp->volume = 255;
-
-			if( strstr(parm,".mod") ||
-				strstr(parm,".s3m") ||
-				strstr(parm,".xm")  ||
-				strstr(parm,".mid")   )
-				temp->spawnflags |= 8;
-
-			FMOD_PlaySound(temp);
-			G_FreeEdict(temp);
-		}
-		else
-			gi.dprintf("syntax: playsound <soundfile>, path relative to gamedir\n");
-	}
-	else if(!Q_stricmp(cmd,"sound_restart"))
-	{
-		// replacement for snd_restart to get around DirectSound/FMOD problem
-		edict_t	*temp;
-		FMOD_Shutdown();
-		stuffcmd(ent,"snd_restart\n");
-		temp = G_Spawn();
-		temp->think = Restart_FMOD;
-		temp->nextthink = level.time + 2;
 	}
 	else if(!Q_stricmp(cmd,"hud"))
 	{

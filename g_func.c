@@ -3411,10 +3411,6 @@ void train_move_children (edict_t *self)
 				}
 			}
 
-			// FMOD 
-			if(!Q_stricmp(ent->classname,"target_playback"))
-				FMOD_UpdateSpeakerPos(ent);
-
 			// Correct func_door_rotating start/end positions
 	/*		if (!strcmp(ent->classname,"func_door_rotating") && (!ent->do_not_rotate))
 			{

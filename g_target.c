@@ -321,8 +321,6 @@ void use_target_changelevel (edict_t *self, edict_t *other, edict_t *activator)
 		return;
 	}
 
-	FMOD_Stop();
-
 	// if multiplayer, let everyone know who hit the exit
 	if (deathmatch->value)
 	{

@@ -1,6 +1,6 @@
 
 #include "./g_local.h"
-#include "pak.h"
+#include "./pak.h"
 
 /*typedef struct
 {
@@ -26,7 +26,7 @@ void SP_func_door (edict_t *ent);
 void SP_func_door_secret (edict_t *ent);
 void SP_func_door_rotating (edict_t *ent);
 void SP_func_water (edict_t *ent);
-void SP_func_bobbingwater(edict_t *self); //Knightmare added
+void SP_func_bobbingwater(edict_t *self);
 void SP_func_train (edict_t *ent);
 void SP_func_conveyor (edict_t *self);
 void SP_func_wall (edict_t *self);
@@ -83,7 +83,6 @@ void SP_target_attractor (edict_t *self);
 void SP_target_cd (edict_t *self);
 void SP_target_skill (edict_t *self);
 void SP_target_sky (edict_t *self);
-void SP_target_playback (edict_t *self);
 void SP_target_rocks (edict_t *self);
 void SP_target_clone (edict_t *self);
 void SP_target_text (edict_t *self);
@@ -391,7 +390,6 @@ spawn_t	spawns[] = {
 	{"target_cd", SP_target_cd},
 	{"target_skill", SP_target_skill},
 	{"target_sky", SP_target_sky},
-	{"target_playback", SP_target_playback},
 	{"target_rocks", SP_target_rocks},
 	{"target_bmodel_spawner", SP_target_clone},
 	{"target_clone", SP_target_clone},
@@ -436,6 +434,7 @@ spawn_t	spawns[] = {
 	{"misc_sick_guard", SP_misc_sick_guard},
 //Knightmare- experiment gekks
 	{"misc_gekk_writhe", SP_misc_gekk_writhe},
+
 
 	//Knightmare- Coconut Monkey 3 Flame entities
 	{"light_flame1", SP_light_flame1}, 
@@ -516,6 +515,7 @@ spawn_t	spawns[] = {
 	{"turret_breach", SP_turret_breach},
 	{"turret_base", SP_turret_base},
 	{"turret_driver", SP_turret_driver},
+
 
 //==============
 //ROGUE
@@ -641,6 +641,7 @@ int		alias_data_size;
 qboolean alias_from_pak;
 #endif
 
+
 /*
 ===============
 ED_CallSpawn
@@ -695,7 +696,7 @@ void ED_CallSpawn (edict_t *ent)
 					ent->item = FindItemByClassname ("ammo_magslug");
 					st.item = NULL;
 				}
-		}
+		}	
 		//brain
 		if (!strcmp(ent->classname, "monster_brain"))
 			ent->classname = "monster_brain_beta";
@@ -858,7 +859,7 @@ void ED_ParseField (char *key, char *value, edict_t *ent)
 	float	v;
 	vec3_t	vec;
 
-	for (f=fields ; f->name ; f++)
+	for (f = fields; f->name; f++)
 	{
 		if (!(f->flags & FFL_NOSPAWN) && !Q_stricmp(f->name, key))
 		{	// found it
@@ -890,7 +891,7 @@ void ED_ParseField (char *key, char *value, edict_t *ent)
 				((float *)(b+f->ofs))[1] = v;
 				((float *)(b+f->ofs))[2] = 0;
 				break;
-			case F_IGNORE:
+			default:
 				break;
 			}
 			return;
@@ -899,6 +900,7 @@ void ED_ParseField (char *key, char *value, edict_t *ent)
 	gi.dprintf ("%s is not a field\n", key);
 }
 
+
 /*
 ==============================================================================
 
@@ -906,7 +908,6 @@ ALIAS SCRIPT LOADING
 
 ==============================================================================
 */
-
 
 #ifndef KMQUAKE2_ENGINE_MOD
 /*
@@ -1003,7 +1004,7 @@ qboolean LoadAliasFile (char *name)
 						for(k=0; k<numitems && !in_pak; k++)
 						{
 							fread(&pakitem,1,sizeof(pak_item_t),fpak);
-							if (!stricmp(pakitem.name,textname))
+							if (!Q_stricmp(pakitem.name,textname))
 							{
 								in_pak = true;
 								fseek(fpak,pakitem.start,SEEK_SET);
@@ -1053,80 +1054,6 @@ void LoadAliasData (void)
 	if (!LoadAliasFile(va("ext_data/entalias/%s.alias", level.mapname)))
 		if (!LoadAliasFile("ext_data/entalias.def"))
 			LoadAliasFile("scripts/entalias.dat");
-/*
-	// FIXME: do this for each filename above
-	char aliasfilename[MAX_QPATH] = "";
-
-	GameDirRelativePath ("scripts/entalias.dat", aliasfilename);
-    alias_data = ReadTextFile(aliasfilename, &alias_data_size);
-
-	// If file doesn't exist on hard disk, it must be in a pak file
-	if (!alias_data)
-	{
-		cvar_t			*basedir, *gamedir;
-		char			filename[256];
-		char			pakfile[256];
-		char			textname[128];
-		int				i, k, num, numitems;
-		qboolean		in_pak = false;
-		FILE			*fpak;
-		pak_header_t	pakheader;
-		pak_item_t		pakitem;
-
-		basedir = gi.cvar("basedir", "", 0);
-		gamedir = gi.cvar("gamedir", "", 0);
-		strcpy(filename,basedir->string);
-		if(strlen(gamedir->string))
-			strcpy(filename,gamedir->string);
-		// check all pakfiles in current gamedir
-		for (i=0; i<10; i++)
-		{
-			sprintf(pakfile,"%s/pak%d.pak",filename,i);
-			if (NULL != (fpak = fopen(pakfile, "rb")))
-			{
-				num=fread(&pakheader,1,sizeof(pak_header_t),fpak);
-				if(num >= sizeof(pak_header_t))
-				{
-					if (pakheader.id[0] == 'P' &&
-						pakheader.id[1] == 'A' &&
-						pakheader.id[2] == 'C' &&
-						pakheader.id[3] == 'K'   )
-					{
-						//gi.dprintf("LoadAliasData: Looking in pak%i.pak...\n", i);
-						numitems = pakheader.dsize/sizeof(pak_item_t);
-						sprintf(textname,"scripts/entalias.dat");
-						fseek(fpak,pakheader.dstart,SEEK_SET);
-						for(k=0; k<numitems && !in_pak; k++)
-						{
-							fread(&pakitem,1,sizeof(pak_item_t),fpak);
-							if(!stricmp(pakitem.name,textname))
-							{
-								in_pak = true;
-								//gi.dprintf("LoadAliasData: found scripts/entalias.dat in pak%i.pak\n", i);
-								fseek(fpak,pakitem.start,SEEK_SET);
-								//memset(alias_data,0,pakitem.size);
-								//alias_data = malloc(pakitem.size);
-								alias_data = gi.TagMalloc(pakitem.size + 1, TAG_LEVEL);
-								if(!alias_data)
-								{
-									fclose(fpak);
-									gi.dprintf("LoadAliasData: Memory allocation failure for entalias.dat\n");
-									return;
-								}
-								//len = fread(filestring, 1, len, fp);
-								alias_data_size = fread(alias_data,1,pakitem.size,fpak);
-								alias_data[pakitem.size] = 0; // put end marker
-							}
-						}
-					}
-				}
-				fclose(fpak);
-			}
-		}
-		//if (!alias_data)
-		//	gi.dprintf("LoadAliasData: Could not find scripts/entalias.dat in pak file(s)\n");
-	}
-*/
 #endif
 }
 
@@ -1426,6 +1353,11 @@ void G_FindTeams (void)
 	gi.dprintf ("%i teams with %i entities\n", c, c2);
 }
 
+
+#ifndef _MAX_PATH
+#define _MAX_PATH 2048
+#endif
+
 void trans_ent_filename (char *);
 void ReadEdict (FILE *f, edict_t *ent);
 void LoadTransitionEnts()
@@ -1509,6 +1441,8 @@ void LoadTransitionEnts()
 		}
 	}
 }
+
+
 /*
 ==============
 SpawnEntities
@@ -1563,7 +1497,7 @@ void SpawnEntities (char *mapname, char *entities, char *spawnpoint)
 	ent = NULL;
 	inhibit = 0;
 
-	// Knightmare- load the entity alias script file
+	// Knightamre- load the entity alias script file
 	LoadAliasData();
 	//gi.dprintf ("Size of alias data: %i\n", alias_data_size);
 
@@ -1669,12 +1603,12 @@ void SpawnEntities (char *mapname, char *entities, char *spawnpoint)
 		VectorAdd(ent->absmin, ent->absmax, ent->origin_offset);
 		VectorScale(ent->origin_offset, 0.5, ent->origin_offset);
 		VectorSubtract(ent->origin_offset, ent->s.origin, ent->origin_offset);
-	}	
-
+	}
+	
 	// Knightmare- unload the alias script file
 	if (alias_data) { // If no alias file was loaded, don't bother
 #ifdef KMQUAKE2_ENGINE_MOD // use new engine function instead
-		gi.FreeFile(alias_data);
+		gi.FreeFile(alias_data); // free the file
 #else
 		if (alias_from_pak)
 			gi.TagFree(alias_data);
@@ -2090,7 +2024,7 @@ void SP_worldspawn (edict_t *ent)
 	//gi.soundindex ("items/protect4.wav");
 	gi.soundindex ("weapons/noammo.wav");
 
-	// Knightmare- does this even get used in deathmatch?
+	//Knightmare- does this even get used in deathmatch?
 	if (!deathmatch->value)
 		gi.soundindex ("infantry/inflies1.wav");
 
@@ -2102,6 +2036,7 @@ void SP_worldspawn (edict_t *ent)
 	gi.modelindex ("models/objects/gibs/skull/tris.md2");
 	gi.modelindex ("models/objects/gibs/head2/tris.md2");
 
+
 	// Fog clipping - if "fogclip" is non-zero, force gl_clear to a good
 	// value for obscuring HOM with fog... "good" is driver-dependent
 	if(ent->fogclip)
@@ -2112,41 +2047,14 @@ void SP_worldspawn (edict_t *ent)
 			gi.cvar_forceset("gl_clear", "1");
 	}
 
-	// FMOD 3D sound attenuation:
-	if(ent->attenuation <= 0.)
-		ent->attenuation = 1.0;
-
-	// FMOD 3D sound Doppler shift:
-	if(st.shift > 0)
-		ent->moveinfo.distance = st.shift;
-	else if(st.shift < 0)
-		ent->moveinfo.distance = 0.0;
-	else
-		ent->moveinfo.distance = 1.0;
-
 	// cvar overrides for effects flags:
-	if (alert_sounds->value)
+	if(alert_sounds->value)
 		world->effects |= FX_WORLDSPAWN_ALERTSOUNDS;
-	if (corpse_fade->value)
+	if(corpse_fade->value)
 		world->effects |= FX_WORLDSPAWN_CORPSEFADE;
-	if (jump_kick->value)
+	if(jump_kick->value)
 		world->effects |= FX_WORLDSPAWN_JUMPKICK;
-	if (footstep_sounds->value)
-		world->effects |= FX_WORLDSPAWN_STEPSOUNDS;
 
-//Knightmare- this is now handled client-side
-#ifdef FMOD_FOOTSTEPS
-
-	if (deathmatch->value || coop->value)
-		qFMOD_Footsteps = false;
-	else if (world->effects & FX_WORLDSPAWN_STEPSOUNDS)
-	{
-		qFMOD_Footsteps = true;
-		FMOD_Init();
-	}
-	else
-		qFMOD_Footsteps = false;
-#endif
 //
 // Setup light animation tables. 'a' is total darkness, 'z' is doublebright.
 //
@@ -2395,7 +2303,7 @@ qboolean CheckGroundSpawnPoint (vec3_t origin, vec3_t entMins, vec3_t entMaxs, f
 {
 	trace_t		tr;
 	vec3_t		start, stop;
-	int			failure = 0;
+//	int			failure = 0;
 	vec3_t		mins, maxs;
 	int			x, y;	
 	float		mid, bottom;

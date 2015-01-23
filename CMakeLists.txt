@@ -34,6 +34,13 @@ set(GAME_SOURCES
 	g_turret.c
 	g_vehicle.c
 	g_weapon.c
+	g_cmds.c
+	g_func.c
+	g_main.c
+	g_save.c
+	g_spawn.c
+	g_target.c
+	g_utils.c
 	grenade.c
 	km_cvar.c
 	monster/m_actor.c
@@ -71,14 +78,7 @@ set(GAME_SOURCES
 	monster/m_turret.c
 	monster/m_widow.c
 	monster/m_widow2.c
-	no_fmod/g_cmds.c
-	no_fmod/g_func.c
-	no_fmod/g_main.c
-	no_fmod/g_save.c
-	no_fmod/g_spawn.c
-	no_fmod/g_target.c
-	no_fmod/g_utils.c
-	no_fmod/p_view.c
+	player/p_view.c
 	player/p_chasecam.c
 	player/p_client.c
 	player/p_hud.c
@@ -129,9 +129,8 @@ set(GAME_HEADERS
 	monster/m_turret.h
 	monster/m_widow.h
 	monster/m_widow2.h
-	no_fmod/g_local.h
-	no_fmod/q_shared.h
-	no_fmod/resource.h
+	g_local.h
+	resource.h
 	pak.h
 	player/p_menu.h
 	player/p_text.h
