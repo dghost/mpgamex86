@@ -102,9 +102,6 @@
     <ClCompile Include="g_save.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="g_sound.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="g_spawn.c">
       <Filter>Source Files</Filter>
     </ClCompile>
