@@ -2090,9 +2090,6 @@ struct edict_s
 	edict_t		*next_grenade;
 	edict_t		*prev_grenade;
 
-	// old FMOD stuff
-	int			*stream;	// Actually a FSOUND_STREAM * or FMUSIC_MODULE *
-	int			channel;
 
 	// tracktrain
 	char		*target2;
