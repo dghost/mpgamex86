@@ -92,7 +92,7 @@ set(GAME_SOURCES
 
 set(GAME_HEADERS
 	../qcommon/shared/q_shared.h
-	game.h
+	../qcommon/shared/game.h
 	km_cvar.h
 	laz_misc.h
 	menu.h
