@@ -197,6 +197,89 @@ field_t clientfields[] = {
 #include "tables/clientfields.h"
 };
 
+static uint32_t funcListSize = 0;
+
+void siftFuncDown(functionList_t *list, int32_t start, int32_t end) {
+    int32_t root = start;
+    while (root * 2 + 1 <= end) {
+        int32_t child = root * 2 + 1;
+        int32_t swap = root;
+        if (list[swap].funcPtr < list[child].funcPtr) {
+            swap = child;
+        }
+        if (child +1 <= end && list[swap].funcPtr < list[child+1].funcPtr) {
+            swap = child + 1;
+        }
+        if (swap == root) {
+            return;
+        } else {
+            functionList_t tmp = functionList[root];
+            functionList[root] = functionList[swap];
+            functionList[swap] = tmp;
+            root = swap;
+        }
+    }
+}
+
+void sortFunctionAddresses(void) {
+    funcListSize = sizeof(functionList) / sizeof(functionList[0]) - 1;
+    int32_t start = floor((funcListSize - 2) / 2.0);
+    int32_t end = funcListSize - 1;
+    while (start >= 0) {
+        siftFuncDown(functionList, start, funcListSize - 1);
+        start -= 1;
+    }
+    while (end > 0) {
+        functionList_t tmp = functionList[end];
+        functionList[end] = functionList[0];
+        functionList[0] = tmp;
+        end -= 1;
+        siftFuncDown(functionList, 0, end);
+    }
+}
+
+
+static uint32_t mmoveListSize = 0;
+
+void siftMoveDown(mmoveList_t *list, int32_t start, int32_t end) {
+    int32_t root = start;
+    while (root * 2 + 1 <= end) {
+        int32_t child = root * 2 + 1;
+        int32_t swap = root;
+        if (list[swap].mmovePtr < list[child].mmovePtr) {
+            swap = child;
+        }
+        if (child +1 <= end && list[swap].mmovePtr < list[child+1].mmovePtr) {
+            swap = child + 1;
+        }
+        if (swap == root) {
+            return;
+        } else {
+            mmoveList_t tmp = mmoveList[root];
+            mmoveList[root] = mmoveList[swap];
+            mmoveList[swap] = tmp;
+            root = swap;
+        }
+    }
+}
+
+void sortMoveAddresses(void) {
+    mmoveListSize = (sizeof(mmoveList) / sizeof(mmoveList[0])) - 1;
+    int32_t start = floor((mmoveListSize - 2) / 2.0);
+    int32_t end = mmoveListSize - 1;
+    while (start >= 0) {
+        siftMoveDown(mmoveList, start, mmoveListSize - 1);
+        start -= 1;
+    }
+    while (end > 0) {
+        mmoveList_t tmp = mmoveList[end];
+        mmoveList[end] = mmoveList[0];
+        mmoveList[0] = tmp;
+        end -= 1;
+        siftMoveDown(mmoveList, 0, end);
+    }
+}
+
 /* ========================================================= */
 
 /*
@@ -226,6 +309,14 @@ void InitGame (void)
         gi.dprintf(" Done!\n");
     }
 #endif
+    
+    gi.dprintf("Sorting tables...");
+    
+    sortFunctionAddresses();
+    
+    sortMoveAddresses();
+    
+    gi.dprintf(" Done!\n");
     
 //Knightmare
 	lithium_defaults();
@@ -436,16 +527,19 @@ void InitGame (void)
 functionList_t *
 GetFunctionByAddress(byte *adr)
 {
-    int i;
-    
-    for (i = 0; functionList[i].funcStr; i++)
-    {
-        if (functionList[i].funcPtr == adr)
+    int min = 0;
+    int max = funcListSize - 1;
+    while (max >= min) {
+        int mid = floor((max - min) / 2.0) + min;
+        if (functionList[mid].funcPtr == adr)
         {
-            return &functionList[i];
+            return &functionList[mid];
+        } else if (functionList[mid].funcPtr < adr) {
+            min = mid + 1;
+        } else {
+            max = mid - 1;
         }
     }
-    
     return NULL;
 }
 
@@ -478,7 +572,6 @@ FindFunctionByName(char *name)
     return NULL;
 }
 
-
 /*
  * Helper function to get the
  * human readable definition of
@@ -487,16 +580,19 @@ FindFunctionByName(char *name)
 mmoveList_t *
 GetMmoveByAddress(mmove_t *adr)
 {
-    int i;
-    
-    for (i = 0; mmoveList[i].mmoveStr; i++)
-    {
-        if (mmoveList[i].mmovePtr == adr)
+    int min = 0;
+    int max = mmoveListSize - 1;
+    while (max >= min) {
+        int mid = floor((max - min) / 2.0) + min;
+        if (mmoveList[mid].mmovePtr == adr)
         {
-            return &mmoveList[i];
+            return &mmoveList[mid];
+        } else if (mmoveList[mid].mmovePtr < adr) {
+            min = mid + 1;
+        } else {
+            max = mid - 1;
         }
     }
-    
     return NULL;
 }
 
