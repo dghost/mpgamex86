@@ -118,18 +118,26 @@ typedef struct
 {
     char *funcStr;
     byte *funcPtr;
+#ifdef Q2VR_ENGINE_MOD
+    hash_t funcHash;
+#endif
 } functionList_t;
 
 /*
  * Connects a human readable
  * mmove_t string with the
  * corresponding pointer
- * */
+ * 
+ */
 typedef struct
 {
     char	*mmoveStr;
     mmove_t *mmovePtr;
+#ifdef Q2VR_ENGINE_MOD
+    hash_t mmoveHash;
+#endif
 } mmoveList_t;
+
 
 /* ========================================================= */
 
@@ -199,6 +207,26 @@ field_t clientfields[] = {
 void InitGame (void)
 {
 	gi.dprintf ("\n==== InitGame ====\n");
+    
+#ifdef Q2VR_ENGINE_MOD
+    {
+        int i;
+        gi.dprintf("Initializing hash tables...");
+        
+        for (i = 0; mmoveList[i].mmoveStr; i++)
+        {
+            mmoveList[i].mmoveHash = gi.Hash(mmoveList[i].mmoveStr, strlen(mmoveList[i].mmoveStr));
+        }
+        
+        for (i = 0; functionList[i].funcStr; i++)
+        {
+            functionList[i].funcHash = gi.Hash(functionList[i].funcStr, strlen(functionList[i].funcStr));
+        }
+        
+        gi.dprintf(" Done!\n");
+    }
+#endif
+    
 //Knightmare
 	lithium_defaults();
 	gun_x = gi.cvar ("gun_x", "0", 0);
@@ -432,17 +460,24 @@ byte *
 FindFunctionByName(char *name)
 {
     int i;
-    
+#ifdef Q2VR_ENGINE_MOD
+    hash_t nameHash = gi.Hash(name, strlen(name));
+#endif
     for (i = 0; functionList[i].funcStr; i++)
     {
-        if (!strcmp(name, functionList[i].funcStr))
-        {
-            return functionList[i].funcPtr;
-        }
+#ifdef Q2VR_ENGINE_MOD
+        if (!gi.HashCompare(nameHash, functionList[i].funcHash) && !strcmp(name, functionList[i].funcStr))
+#else
+            if (!strcmp(name, functionList[i].funcStr))
+#endif
+            {
+                return functionList[i].funcPtr;
+            }
     }
     
     return NULL;
 }
+
 
 /*
  * Helper function to get the
@@ -474,13 +509,19 @@ mmove_t *
 FindMmoveByName(char *name)
 {
     int i;
-    
+#ifdef Q2VR_ENGINE_MOD
+    hash_t nameHash = gi.Hash(name, strlen(name));
+#endif
     for (i = 0; mmoveList[i].mmoveStr; i++)
     {
-        if (!strcmp(name, mmoveList[i].mmoveStr))
-        {
-            return mmoveList[i].mmovePtr;
-        }
+#ifdef Q2VR_ENGINE_MOD
+        if (!gi.HashCompare(nameHash, mmoveList[i].mmoveHash) && !strcmp(name, mmoveList[i].mmoveStr))
+#else
+            if (!strcmp(name, mmoveList[i].mmoveStr))
+#endif
+            {
+                return mmoveList[i].mmovePtr;
+            }
     }
     
     return NULL;
