@@ -57,7 +57,7 @@ void ChasecamRemove (edict_t *ent)
 		ent->s.renderfx &= ~RF_NOSHADOW;
 	}
 
-    free(ent->client->oldplayer->client);
+    G_Free(ent->client->oldplayer->client);
 	G_FreeEdict (ent->client->oldplayer);
 	G_FreeEdict (ent->client->chasecam); 
 	ent->client->chase_target = NULL;
@@ -336,7 +336,7 @@ void CheckChasecam_Viewent (edict_t *ent)
 
 	if (!ent->client->oldplayer->client)
 	{
-		cl = (gclient_t *) malloc(sizeof(gclient_t));
+		cl = (gclient_t *) G_Malloc(sizeof(gclient_t));
 		ent->client->oldplayer->client = cl;
 	}
 // Added by WarZone - End

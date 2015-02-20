@@ -1918,7 +1918,7 @@ void respawn (edict_t *self)
 			chase = true;
 			if (self->client->oldplayer != NULL)
 			{
-				free(self->client->oldplayer->client);
+				G_Free(self->client->oldplayer->client);
 				G_FreeEdict(self->client->oldplayer);
 			}
 			if (self->client->chasecam != NULL)

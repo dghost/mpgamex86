@@ -1613,7 +1613,7 @@ void SpawnEntities (char *mapname, char *entities, char *spawnpoint)
 		if (alias_from_pak)
 			gi.TagFree(alias_data);
 		else
-			free(&alias_data);
+			G_Free(&alias_data);
 #endif
 	}
 

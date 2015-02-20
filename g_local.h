@@ -1067,6 +1067,8 @@ void	G_TouchTriggers (edict_t *ent);
 void	G_TouchSolids (edict_t *ent);
 
 char	*G_CopyString (char *in);
+void    *G_Malloc (int32_t size);
+void    G_Free(void * block);
 
 float	*tv (float x, float y, float z);
 char	*vtos (vec3_t v);
