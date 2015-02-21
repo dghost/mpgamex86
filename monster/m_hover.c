@@ -773,7 +773,7 @@ void SP_monster_hover (edict_t *self)
 	self->s.modelindex = gi.modelindex("models/monsters/hover/tris.md2");
 
 	//Knightmare- smaller bounding box for Pierre replacement in Coconut Monkey level 3
-	if (Q_stricmp(level.mapname, "cm3pt3") == 0
+	if (Q_strcasecmp(level.mapname, "cm3pt3") == 0
 		&& !strcmp(self->combattarget, "showdown"))
 	{
 		VectorSet (self->mins, -16, -16, -24);

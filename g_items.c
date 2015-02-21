@@ -117,7 +117,7 @@ gitem_t	*FindItemByClassname (char *classname)
 	{
 		if (!it->classname)
 			continue;
-		if (!Q_stricmp(it->classname, classname))
+		if (!Q_strcasecmp(it->classname, classname))
 			return it;
 	}
 
@@ -140,7 +140,7 @@ gitem_t	*FindItem (char *pickup_name)
 	{
 		if (!it->pickup_name)
 			continue;
-		if (!Q_stricmp(it->pickup_name, pickup_name))
+		if (!Q_strcasecmp(it->pickup_name, pickup_name))
 			return it;
 	}
 
@@ -224,7 +224,7 @@ qboolean Pickup_Powerup (edict_t *ent, edict_t *other)
 		return false;
 
 #ifdef JETPACK_MOD
-	if( !Q_stricmp(ent->classname,"item_jetpack") )
+	if( !Q_strcasecmp(ent->classname,"item_jetpack") )
 	{
 		gitem_t *fuel;
 

@@ -184,7 +184,7 @@ void SP_target_secret (edict_t *ent)
 	ent->svflags = SVF_NOCLIENT;
 	level.total_secrets++;
 	// map bug hack
-	if (!Q_stricmp(level.mapname, "mine3") && ent->s.origin[0] == 280 && ent->s.origin[1] == -2048 && ent->s.origin[2] == -624)
+	if (!Q_strcasecmp(level.mapname, "mine3") && ent->s.origin[0] == 280 && ent->s.origin[1] == -2048 && ent->s.origin[2] == -624)
 		ent->message = "You have found a secret area.";
 }
 
@@ -445,7 +445,7 @@ void use_target_changelevel (edict_t *self, edict_t *other, edict_t *activator)
 		transition = G_Find(NULL,FOFS(classname),"trigger_transition");
 		while(transition)
 		{
-			if(!Q_stricmp(transition->targetname,self->targetname))
+			if(!Q_strcasecmp(transition->targetname,self->targetname))
 			{
 				game.transition_ents = trigger_transition_ents(self,transition);
 				if (developer->value)
@@ -476,7 +476,7 @@ void SP_target_changelevel (edict_t *ent)
 	}
 
 	// ugly hack because *SOMEBODY* screwed up their map
-	if((Q_stricmp(level.mapname, "fact1") == 0) && (Q_stricmp(ent->map, "fact3") == 0))
+	if((Q_strcasecmp(level.mapname, "fact1") == 0) && (Q_strcasecmp(ent->map, "fact3") == 0))
 		ent->map = "fact3$secret1";
 
 	ent->use = use_target_changelevel;
@@ -1344,7 +1344,7 @@ void target_laser_start (edict_t *self)
 	self->s.modelindex = 1;		// must be non-zero
 
 	//Knightmare- horrendously ugly hack for the 3 lasers on xhangar2
-	if (!Q_stricmp(level.mapname, "xhangar2")
+	if (!Q_strcasecmp(level.mapname, "xhangar2")
 		&& ( VectorCompare(self->s.origin, xhangar2laspoint1)
 		||   VectorCompare(self->s.origin, xhangar2laspoint2)
 		|| VectorCompare(self->s.origin, xhangar2laspoint3) ))
@@ -1355,7 +1355,7 @@ void target_laser_start (edict_t *self)
 	}
 
 	//Knightmare- another horrendously ugly hack for the laser on xcompnd2
-	if (!Q_stricmp(level.mapname, "xcompnd2")
+	if (!Q_strcasecmp(level.mapname, "xcompnd2")
 		&& VectorCompare(self->s.origin, xcompnd2laspoint1) )
 	{
 		//gi.dprintf("Moving target_laser origin backward 1 unit\n");

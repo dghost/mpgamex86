@@ -1257,7 +1257,7 @@ void target_change_use (edict_t *self, edict_t *activator, edict_t *other)
 		{
 			target_ent->spawnflags = self->spawnflags;
 			// special cases:
-			if(!Q_stricmp(target_ent->classname,"model_train"))
+			if(!Q_strcasecmp(target_ent->classname,"model_train"))
 			{
 				if(target_ent->spawnflags & 32)
 				{
@@ -2918,7 +2918,7 @@ void target_animation_use (edict_t *self, edict_t *other, edict_t *activator)
 	{
 		if(activator && activator->client)
 			return;
-		if(self->message && Q_stricmp(self->message, activator->classname))
+		if(self->message && Q_strcasecmp(self->message, activator->classname))
 			return;
 		if(!self->target)
 			target = activator;
@@ -3105,7 +3105,7 @@ void use_target_failure (edict_t *self, edict_t *other, edict_t *activator)
 		gi.sound (activator, CHAN_VOICE|CHAN_RELIABLE, self->noise_index, 1, ATTN_NORM, 0);
 
 	self->target_ent = activator;
-	if (Q_stricmp(vid_ref->string,"gl"))
+	if (Q_strcasecmp(vid_ref->string,"gl"))
 	{
 		self->flags = 12;
 		self->think = target_failure_fade_lights;

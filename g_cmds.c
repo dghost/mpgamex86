@@ -51,7 +51,7 @@ void SelectNextItem (edict_t *ent, int itflags)
 	int			i, index;
 	gitem_t		*it;
 	int	gametype;
-	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
+	gametype = (!Q_strcasecmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_strcasecmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -100,7 +100,7 @@ void SelectPrevItem (edict_t *ent, int itflags)
 	int			i, index;
 	gitem_t		*it;
 	int	gametype;
-	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
+	gametype = (!Q_strcasecmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_strcasecmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -174,7 +174,7 @@ void Cmd_Give_f (edict_t *ent)
 	qboolean	give_all;
 	edict_t		*it_ent;
 	int	gametype;
-	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
+	gametype = (!Q_strcasecmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_strcasecmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 
 	if (deathmatch->value && !sv_cheats->value)
@@ -189,7 +189,7 @@ void Cmd_Give_f (edict_t *ent)
 	name = gi.args();
 
 #ifdef JETPACK_MOD
-	if(!Q_stricmp(name,"jetpack"))
+	if(!Q_strcasecmp(name,"jetpack"))
 	{
 		if(!developer->value)
 		{
@@ -205,12 +205,12 @@ void Cmd_Give_f (edict_t *ent)
 	}
 #endif
 
-	if (Q_stricmp(name, "all") == 0)
+	if (Q_strcasecmp(name, "all") == 0)
 		give_all = true;
 	else
 		give_all = false;
 
-	if (give_all || Q_stricmp(gi.argv(1), "health") == 0)
+	if (give_all || Q_strcasecmp(gi.argv(1), "health") == 0)
 	{
 		if (gi.argc() == 3)
 			ent->health = atoi(gi.argv(2));
@@ -220,7 +220,7 @@ void Cmd_Give_f (edict_t *ent)
 			return;
 	}
 
-	if (give_all || Q_stricmp(name, "weapons") == 0)
+	if (give_all || Q_strcasecmp(name, "weapons") == 0)
 	{
 		for (i=0 ; i<game.num_items ; i++)
 		{
@@ -238,7 +238,7 @@ void Cmd_Give_f (edict_t *ent)
 			return;
 	}
 	
-	if (give_all || Q_stricmp(name, "ammo") == 0)
+	if (give_all || Q_strcasecmp(name, "ammo") == 0)
 	{
 		for (i=0 ; i<game.num_items ; i++)
 		{
@@ -255,7 +255,7 @@ void Cmd_Give_f (edict_t *ent)
 			return;
 	}
 
-	if (give_all || Q_stricmp(name, "armor") == 0)
+	if (give_all || Q_strcasecmp(name, "armor") == 0)
 	{
 		gitem_armor_t	*info;
 
@@ -273,7 +273,7 @@ void Cmd_Give_f (edict_t *ent)
 			return;
 	}
 
-	if (give_all || Q_stricmp(name, "Power Shield") == 0)
+	if (give_all || Q_strcasecmp(name, "Power Shield") == 0)
 	{
 		it = FindItem("Power Shield");
 		it_ent = G_Spawn();
@@ -504,7 +504,7 @@ void Cmd_Use_f (edict_t *ent)
 	}
 	index = ITEM_INDEX(it);
 #ifdef JETPACK_MOD
-	if(!Q_stricmp(s,"jetpack"))
+	if(!Q_strcasecmp(s,"jetpack"))
 	{
 		// Special case - turns on/off
 		if(!ent->client->jetpack)
@@ -527,7 +527,7 @@ void Cmd_Use_f (edict_t *ent)
 	}
 #endif
 	// added stasis generator support
-	if (!Q_stricmp(s,"stasis generator"))
+	if (!Q_strcasecmp(s,"stasis generator"))
 	{
 		// Special case - turn freeze off if already on
 		if(level.freeze)
@@ -651,7 +651,7 @@ void Cmd_InvUse_f (edict_t *ent)
 		return;
 	}
 #ifdef JETPACK_MOD
-	if(!Q_stricmp(it->classname,"item_jetpack"))
+	if(!Q_strcasecmp(it->classname,"item_jetpack"))
 	{
 		if(!ent->client->jetpack)
 		{
@@ -681,7 +681,7 @@ void Cmd_WeapPrev_f (edict_t *ent)
 	gitem_t		*it;
 	int			selected_weapon;
 	int	gametype;
-	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
+	gametype = (!Q_strcasecmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_strcasecmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -738,7 +738,7 @@ void Cmd_WeapNext_f (edict_t *ent)
 	gitem_t		*it;
 	int			selected_weapon;
 	int	gametype;
-	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
+	gametype = (!Q_strcasecmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_strcasecmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -794,7 +794,7 @@ void Cmd_WeapLast_f (edict_t *ent)
 	int			index;
 	gitem_t		*it;
 	int	gametype;
-	gametype = (!Q_stricmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_stricmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
+	gametype = (!Q_strcasecmp(gamedir->string,"rogue") ? IT_ROGUE : (!Q_strcasecmp(gamedir->string,"xatrix") ? IT_XATRIX : 0));
 
 	cl = ent->client;
 
@@ -1476,7 +1476,7 @@ void ForcewallOff(edict_t *player)
 	AngleVectors(player->client->v_angle,forward,NULL,NULL);
 	VectorMA(start,8192,forward,point);
 	tr = gi.trace(start,NULL,NULL,point,player,MASK_SHOT);
-	if(Q_stricmp(tr.ent->classname,"forcewall"))
+	if(Q_strcasecmp(tr.ent->classname,"forcewall"))
 	{
 		gi.cprintf(player,PRINT_HIGH,"Not a forcewall!\n");
 		return;
@@ -1508,27 +1508,27 @@ void ClientCommand (edict_t *ent)
 	else
 		parm = gi.argv(1);
 
-	if (Q_stricmp (cmd, "players") == 0)
+	if (Q_strcasecmp (cmd, "players") == 0)
 	{
 		Cmd_Players_f (ent);
 		return;
 	}
-	if (Q_stricmp (cmd, "say") == 0)
+	if (Q_strcasecmp (cmd, "say") == 0)
 	{
 		Cmd_Say_f (ent, false, false);
 		return;
 	}
-	if (Q_stricmp (cmd, "say_team") == 0)
+	if (Q_strcasecmp (cmd, "say_team") == 0)
 	{
 		Cmd_Say_f (ent, true, false);
 		return;
 	}
-	if (Q_stricmp (cmd, "score") == 0)
+	if (Q_strcasecmp (cmd, "score") == 0)
 	{
 		Cmd_Score_f (ent);
 		return;
 	}
-	if (Q_stricmp (cmd, "help") == 0)
+	if (Q_strcasecmp (cmd, "help") == 0)
 	{
 		Cmd_Help_f (ent);
 		return;
@@ -1537,77 +1537,77 @@ void ClientCommand (edict_t *ent)
 	if (level.intermissiontime)
 		return;
 
-	if (Q_stricmp (cmd, "use") == 0)
+	if (Q_strcasecmp (cmd, "use") == 0)
 		Cmd_Use_f (ent);
-	else if (Q_stricmp (cmd, "drop") == 0)
+	else if (Q_strcasecmp (cmd, "drop") == 0)
 		Cmd_Drop_f (ent);
-	else if (Q_stricmp (cmd, "give") == 0)
+	else if (Q_strcasecmp (cmd, "give") == 0)
 		Cmd_Give_f (ent);
-	else if (Q_stricmp (cmd, "god") == 0)
+	else if (Q_strcasecmp (cmd, "god") == 0)
 		Cmd_God_f (ent);
-	else if (Q_stricmp (cmd, "notarget") == 0)
+	else if (Q_strcasecmp (cmd, "notarget") == 0)
 		Cmd_Notarget_f (ent);
-	else if (Q_stricmp (cmd, "noclip") == 0)
+	else if (Q_strcasecmp (cmd, "noclip") == 0)
 		Cmd_Noclip_f (ent);
-	else if (Q_stricmp (cmd, "inven") == 0)
+	else if (Q_strcasecmp (cmd, "inven") == 0)
 		Cmd_Inven_f (ent);
-	else if (Q_stricmp (cmd, "invnext") == 0)
+	else if (Q_strcasecmp (cmd, "invnext") == 0)
 		SelectNextItem (ent, -1);
-	else if (Q_stricmp (cmd, "invprev") == 0)
+	else if (Q_strcasecmp (cmd, "invprev") == 0)
 		SelectPrevItem (ent, -1);
-	else if (Q_stricmp (cmd, "invnextw") == 0)
+	else if (Q_strcasecmp (cmd, "invnextw") == 0)
 		SelectNextItem (ent, IT_WEAPON);
-	else if (Q_stricmp (cmd, "invprevw") == 0)
+	else if (Q_strcasecmp (cmd, "invprevw") == 0)
 		SelectPrevItem (ent, IT_WEAPON);
-	else if (Q_stricmp (cmd, "invnextp") == 0)
+	else if (Q_strcasecmp (cmd, "invnextp") == 0)
 		SelectNextItem (ent, IT_POWERUP);
-	else if (Q_stricmp (cmd, "invprevp") == 0)
+	else if (Q_strcasecmp (cmd, "invprevp") == 0)
 		SelectPrevItem (ent, IT_POWERUP);
-	else if (Q_stricmp (cmd, "invuse") == 0)
+	else if (Q_strcasecmp (cmd, "invuse") == 0)
 		Cmd_InvUse_f (ent);
-	else if (Q_stricmp (cmd, "invdrop") == 0)
+	else if (Q_strcasecmp (cmd, "invdrop") == 0)
 		Cmd_InvDrop_f (ent);
-	else if (Q_stricmp (cmd, "weapprev") == 0)
+	else if (Q_strcasecmp (cmd, "weapprev") == 0)
 		Cmd_WeapPrev_f (ent);
-	else if (Q_stricmp (cmd, "weapnext") == 0)
+	else if (Q_strcasecmp (cmd, "weapnext") == 0)
 		Cmd_WeapNext_f (ent);
-	else if (Q_stricmp (cmd, "weaplast") == 0)
+	else if (Q_strcasecmp (cmd, "weaplast") == 0)
 		Cmd_WeapLast_f (ent);
-	else if (Q_stricmp (cmd, "kill") == 0)
+	else if (Q_strcasecmp (cmd, "kill") == 0)
 		Cmd_Kill_f (ent);
-	else if (Q_stricmp (cmd, "putaway") == 0)
+	else if (Q_strcasecmp (cmd, "putaway") == 0)
 		Cmd_PutAway_f (ent);
-	else if (Q_stricmp (cmd, "wave") == 0)
+	else if (Q_strcasecmp (cmd, "wave") == 0)
 		Cmd_Wave_f (ent);
-	else if (Q_stricmp(cmd, "playerlist") == 0)
+	else if (Q_strcasecmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
 	// ==================== fog stuff =========================
-//	else if (developer->value && !Q_stricmp(cmd,"fog"))
-	else if (Q_stricmp(cmd,"fog") == 0)
+//	else if (developer->value && !Q_strcasecmp(cmd,"fog"))
+	else if (Q_strcasecmp(cmd,"fog") == 0)
 		Cmd_Fog_f(ent);
 //	else if (developer->value && !Q_strncasecmp(cmd, "fog_", 4))
 //		Cmd_Fog_f(ent);
 	// ================ end fog stuff =========================
 
 //CHASECAM
-	else if (Q_stricmp (cmd, "thirdperson") == 0)
+	else if (Q_strcasecmp (cmd, "thirdperson") == 0)
             Cmd_Chasecam_Toggle (ent);
-	else if (Q_stricmp(cmd, "killtrap") == 0)
+	else if (Q_strcasecmp(cmd, "killtrap") == 0)
 		Cmd_KillTrap_f(ent);
-	else if (Q_stricmp (cmd, "entcount") == 0)		// PGM
+	else if (Q_strcasecmp (cmd, "entcount") == 0)		// PGM
 		Cmd_Ent_Count_f (ent);						// PGM
-	else if (Q_stricmp (cmd, "disguise") == 0)		// PGM
+	else if (Q_strcasecmp (cmd, "disguise") == 0)		// PGM
 	{
 		ent->flags |= FL_DISGUISED;
 	}
 
 	// alternate attack mode
-	/*else if (!Q_stricmp(cmd,"attack2_off"))
+	/*else if (!Q_strcasecmp(cmd,"attack2_off"))
 		Cmd_attack2_f(ent,false);
-	else if (!Q_stricmp(cmd,"attack2_on"))
+	else if (!Q_strcasecmp(cmd,"attack2_on"))
 		Cmd_attack2_f(ent,true);*/
 	// zoom
-	else if (!Q_stricmp(cmd, "zoomin"))
+	else if (!Q_strcasecmp(cmd, "zoomin"))
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
@@ -1621,7 +1621,7 @@ void ClientCommand (edict_t *ent)
 			}
 		}
 	}
-	else if (!Q_stricmp(cmd, "zoomout"))
+	else if (!Q_strcasecmp(cmd, "zoomout"))
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
@@ -1635,7 +1635,7 @@ void ClientCommand (edict_t *ent)
 			}
 		}
 	}
-	else if (!Q_stricmp(cmd, "zoom"))
+	else if (!Q_strcasecmp(cmd, "zoom"))
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
@@ -1661,7 +1661,7 @@ void ClientCommand (edict_t *ent)
 			}
 		}
 	}
-	else if (!Q_stricmp(cmd, "zoomoff"))
+	else if (!Q_strcasecmp(cmd, "zoomoff"))
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
@@ -1674,7 +1674,7 @@ void ClientCommand (edict_t *ent)
 			}
 		}
 	}
-	else if (!Q_stricmp(cmd, "zoomon"))
+	else if (!Q_strcasecmp(cmd, "zoomon"))
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
@@ -1690,7 +1690,7 @@ void ClientCommand (edict_t *ent)
 			}
 		}
 	}
-	else if (!Q_stricmp(cmd, "zoominstop"))
+	else if (!Q_strcasecmp(cmd, "zoominstop"))
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
@@ -1710,7 +1710,7 @@ void ClientCommand (edict_t *ent)
 			}
 		}
 	}
-	else if (!Q_stricmp(cmd, "zoomoutstop"))
+	else if (!Q_strcasecmp(cmd, "zoomoutstop"))
 	{
 		if(!deathmatch->value && !coop->value && !ent->client->chasetoggle)
 		{
@@ -1730,7 +1730,7 @@ void ClientCommand (edict_t *ent)
 			}
 		}
 	}
-	else if(!Q_stricmp(cmd,"hud"))
+	else if(!Q_strcasecmp(cmd,"hud"))
 	{
 		if(parm)
 		{
@@ -1744,7 +1744,7 @@ void ClientCommand (edict_t *ent)
 		else
 			Cmd_ToggleHud();
 	}
-	else if(!Q_stricmp(cmd,"whatsit"))
+	else if(!Q_strcasecmp(cmd,"whatsit"))
 	{
 		if(parm)
 		{
@@ -1757,13 +1757,13 @@ void ClientCommand (edict_t *ent)
 		else
 			world->effects ^= FX_WORLDSPAWN_WHATSIT;
 	}
-	else if (!Q_stricmp(cmd,"bbox"))
+	else if (!Q_strcasecmp(cmd,"bbox"))
 		Cmd_Bbox_f (ent);
-	else if(!Q_stricmp(cmd,"forcewall"))
+	else if(!Q_strcasecmp(cmd,"forcewall"))
 		SpawnForcewall(ent);
-	else if(!Q_stricmp(cmd,"forcewall_off"))
+	else if(!Q_strcasecmp(cmd,"forcewall_off"))
 		ForcewallOff(ent);
-	else if (!Q_stricmp(cmd,"freeze"))
+	else if (!Q_strcasecmp(cmd,"freeze"))
 	{
 		if(level.freeze)
 			level.freeze = false;
@@ -1779,7 +1779,7 @@ void ClientCommand (edict_t *ent)
 	}
 	else if(developer->value)
 	{
-	//	if (!Q_stricmp(cmd,"lightswitch"))
+	//	if (!Q_strcasecmp(cmd,"lightswitch"))
 	//		ToggleLights();
 	}
 	else	// anything that doesn't match a command will be a chat

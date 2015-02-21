@@ -680,7 +680,7 @@ void ED_CallSpawn (edict_t *ent)
 
 	// replace brains in Reckoning
 	gamedir = gi.cvar("game", "", 0);
-	if (*gamedir->string && !Q_stricmp(gamedir->string, "xatrix")
+	if (*gamedir->string && !Q_strcasecmp(gamedir->string, "xatrix")
 		&& IsXatrixMap() && !strcmp(ent->classname, "monster_brain"))
 		ent->classname = "monster_brain_beta";
 
@@ -861,7 +861,7 @@ void ED_ParseField (char *key, char *value, edict_t *ent)
 
 	for (f = fields; f->name; f++)
 	{
-		if (!(f->flags & FFL_NOSPAWN) && !Q_stricmp(f->name, key))
+		if (!(f->flags & FFL_NOSPAWN) && !Q_strcasecmp(f->name, key))
 		{	// found it
 			if (f->flags & FFL_SPAWNTEMP)
 				b = (byte *)&st;
@@ -1004,7 +1004,7 @@ qboolean LoadAliasFile (char *name)
 						for(k=0; k<numitems && !in_pak; k++)
 						{
 							fread(&pakitem,1,sizeof(pak_item_t),fpak);
-							if (!Q_stricmp(pakitem.name,textname))
+							if (!Q_strcasecmp(pakitem.name,textname))
 							{
 								in_pak = true;
 								fseek(fpak,pakitem.start,SEEK_SET);
@@ -1271,7 +1271,7 @@ void G_FixTeams (void)
 		if (!e->team)
 			continue;
 		//Lazarus- ignore bmodel spawner (its team isn't used)
-		if (e->classname && !Q_stricmp(e->classname,"target_bmodel_spawner"))
+		if (e->classname && !Q_strcasecmp(e->classname,"target_bmodel_spawner"))
 			continue; 
 		if (!strcmp(e->classname, "func_train"))
 		{
@@ -1379,7 +1379,7 @@ void LoadTransitionEnts()
 			spawn = G_Find(NULL,FOFS(targetname),game.spawnpoint);
 			while(spawn)
 			{
-				if(!Q_stricmp(spawn->classname,"info_player_start"))
+				if(!Q_strcasecmp(spawn->classname,"info_player_start"))
 				{
 					VectorCopy(spawn->s.origin,v_spawn);
 					break;
@@ -1518,16 +1518,16 @@ void SpawnEntities (char *mapname, char *entities, char *spawnpoint)
 		entities = ED_ParseEdict (entities, ent);
 
 		// yet another map hack
-		if (!Q_stricmp(level.mapname, "command") && !Q_stricmp(ent->classname, "trigger_once") && !Q_stricmp(ent->model, "*27"))
+		if (!Q_strcasecmp(level.mapname, "command") && !Q_strcasecmp(ent->classname, "trigger_once") && !Q_strcasecmp(ent->model, "*27"))
 			ent->spawnflags &= ~SPAWNFLAG_NOT_HARD;
 		
 		// ROGUE
 		//ahh, the joys of map hacks .. 
-		if (!Q_stricmp(level.mapname, "rhangar2") && !Q_stricmp(ent->classname, "func_door_rotating") && ent->targetname && !Q_stricmp(ent->targetname, "t265"))
+		if (!Q_strcasecmp(level.mapname, "rhangar2") && !Q_strcasecmp(ent->classname, "func_door_rotating") && ent->targetname && !Q_strcasecmp(ent->targetname, "t265"))
 			ent->spawnflags &= ~SPAWNFLAG_NOT_COOP;
-		if (!Q_stricmp(level.mapname, "rhangar2") && !Q_stricmp(ent->classname, "trigger_always") && ent->target && !Q_stricmp(ent->target, "t265"))
+		if (!Q_strcasecmp(level.mapname, "rhangar2") && !Q_strcasecmp(ent->classname, "trigger_always") && ent->target && !Q_strcasecmp(ent->target, "t265"))
 			ent->spawnflags |= SPAWNFLAG_NOT_COOP;
-		if (!Q_stricmp(level.mapname, "rhangar2") && !Q_stricmp(ent->classname, "func_wall") && !Q_stricmp(ent->model, "*15"))
+		if (!Q_strcasecmp(level.mapname, "rhangar2") && !Q_strcasecmp(ent->classname, "func_wall") && !Q_strcasecmp(ent->model, "*15"))
 			ent->spawnflags |= SPAWNFLAG_NOT_COOP;
 		// rogue
 		
@@ -2041,7 +2041,7 @@ void SP_worldspawn (edict_t *ent)
 	// value for obscuring HOM with fog... "good" is driver-dependent
 	if(ent->fogclip)
 	{
-		if(gl_driver && !Q_stricmp(gl_driver->string,"3dfxgl"))
+		if(gl_driver && !Q_strcasecmp(gl_driver->string,"3dfxgl"))
 			gi.cvar_forceset("gl_clear", "0");
 		else
 			gi.cvar_forceset("gl_clear", "1");

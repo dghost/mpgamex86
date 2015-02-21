@@ -931,7 +931,7 @@ void monster_use (edict_t *self, edict_t *other, edict_t *activator)
 		if (self->monsterinfo.aiflags & AI_GOOD_GUY)
 			self->monsterinfo.monsterflags |= MFL_DO_NOT_COUNT;
 		self->monsterinfo.aiflags &= ~(AI_GOOD_GUY + AI_FOLLOW_LEADER);
-		if(self->dmgteam && !Q_stricmp(self->dmgteam,"player"))
+		if(self->dmgteam && !Q_strcasecmp(self->dmgteam,"player"))
 			self->dmgteam = NULL;
 	}
 
@@ -1982,7 +1982,7 @@ int PatchMonsterModel (char *modelname)
 			for(k=0; k<numitems && !data; k++)
 			{
 				fread(&pakitem,1,sizeof(pak_item_t),fpak);
-				if(!Q_stricmp(pakitem.name,modelname))
+				if(!Q_strcasecmp(pakitem.name,modelname))
 				{
 					fseek(fpak,pakitem.start,SEEK_SET);
 					fread(&model, sizeof(dmdl_t), 1, fpak);
@@ -2019,7 +2019,7 @@ int PatchMonsterModel (char *modelname)
 				for(k=0; k<numitems && !data; k++)
 				{
 					fread(&pakitem,1,sizeof(pak_item_t),fpak);
-					if(!Q_stricmp(pakitem.name,modelname))
+					if(!Q_strcasecmp(pakitem.name,modelname))
 					{
 						fseek(fpak,pakitem.start,SEEK_SET);
 						fread(&model, sizeof(dmdl_t), 1, fpak);

@@ -2787,7 +2787,7 @@ void G_RunEntity (edict_t *ent)
 	vec3_t	previous_origin;
 
 	// added stasis generator support
-	if (level.freeze && Q_stricmp(ent->classname,"chasecam"))
+	if (level.freeze && Q_strcasecmp(ent->classname,"chasecam"))
 		return;
 
 	if(ent->movetype == MOVETYPE_STEP)

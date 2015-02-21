@@ -47,7 +47,7 @@ edict_t *G_Find (edict_t *from, int fieldofs, char *match)
 		s = *(char **) ((byte *)from + fieldofs);
 		if (!s)
 			continue;
-		if (!Q_stricmp (s, match))
+		if (!Q_strcasecmp (s, match))
 			return from;
 	}
 
@@ -257,10 +257,10 @@ void G_UseTargets (edict_t *ent, edict_t *activator)
 						level.total_monsters--;
 			}
 			// and decrement secret count if target_secret is removed
-			else if(!Q_stricmp(t->classname,"target_secret"))
+			else if(!Q_strcasecmp(t->classname,"target_secret"))
 				level.total_secrets--;
 			// same deal with target_goal, but also turn off CD music if applicable
-			else if(!Q_stricmp(t->classname,"target_goal"))
+			else if(!Q_strcasecmp(t->classname,"target_goal"))
 			{
 				level.total_goals--;
 				if (level.found_goals >= level.total_goals)
@@ -317,10 +317,10 @@ void G_UseTargets (edict_t *ent, edict_t *activator)
 		while ((t = G_Find (t, FOFS(targetname), ent->target)))
 		{
 			// doors fire area portals in a specific way
-			if (!Q_stricmp(t->classname, "func_areaportal") &&
-				(!Q_stricmp(ent->classname, "func_door") || !Q_stricmp(ent->classname, "func_door_rotating")
-				/*DWH*/ || !Q_stricmp(ent->classname,"func_door_rot_dh")
-				/*Knightmare*/|| !Q_stricmp(ent->classname, "func_door_secret") || !Q_stricmp(ent->classname, "func_door_secret2")))
+			if (!Q_strcasecmp(t->classname, "func_areaportal") &&
+				(!Q_strcasecmp(ent->classname, "func_door") || !Q_strcasecmp(ent->classname, "func_door_rotating")
+				/*DWH*/ || !Q_strcasecmp(ent->classname,"func_door_rot_dh")
+				/*Knightmare*/|| !Q_strcasecmp(ent->classname, "func_door_secret") || !Q_strcasecmp(ent->classname, "func_door_secret2")))
 				continue;
 
 			if (t == ent)
@@ -952,7 +952,7 @@ edict_t	*LookingAt(edict_t *ent, int filter, vec3_t endpos, float *range)
 		gi.sound (ent, CHAN_AUTO, gi.soundindex ("misc/talk1.wav"), 1, ATTN_NORM, 0);
 		return NULL;
 	}
-	if((Q_stricmp(tr.ent->classname,"worldspawn") == 0) && (filter & LOOKAT_NOWORLD))
+	if((Q_strcasecmp(tr.ent->classname,"worldspawn") == 0) && (filter & LOOKAT_NOWORLD))
 	{
 		// world brush
 		gi.sound (ent, CHAN_AUTO, gi.soundindex ("misc/talk1.wav"), 1, ATTN_NORM, 0);
@@ -1061,9 +1061,9 @@ void G_UseTarget (edict_t *ent, edict_t *activator, edict_t *target)
 	if (target)
 	{
 		// doors fire area portals in a specific way
-		if (!Q_stricmp(target->classname, "func_areaportal") &&
-			(!Q_stricmp(ent->classname, "func_door") || !Q_stricmp(ent->classname, "func_door_rotating") 
-			|| !Q_stricmp(ent->classname,"func_door_rot_dh")))
+		if (!Q_strcasecmp(target->classname, "func_areaportal") &&
+			(!Q_strcasecmp(ent->classname, "func_door") || !Q_strcasecmp(ent->classname, "func_door_rotating") 
+			|| !Q_strcasecmp(ent->classname,"func_door_rot_dh")))
 			return;
 
 		if (target == ent)
@@ -1095,105 +1095,105 @@ this is used for certain hacks.
 */
 qboolean IsIdMap (void)
 {
-	if (Q_stricmp(level.mapname, "base1") == 0)
+	if (Q_strcasecmp(level.mapname, "base1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "base2") == 0)
+	if (Q_strcasecmp(level.mapname, "base2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "base3") == 0)
+	if (Q_strcasecmp(level.mapname, "base3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "biggun") == 0)
+	if (Q_strcasecmp(level.mapname, "biggun") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "boss1") == 0)
+	if (Q_strcasecmp(level.mapname, "boss1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "boss2") == 0)
+	if (Q_strcasecmp(level.mapname, "boss2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "bunk1") == 0)
+	if (Q_strcasecmp(level.mapname, "bunk1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "city1") == 0)
+	if (Q_strcasecmp(level.mapname, "city1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "city2") == 0)
+	if (Q_strcasecmp(level.mapname, "city2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "city3") == 0)
+	if (Q_strcasecmp(level.mapname, "city3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "command") == 0)
+	if (Q_strcasecmp(level.mapname, "command") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "cool1") == 0)
+	if (Q_strcasecmp(level.mapname, "cool1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "fact1") == 0)
+	if (Q_strcasecmp(level.mapname, "fact1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "fact2") == 0)
+	if (Q_strcasecmp(level.mapname, "fact2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "fact3") == 0)
+	if (Q_strcasecmp(level.mapname, "fact3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "hangar1") == 0)
+	if (Q_strcasecmp(level.mapname, "hangar1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "hangar2") == 0)
+	if (Q_strcasecmp(level.mapname, "hangar2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "jail1") == 0)
+	if (Q_strcasecmp(level.mapname, "jail1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "jail2") == 0)
+	if (Q_strcasecmp(level.mapname, "jail2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "jail3") == 0)
+	if (Q_strcasecmp(level.mapname, "jail3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "jail4") == 0)
+	if (Q_strcasecmp(level.mapname, "jail4") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "jail5") == 0)
+	if (Q_strcasecmp(level.mapname, "jail5") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "lab") == 0)
+	if (Q_strcasecmp(level.mapname, "lab") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "mine1") == 0)
+	if (Q_strcasecmp(level.mapname, "mine1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "mine2") == 0)
+	if (Q_strcasecmp(level.mapname, "mine2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "mine3") == 0)
+	if (Q_strcasecmp(level.mapname, "mine3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "mine4") == 0)
+	if (Q_strcasecmp(level.mapname, "mine4") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "mintro") == 0)
+	if (Q_strcasecmp(level.mapname, "mintro") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "power1") == 0)
+	if (Q_strcasecmp(level.mapname, "power1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "power2") == 0)
+	if (Q_strcasecmp(level.mapname, "power2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "security") == 0)
+	if (Q_strcasecmp(level.mapname, "security") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "space") == 0)
+	if (Q_strcasecmp(level.mapname, "space") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "strike") == 0)
+	if (Q_strcasecmp(level.mapname, "strike") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "train") == 0)
+	if (Q_strcasecmp(level.mapname, "train") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "ware1") == 0)
+	if (Q_strcasecmp(level.mapname, "ware1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "ware2") == 0)
+	if (Q_strcasecmp(level.mapname, "ware2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "waste1") == 0)
+	if (Q_strcasecmp(level.mapname, "waste1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "waste2") == 0)
+	if (Q_strcasecmp(level.mapname, "waste2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "waste3") == 0)
+	if (Q_strcasecmp(level.mapname, "waste3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm1") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm2") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm3") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm4") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm4") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm5") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm5") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm6") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm6") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm7") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm7") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "q2dm8") == 0)
+	if (Q_strcasecmp(level.mapname, "q2dm8") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "base64") == 0)
+	if (Q_strcasecmp(level.mapname, "base64") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "city64") == 0)
+	if (Q_strcasecmp(level.mapname, "city64") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "sewer64") == 0)
+	if (Q_strcasecmp(level.mapname, "sewer64") == 0)
 		return true;
 
 	return false;
@@ -1211,55 +1211,55 @@ This is used for certain hacks.
 */
 qboolean IsXatrixMap (void)
 {
-	if (Q_stricmp(level.mapname, "badlands") == 0)
+	if (Q_strcasecmp(level.mapname, "badlands") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "industry") == 0)
+	if (Q_strcasecmp(level.mapname, "industry") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "outbase") == 0)
+	if (Q_strcasecmp(level.mapname, "outbase") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "refinery") == 0)
+	if (Q_strcasecmp(level.mapname, "refinery") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "w_treat") == 0)
+	if (Q_strcasecmp(level.mapname, "w_treat") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xcompnd1") == 0)
+	if (Q_strcasecmp(level.mapname, "xcompnd1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xcompnd2") == 0)
+	if (Q_strcasecmp(level.mapname, "xcompnd2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xhangar1") == 0)
+	if (Q_strcasecmp(level.mapname, "xhangar1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xhangar2") == 0)
+	if (Q_strcasecmp(level.mapname, "xhangar2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xintell") == 0)
+	if (Q_strcasecmp(level.mapname, "xintell") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xmoon1") == 0)
+	if (Q_strcasecmp(level.mapname, "xmoon1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xmoon2") == 0)
+	if (Q_strcasecmp(level.mapname, "xmoon2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xreactor") == 0)
+	if (Q_strcasecmp(level.mapname, "xreactor") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xsewer1") == 0)
+	if (Q_strcasecmp(level.mapname, "xsewer1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xsewer2") == 0)
+	if (Q_strcasecmp(level.mapname, "xsewer2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xship") == 0)
+	if (Q_strcasecmp(level.mapname, "xship") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xswamp") == 0)
+	if (Q_strcasecmp(level.mapname, "xswamp") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xware") == 0)
+	if (Q_strcasecmp(level.mapname, "xware") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xdm1") == 0)
+	if (Q_strcasecmp(level.mapname, "xdm1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xdm2") == 0)
+	if (Q_strcasecmp(level.mapname, "xdm2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xdm3") == 0)
+	if (Q_strcasecmp(level.mapname, "xdm3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xdm4") == 0)
+	if (Q_strcasecmp(level.mapname, "xdm4") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xdm5") == 0)
+	if (Q_strcasecmp(level.mapname, "xdm5") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xdm6") == 0)
+	if (Q_strcasecmp(level.mapname, "xdm6") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "xdm7") == 0)
+	if (Q_strcasecmp(level.mapname, "xdm7") == 0)
 		return true;
 
 	return false;
@@ -1276,63 +1276,63 @@ This is used for certain hacks.
 */
 qboolean IsRogueMap (void)
 {
-	if (Q_stricmp(level.mapname, "rammo1") == 0)
+	if (Q_strcasecmp(level.mapname, "rammo1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rammo2") == 0)
+	if (Q_strcasecmp(level.mapname, "rammo2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rbase1") == 0)
+	if (Q_strcasecmp(level.mapname, "rbase1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rbase2") == 0)
+	if (Q_strcasecmp(level.mapname, "rbase2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rboss") == 0)
+	if (Q_strcasecmp(level.mapname, "rboss") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rhangar1") == 0)
+	if (Q_strcasecmp(level.mapname, "rhangar1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rhangar2") == 0)
+	if (Q_strcasecmp(level.mapname, "rhangar2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rlava1") == 0)
+	if (Q_strcasecmp(level.mapname, "rlava1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rlava2") == 0)
+	if (Q_strcasecmp(level.mapname, "rlava2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rmine1") == 0)
+	if (Q_strcasecmp(level.mapname, "rmine1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rmine2") == 0)
+	if (Q_strcasecmp(level.mapname, "rmine2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rsewer1") == 0)
+	if (Q_strcasecmp(level.mapname, "rsewer1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rsewer2") == 0)
+	if (Q_strcasecmp(level.mapname, "rsewer2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rware1") == 0)
+	if (Q_strcasecmp(level.mapname, "rware1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rware2") == 0)
+	if (Q_strcasecmp(level.mapname, "rware2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm1") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm1") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm2") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm2") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm3") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm3") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm4") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm4") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm5") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm5") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm6") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm6") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm7") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm7") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm8") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm8") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm9") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm9") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm10") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm10") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm11") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm11") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm12") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm12") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm13") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm13") == 0)
 		return true;
-	if (Q_stricmp(level.mapname, "rdm14") == 0)
+	if (Q_strcasecmp(level.mapname, "rdm14") == 0)
 		return true;
 
 	return false;

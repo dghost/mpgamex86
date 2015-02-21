@@ -214,9 +214,9 @@ edict_t *G_FindNextCamera (edict_t *camera, edict_t *monitor)
 			if (!next->targetname)
 				continue;
 			// don't select "inactive" cameras
-			if (!Q_stricmp (next->classname,"turret_breach") && (next->spawnflags & 16))
+			if (!Q_strcasecmp (next->classname,"turret_breach") && (next->spawnflags & 16))
 				continue;
-			if (!Q_stricmp (next->targetname, monitor->target))
+			if (!Q_strcasecmp (next->targetname, monitor->target))
 				goto found_one;
 
 		}
@@ -232,9 +232,9 @@ edict_t *G_FindNextCamera (edict_t *camera, edict_t *monitor)
 			if (!next->targetname)
 				continue;
 			// don't select "inactive" cameras
-			if (!Q_stricmp (next->classname,"turret_breach") && (next->spawnflags & 16))
+			if (!Q_strcasecmp (next->classname,"turret_breach") && (next->spawnflags & 16))
 				continue;
-			if (!Q_stricmp (next->targetname, monitor->target))
+			if (!Q_strcasecmp (next->targetname, monitor->target))
 				goto found_one;
 		}
 	} else {
@@ -250,10 +250,10 @@ edict_t *G_FindNextCamera (edict_t *camera, edict_t *monitor)
 		next = g_edicts+1;
 		while(1) {
 			if(next->targetname) {
-				if(!Q_stricmp(next->targetname,monitor->target)) {
+				if(!Q_strcasecmp(next->targetname,monitor->target)) {
 					if(next->count == which) {
 						if(!next->inuse || (next->deadflag == DEAD_DEAD) ||
-							(!Q_stricmp (next->classname,"turret_breach") && (next->spawnflags & 16)) )
+							(!Q_strcasecmp (next->classname,"turret_breach") && (next->spawnflags & 16)) )
 						{
 							next = g_edicts;
 							which++;
@@ -317,9 +317,9 @@ edict_t *G_FindPrevCamera (edict_t *camera, edict_t *monitor)
 			if (!prev->targetname)
 				continue;
 			// don't select "inactive" cameras
-			if (!Q_stricmp (prev->classname,"turret_breach") && (prev->spawnflags & 16))
+			if (!Q_strcasecmp (prev->classname,"turret_breach") && (prev->spawnflags & 16))
 				continue;
-			if (!Q_stricmp (prev->targetname, monitor->target))
+			if (!Q_strcasecmp (prev->targetname, monitor->target))
 				newcamera = prev;
 		}
 		goto found_one;
@@ -338,10 +338,10 @@ edict_t *G_FindPrevCamera (edict_t *camera, edict_t *monitor)
 		prev = g_edicts+1;
 		while(1) {
 			if(prev->targetname) {
-				if(!Q_stricmp(prev->targetname,monitor->target)) {
+				if(!Q_strcasecmp(prev->targetname,monitor->target)) {
 					if(prev->count == which) {
 						if(!prev->inuse || (prev->deadflag == DEAD_DEAD) ||
-							(!Q_stricmp (prev->classname,"turret_breach") && (prev->spawnflags & 16)))
+							(!Q_strcasecmp (prev->classname,"turret_breach") && (prev->spawnflags & 16)))
 						{
 							prev = g_edicts;
 							which--;

@@ -100,7 +100,7 @@ qboolean gekk_check_jump_hazard (edict_t *self, qboolean watertoland, qboolean f
 				continue;
 			if(!grenade->classname)
 				continue;
-			if(!Q_stricmp(grenade->classname,"grenade") || !Q_stricmp(grenade->classname,"hgrenade"))
+			if(!Q_strcasecmp(grenade->classname,"grenade") || !Q_strcasecmp(grenade->classname,"hgrenade"))
 			{
 				VectorSubtract(grenade->s.origin, oldorg, dir);
 				g1 = VectorLength(dir);

@@ -65,7 +65,7 @@ edict_t *find_targetname(char *targetname)
       if(!g_edicts[i].targetname)
          continue;
 
-      if(Q_stricmp(g_edicts[i].targetname, targetname) == 0)
+      if(Q_strcasecmp(g_edicts[i].targetname, targetname) == 0)
          return g_edicts + i;
    }
 
@@ -593,7 +593,7 @@ qboolean anim_player_capture(char *targetname)
    //make sure we don't already have this one
    for(i=0;i<animations_count;i++)
    {
-      if(Q_stricmp(animations[i]->monster->targetname, targetname) == 0)
+      if(Q_strcasecmp(animations[i]->monster->targetname, targetname) == 0)
       {
          gi.dprintf("Target <%s> already captured\n", targetname);
          return false;
@@ -637,8 +637,8 @@ void anim_player_set_active(char *targetname, qboolean active)
    {
       anim = animations[i];
 
-      if((Q_stricmp(anim->monster->targetname, targetname) == 0) ||
-         (Q_stricmp("all", targetname) == 0))
+      if((Q_strcasecmp(anim->monster->targetname, targetname) == 0) ||
+         (Q_strcasecmp("all", targetname) == 0))
          anim->active = active;
    }
 }
@@ -659,39 +659,39 @@ void anim_player_cmd(edict_t *ent)
    cut_up_string(&args, &arg2);
 
    // string switch
-   if(Q_stricmp (arg1, "capture") == 0)
+   if(Q_strcasecmp (arg1, "capture") == 0)
       anim_player_capture(arg2);
-   else if(Q_stricmp (arg1, "activate") == 0)
+   else if(Q_strcasecmp (arg1, "activate") == 0)
       anim_player_set_active(arg2, true);
-   else if(Q_stricmp (arg1, "deactivate") == 0)
+   else if(Q_strcasecmp (arg1, "deactivate") == 0)
       anim_player_set_active(arg2, false);
-   else if(Q_stricmp (arg1, "pause") == 0)
+   else if(Q_strcasecmp (arg1, "pause") == 0)
       anim_player_pause();
-   else if(Q_stricmp (arg1, "still") == 0)
+   else if(Q_strcasecmp (arg1, "still") == 0)
       anim_player_still();
-   else if(Q_stricmp (arg1, "events") == 0)
+   else if(Q_strcasecmp (arg1, "events") == 0)
       anim_player_events();
-   else if(Q_stricmp (arg1, "s_next") == 0)
+   else if(Q_strcasecmp (arg1, "s_next") == 0)
       anim_player_advance_sequence(1);
-   else if(Q_stricmp (arg1, "s_prior") == 0)
+   else if(Q_strcasecmp (arg1, "s_prior") == 0)
       anim_player_advance_sequence(-1);
-   else if(Q_stricmp (arg1, "s_reset") == 0)
+   else if(Q_strcasecmp (arg1, "s_reset") == 0)
       anim_player_advance_sequence(0);
-   else if(Q_stricmp (arg1, "f_next") == 0)
+   else if(Q_strcasecmp (arg1, "f_next") == 0)
       anim_player_advance_frame(1);
-   else if(Q_stricmp (arg1, "f_prior") == 0)
+   else if(Q_strcasecmp (arg1, "f_prior") == 0)
       anim_player_advance_frame(-1);
-   else if(Q_stricmp (arg1, "face_client") == 0)
+   else if(Q_strcasecmp (arg1, "face_client") == 0)
       anim_player_set_facing(DIR_AT_CLIENT);
-   else if(Q_stricmp (arg1, "face_para") == 0)
+   else if(Q_strcasecmp (arg1, "face_para") == 0)
       anim_player_set_facing(DIR_PARA_CLIENT);
-   else if(Q_stricmp (arg1, "face_fixed") == 0)
+   else if(Q_strcasecmp (arg1, "face_fixed") == 0)
       anim_player_set_facing(DIR_FIXED);
-   else if(Q_stricmp (arg1, "aim_client") == 0)
+   else if(Q_strcasecmp (arg1, "aim_client") == 0)
       anim_player_set_aim(DIR_AT_CLIENT);
-   else if(Q_stricmp (arg1, "aim_para") == 0)
+   else if(Q_strcasecmp (arg1, "aim_para") == 0)
       anim_player_set_aim(DIR_PARA_CLIENT);
-   else if(Q_stricmp (arg1, "aim_fixed") == 0)
+   else if(Q_strcasecmp (arg1, "aim_fixed") == 0)
       anim_player_set_aim(DIR_FIXED);
    else
       gi.dprintf("unknown anim command <%s>\n", arg1);

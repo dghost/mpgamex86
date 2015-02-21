@@ -1326,9 +1326,9 @@ void SP_turret_breach (edict_t *self)
 	self->class_id = ENTITY_TURRET_BREACH;
 
 	//Knightmare- no goodguy flag on level02 of Zorius
-	if (/*Q_stricmp(level.mapname, "level02") == 0
-		||*/ Q_stricmp(level.mapname, "cm3pt1") == 0
-		|| Q_stricmp(level.mapname, "cm3pt3") == 0)
+	if (/*Q_strcasecmp(level.mapname, "level02") == 0
+		||*/ Q_strcasecmp(level.mapname, "cm3pt1") == 0
+		|| Q_strcasecmp(level.mapname, "cm3pt3") == 0)
 	{
 		gi.dprintf("Removing goodguy flag from turret\n");
 		self->spawnflags &= ~SF_TURRET_GOODGUY;

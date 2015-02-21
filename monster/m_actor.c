@@ -681,7 +681,7 @@ void actor_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage
 
 	if(self->monsterinfo.aiflags & AI_CHASE_THING)
 	{
-		if(self->movetarget && !Q_stricmp(self->movetarget->classname,"thing"))
+		if(self->movetarget && !Q_strcasecmp(self->movetarget->classname,"thing"))
 		{
 			G_FreeEdict(self->movetarget);
 			self->movetarget = NULL;
@@ -814,7 +814,7 @@ void actor_seekcover (edict_t *self)
 	}
 	// This shouldn't happen, we're just being cautious. Quit now if
 	// already chasing a "thing"
-	if (self->movetarget && !Q_stricmp(self->movetarget->classname,"thing"))
+	if (self->movetarget && !Q_strcasecmp(self->movetarget->classname,"thing"))
 	{
 		actor_run(self);
 		return;
@@ -1387,9 +1387,9 @@ void SP_misc_actor (edict_t *self)
 		self->usermodel = G_Malloc(5);
 		strcpy(self->usermodel,"male");
 	}
-	if( (!Q_stricmp(self->usermodel,"male")) ||
-		(!Q_stricmp(self->usermodel,"female")) ||
-		(!Q_stricmp(self->usermodel,"cyborg")) )
+	if( (!Q_strcasecmp(self->usermodel,"male")) ||
+		(!Q_strcasecmp(self->usermodel,"female")) ||
+		(!Q_strcasecmp(self->usermodel,"cyborg")) )
 	{
 		self->actor_id_model = true;
 		if(PatchPlayerModels(self->usermodel))
@@ -1403,7 +1403,7 @@ void SP_misc_actor (edict_t *self)
 
 	for(i=0; i<NUM_ACTORPAK_ACTORS && !ActorID; i++)
 	{
-		if(!Q_stricmp(self->usermodel,ActorNames[i]))
+		if(!Q_strcasecmp(self->usermodel,ActorNames[i]))
 			ActorID = i+1;
 	}
 
@@ -1730,7 +1730,7 @@ void target_actor_touch (edict_t *self, edict_t *other, cplane_t *plane, csurfac
 		// NOTE: The jump animation won't work UNLESS this target_actor has a target. If this
 		// is the last target_actor in a sequence, the actor's run takes over and prevents
 		// the jump.
-//		if (!Q_stricmp(other->classname,"misc_actor"))
+//		if (!Q_strcasecmp(other->classname,"misc_actor"))
 //			other->monsterinfo.currentmove = &actor_move_jump;
 	}
 
@@ -1921,7 +1921,7 @@ qboolean InPak(char *basedir, char *gamedir, char *filename)
 					for(kk=0; kk<numitems && !found; kk++)
 					{
 						fread(&pakitem,1,sizeof(pak_item_t),f);
-						if(!Q_stricmp(pakitem.name,filename))
+						if(!Q_strcasecmp(pakitem.name,filename))
 							found = true;
 					}
 				}
@@ -1976,7 +1976,7 @@ void actor_files ()
 			for(j=0; j<num_actors && (s_match == 0 || w_match[0] == 0 || w_match[1] == 0); j++)
 			{
 				e0 = &g_edicts[actors[j].index];
-				if(!Q_stricmp(e->usermodel,e0->usermodel))
+				if(!Q_strcasecmp(e->usermodel,e0->usermodel))
 				{
 					s_match = j+1;
 					if(e->actor_weapon[0] == e0->actor_weapon[0])
@@ -2015,7 +2015,7 @@ void actor_files ()
 			actors[num_actors].index  = i;
 			num_actors++;
 			
-			if(!Q_stricmp(e->usermodel,"male") || !Q_stricmp(e->usermodel,"female"))
+			if(!Q_strcasecmp(e->usermodel,"male") || !Q_strcasecmp(e->usermodel,"female"))
 			{
 				sprintf(path, "player/%s/",e->usermodel);
 			}
@@ -2286,7 +2286,7 @@ void actor_moveit (edict_t *player, edict_t *actor)
 		return;
 	travel = 256 + 128*crandom();
 	thing  = actor->vehicle;
-	if(!thing || !thing->inuse || Q_stricmp(thing->classname,"thing"))
+	if(!thing || !thing->inuse || Q_strcasecmp(thing->classname,"thing"))
 		thing = actor->vehicle = SpawnThing();
 	VectorSubtract(actor->s.origin,player->s.origin,dir);
 	dir[2] = 0;

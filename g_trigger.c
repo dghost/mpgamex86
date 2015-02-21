@@ -1128,7 +1128,7 @@ void trigger_inside_think (edict_t *self)
 		hit = touch[i];
 		if (!hit->inuse) continue;
 		if (!hit->targetname) continue;
-		if (Q_stricmp(self->pathtarget, hit->targetname)) continue;
+		if (Q_strcasecmp(self->pathtarget, hit->targetname)) continue;
 		// must be COMPLETELY inside
 		if (hit->absmin[0] < self->absmin[0]) continue;
 		if (hit->absmin[1] < self->absmin[1]) continue;
@@ -1610,11 +1610,11 @@ void WriteTransitionEdict (FILE *f, edict_t *changelevel, edict_t *ent)
 	void		*p;
 
 	memcpy(&e,ent,sizeof(edict_t));
-	if (!Q_stricmp(e.classname,"target_laser") ||
-		!Q_stricmp(e.classname,"target_blaster")  )
+	if (!Q_strcasecmp(e.classname,"target_laser") ||
+		!Q_strcasecmp(e.classname,"target_blaster")  )
 		vectoangles(e.movedir,e.s.angles);
 
-	if (!Q_stricmp(e.classname,"target_speaker"))
+	if (!Q_strcasecmp(e.classname,"target_speaker"))
 		e.spawnflags |= 8;  // indicates that "message" contains noise
 
 	if(changelevel->s.angles[YAW])
@@ -1690,7 +1690,7 @@ void WriteTransitionEdict (FILE *f, edict_t *changelevel, edict_t *ent)
 			e.monsterinfo.aiflags = AI_RESPAWN_FINDPLAYER;
 	}
 	if(e.classname &&
-	   ( !Q_stricmp(e.classname,"misc_actor") || strstr(e.classname,"monster_") ) &&
+	   ( !Q_strcasecmp(e.classname,"misc_actor") || strstr(e.classname,"monster_") ) &&
 	   //Knightmare- changed this from a gib_health check, to take into account no_gib monsters
 	   (e.svflags & SVF_GIB) )
 		e.classname = "gibhead";
@@ -1788,7 +1788,7 @@ int trigger_transition_ents (edict_t *changelevel, edict_t *self)
 		if(ent->s.origin[0] < self->mins[0]) continue;
 		if(ent->s.origin[1] < self->mins[1]) continue;
 		if(ent->s.origin[2] < self->mins[2]) continue;
-		if(!Q_stricmp(ent->classname,"func_tracktrain") && !(ent->spawnflags & 8) && ent->targetname)
+		if(!Q_strcasecmp(ent->classname,"func_tracktrain") && !(ent->spawnflags & 8) && ent->targetname)
 		{
 			edict_t	*e;
 
@@ -1847,7 +1847,7 @@ int trigger_transition_ents (edict_t *changelevel, edict_t *self)
 		if((ent->solid == SOLID_TRIGGER) && !FindItemByClassname(ent->classname)) continue;
 		// Do not under any circumstances move these entities:
 		for(p=DoNotMove, nogo=false; p->name && !nogo; p++)
-			if(!Q_stricmp(ent->classname,p->name))
+			if(!Q_strcasecmp(ent->classname,p->name))
 				nogo = true;
 		if(nogo) continue;
 		if(!HasSpawnFunction(ent)) continue;
@@ -1873,7 +1873,7 @@ int trigger_transition_ents (edict_t *changelevel, edict_t *self)
 		if((ent->solid == SOLID_TRIGGER) && !FindItemByClassname(ent->classname)) continue;
 		// Do not under any circumstances move these entities:
 		for(p=DoNotMove, nogo=false; p->name && !nogo; p++)
-			if(!Q_stricmp(ent->classname,p->name))
+			if(!Q_strcasecmp(ent->classname,p->name))
 				nogo = true;
 		if(nogo) continue;
 		if(!HasSpawnFunction(ent)) continue;

@@ -788,7 +788,7 @@ qboolean FindTarget (edict_t *self)
 		return true;	// JDC false;
 
 	// Lazarus: Force idle medics to look for dead monsters
-	if (!self->enemy && !Q_stricmp(self->classname,"monster_medic"))
+	if (!self->enemy && !Q_strcasecmp(self->classname,"monster_medic"))
 	{
 		if(medic_FindDeadMonster(self))
 			return true;
@@ -1960,7 +1960,7 @@ qboolean ai_chicken (edict_t *self, edict_t *badguy)
 	// If we've already been here, quit
 	if(self->monsterinfo.aiflags & AI_CHICKEN)
 	{
-		if(self->movetarget && !Q_stricmp(self->movetarget->classname,"thing"))
+		if(self->movetarget && !Q_strcasecmp(self->movetarget->classname,"thing"))
 			return true;
 	}
 
