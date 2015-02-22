@@ -1184,34 +1184,34 @@ void T_Damage (edict_t *in_targ, edict_t *inflictor, edict_t *in_attacker, vec3_
 			//          damage type
 			if(targ->classname && !Q_strcasecmp(targ->classname,"func_explosive"))
 			{
-				qboolean good_damage = true;
-
 				if(targ->spawnflags & 16)  // explosion only
 				{
-					good_damage = false;
-					if(mod == MOD_GRENADE)     good_damage = true;
-					if(mod == MOD_G_SPLASH)    good_damage = true;
-					if(mod == MOD_ROCKET)      good_damage = true;
-					if(mod == MOD_R_SPLASH)    good_damage = true;
-					if(mod == MOD_BFG_BLAST)   good_damage = true;
-					if(mod == MOD_HANDGRENADE) good_damage = true;
-					if(mod == MOD_HG_SPLASH)   good_damage = true;
-					if(mod == MOD_EXPLOSIVE)   good_damage = true;
-					if(mod == MOD_BARREL)      good_damage = true;
-					if(mod == MOD_BOMB)        good_damage = true;
-					//Knightmare added
-					if(mod == MOD_PHALANX)     good_damage = true;
-					if(mod == MOD_PHALANX_SPLASH) good_damage = true;
-					if(mod == MOD_TRACKER)	   good_damage = true;
-					if(mod == MOD_PROX)        good_damage = true;
-					if(mod == MOD_PROX_SPLASH) good_damage = true;
-					if(mod == MOD_NUKE)        good_damage = true;
-					if(mod == MOD_NBOMB)       good_damage = true;
-					if(mod == MOD_DOPPLE_EXPLODE) good_damage = true;
-					if(mod == MOD_SHOCK_SPLASH) good_damage = true;
-					if(mod == MOD_ETF_SPLASH)  good_damage = true;
+                    switch(mod) {
+                        case MOD_GRENADE:
+                        case MOD_G_SPLASH:
+                        case MOD_ROCKET:
+                        case MOD_R_SPLASH:
+                        case MOD_BFG_BLAST:
+                        case MOD_HANDGRENADE:
+                        case MOD_HG_SPLASH:
+                        case MOD_EXPLOSIVE:
+                        case MOD_BARREL:
+                        case MOD_BOMB:
+                        case MOD_PHALANX:
+                        case MOD_PHALANX_SPLASH:
+                        case MOD_TRACKER:
+                        case MOD_PROX:
+                        case MOD_PROX_SPLASH:
+                        case MOD_NUKE:
+                        case MOD_NBOMB:
+                        case MOD_DOPPLE_EXPLODE:
+                        case MOD_SHOCK_SPLASH:
+                        case MOD_ETF_SPLASH:
+                            break;
+                        default:
+                            return;
+                    }
 				}
-				if(!good_damage) return;
 			}
 			targ->health = targ->health - take;
 		}
