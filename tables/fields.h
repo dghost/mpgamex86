@@ -17,7 +17,6 @@
     {"length", FOFS(length), F_FLOAT},
     {"side", FOFS(side), F_FLOAT},
 
-    {"move_origin", FOFS(move_origin), F_VECTOR}, //relative angular velocity
     {"org_angles", FOFS(org_angles), F_VECTOR},
     {"deploy_angles", FOFS(deploy_angles), F_VECTOR},
     {"aim_point", FOFS(aim_point), F_VECTOR},
@@ -161,10 +160,6 @@
     {"chasedist1", FOFS(chasedist1), F_INT},
     {"chasedist2", FOFS(chasedist2), F_INT},
 
-    //Mappack - end of new fields.
-    //Knightmare- for Lazarus compatibility
-    {"key_message", FOFS(key_message), F_LSTRING},
-
     // Lazarus additions
     {"actor_current_weapon", FOFS(actor_current_weapon), F_INT},
     {"alpha", FOFS(alpha), F_FLOAT},
@@ -287,15 +282,7 @@
     {"sidestep", FOFS(monsterinfo.sidestep), F_FUNCTION, FFL_NOSPAWN},
     // ROGUE
 
-    {"postthink", FOFS(postthink), F_FUNCTION, FFL_NOSPAWN}, // Knightmare added
-    {"salpha", FOFS(s.alpha), F_FLOAT}, // Knightmare- hack for setting alpha
     {"show_hostile", FOFS(show_hostile), F_INT}, // Knightmare added
     {"powerarmor_time", FOFS(powerarmor_time), F_FLOAT}, // Knightmare added
-    {"skinnum", FOFS(s.skinnum), F_INT},
     {"crosshair", FOFS(crosshair), F_EDICT},
-    {"from", FOFS(from), F_EDICT},
-    {"to", FOFS(to), F_EDICT},
-    {"flash", FOFS(flash), F_EDICT},
-    // FIXME: how to save 6-part reflection field?
-
     {0, 0, 0, 0}
