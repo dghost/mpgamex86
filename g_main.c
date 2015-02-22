@@ -12,6 +12,7 @@ int	snd_fry;
 int meansOfDeath;
 
 edict_t		*g_edicts;
+gclient_t   *g_clients;
 
 cvar_t	*deathmatch;
 cvar_t	*coop;
