@@ -45,10 +45,6 @@ extern mmove_t fixbot_move_turn;
 extern void roam_goal (edict_t *self);
 void ED_CallSpawn (edict_t *ent);
 
-float crand(void)
-{
-	return (rand()&32767)*(2.0/32767)-1;	
-};
 
 edict_t *fixbot_FindDeadMonster (edict_t *self)
 {
