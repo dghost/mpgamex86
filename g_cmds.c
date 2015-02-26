@@ -1581,13 +1581,13 @@ void ClientCommand (edict_t *ent)
 		Cmd_Wave_f (ent);
 	else if (Q_strcasecmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
-	// ==================== fog stuff =========================
-//	else if (developer->value && !Q_strcasecmp(cmd,"fog"))
-	else if (Q_strcasecmp(cmd,"fog") == 0)
-		Cmd_Fog_f(ent);
-//	else if (developer->value && !Q_strncasecmp(cmd, "fog_", 4))
-//		Cmd_Fog_f(ent);
-	// ================ end fog stuff =========================
+    // ==================== fog stuff =========================
+    else if (developer->value && !Q_strcasecmp(cmd,"fog"))
+        Cmd_Fog_f(ent);
+    else if (developer->value && !Q_strncasecmp(cmd, "fog_", 4))
+        Cmd_Fog_f(ent);
+    // ================ end fog stuff =========================
+
 
 //CHASECAM
 	else if (Q_strcasecmp (cmd, "thirdperson") == 0)

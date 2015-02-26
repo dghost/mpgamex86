@@ -144,7 +144,7 @@ set(GAME_HEADERS
 	z_sentien.h
 )
 
-add_definitions(-DDISABLE_FOG)
+#add_definitions(-DDISABLE_FOG)
 add_library(mpgamex86 MODULE ${GAME_SOURCES} ${GAME_HEADERS})
 set_target_properties(mpgamex86 PROPERTIES PREFIX "")
 target_compile_options(mpgamex86 PRIVATE -fvisibility=hidden)

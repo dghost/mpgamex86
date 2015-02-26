@@ -23,7 +23,7 @@
 #define	svc_layout			4
 #define	svc_inventory		5
 #define	svc_stufftext		11
-
+#define	svc_fog				21
 
 #ifndef _MAX_PATH
 #define _MAX_PATH 2048
