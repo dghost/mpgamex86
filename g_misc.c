@@ -208,7 +208,6 @@ void ThrowGib (edict_t *self, char *gibname, int damage, int type)
 	vec3_t	origin;
 	vec3_t	size;
 	float	vscale;
-	char	modelname[256];
 	char	*p;
 
 	// Lazarus: Prevent gib showers (generally due to firing BFG in a crowd) from
@@ -229,8 +228,7 @@ void ThrowGib (edict_t *self, char *gibname, int damage, int type)
 	strcpy(gib->classname,"gib");
 
 	// Lazarus: mapper-definable gib class
-	strcpy(modelname,gibname);
-	p = strstr(modelname,"models/objects/gibs/");
+	p = strstr(gibname,"models/objects/gibs/");
 	if(p && self->gib_type)
 	{
 		p += 18;
@@ -239,8 +237,8 @@ void ThrowGib (edict_t *self, char *gibname, int damage, int type)
 
 	// Knightmare- this causes a crash when saving game
 	// Save gibname and type for level transition gibs
-	//gib->key_message = gi.TagMalloc (strlen(modelname)+1,TAG_LEVEL);
-	//strcpy(gib->key_message, modelname);
+	//gib->key_message = gi.TagMalloc (strlen(gibname)+1,TAG_LEVEL);
+	//strcpy(gib->key_message, gibname);
 	gib->style = type;
 
 	VectorScale (self->size, 0.5, size);
@@ -351,7 +349,6 @@ void ThrowHead (edict_t *self, char *gibname, int damage, int type)
 {
 	vec3_t	vd;
 	float	vscale;
-	char	modelname[256];
 	char	*p;
 
 	if (self->movewith) //Knightmare- remove stuff for movewith monsters
@@ -367,8 +364,7 @@ void ThrowHead (edict_t *self, char *gibname, int damage, int type)
 	VectorClear (self->mins);
 	VectorClear (self->maxs);
 
-	strcpy(modelname,gibname);
-	p = strstr(modelname,"models/objects/gibs/");
+	p = strstr(gibname,"models/objects/gibs/");
 	if(p && self->gib_type)
 	{
 		p += 18;
@@ -377,8 +373,8 @@ void ThrowHead (edict_t *self, char *gibname, int damage, int type)
 
 	// Knightmare- this causes a crash when saving game
 	// Save gibname and type for level transition gibs
-//	self->key_message = gi.TagMalloc (strlen(modelname)+1,TAG_LEVEL);
-//	strcpy(self->key_message, modelname);
+//	self->key_message = gi.TagMalloc (strlen(gibname)+1,TAG_LEVEL);
+//	strcpy(self->key_message, gibname);
 	self->style = type;
 
 	self->s.modelindex2 = 0;
