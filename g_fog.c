@@ -71,8 +71,6 @@ fog_t		*pfog[MAX_CLIENTS];
 
 qboolean	InTriggerFog[MAX_CLIENTS];
 
-int GLModels[3] = {GL_LINEAR, GL_EXP, GL_EXP2};
-
 #define FOG_ON       1
 #define FOG_TOGGLE   2
 #define FOG_TURNOFF  4
@@ -116,8 +114,6 @@ void Fog_Off (edict_t *player_ent)
  OLD FOG SYSTEM
  =================================================
  */
-#include "../client/renderer/include/qgl.h"
-
 
 fog_t		gfogs[MAX_FOGS];
 
@@ -129,8 +125,6 @@ fog_t		*pfog;
 qboolean	InTriggerFog;
 float		last_software_frame;
 float		last_opengl_frame;
-
-int GLModels[3] = {GL_LINEAR, GL_EXP, GL_EXP2};
 
 #define FOG_ON       1
 #define FOG_TOGGLE   2
@@ -317,10 +311,6 @@ void Cmd_Fog_f(edict_t *ent)
             level.active_fog = level.active_target_fog = 1;
             //fog->Model = max(0,min(2,atoi(parm)));
             fog->Model = max(0,min(3,atoi(parm)));
-            if(fog->Model == 3)
-                fog->GL_Model = GLModels[2];
-            else
-                fog->GL_Model = GLModels[fog->Model];
             Fog_ConsoleFog();
         }
     }
@@ -359,18 +349,11 @@ void Cmd_Fog_f(edict_t *ent)
 void GLFog()
 {
     edict_t	*player_ent = &g_edicts[1];
-    int fog_model, fog_density, fog_near, fog_far;
+    int fog_density, fog_near, fog_far;
     int fog_red, fog_green, fog_blue;
     
     if (!player_ent->client)
         return;
-    
-    if (pfog->GL_Model == GL_EXP)
-        fog_model = 1;
-    else if (pfog->GL_Model == GL_EXP2)
-        fog_model = 2;
-    else // GL_LINEAR
-        fog_model = 0;
     
     fog_density = (int)(pfog->Density);
     fog_near = (int)(pfog->Near);
@@ -381,7 +364,7 @@ void GLFog()
     
     gi.WriteByte (svc_fog);			// svc_fog = 21
     gi.WriteByte (1);				// enable message
-    gi.WriteByte (fog_model);	// model 0, 1, or 2
+    gi.WriteByte (pfog->Model);	// model 0, 1, or 2
     gi.WriteByte (fog_density);	// density 1-100
     gi.WriteShort (fog_near);		// near >0, <fog_far
     gi.WriteShort (fog_far);		// far >fog_near-64, < 5000
@@ -421,7 +404,6 @@ void trig_fog_fade (edict_t *self)
         trig_fade_fog.Color[0] += (gfogs[index].Color[0] - trig_fade_fog.Color[0])/frames;
         trig_fade_fog.Color[1] += (gfogs[index].Color[1] - trig_fade_fog.Color[1])/frames;
         trig_fade_fog.Color[2] += (gfogs[index].Color[2] - trig_fade_fog.Color[2])/frames;
-        trig_fade_fog.GL_Model = GLModels[trig_fade_fog.Model];
         self->nextthink = level.time + FRAMETIME;
         gi.linkentity(self);
     }
@@ -583,7 +565,6 @@ void Fog_Init()
     
     gfogs[0].Color[0] = gfogs[0].Color[1] = gfogs[0].Color[2] = 0.5;
     gfogs[0].Model    = 1;
-    gfogs[0].GL_Model = GLModels[1];
     gfogs[0].Density  = 20.;
     gfogs[0].Trigger  = false;
 }
@@ -612,7 +593,6 @@ void fog_fade (edict_t *self)
         fade_fog.Color[0] += (gfogs[index].Color[0] - fade_fog.Color[0])/frames;
         fade_fog.Color[1] += (gfogs[index].Color[1] - fade_fog.Color[1])/frames;
         fade_fog.Color[2] += (gfogs[index].Color[2] - fade_fog.Color[2])/frames;
-        fade_fog.GL_Model = GLModels[fade_fog.Model];
         self->nextthink = level.time + FRAMETIME;
         if(!InTriggerFog)
             memcpy(&level.fog,&fade_fog,sizeof(fog_t));
@@ -772,7 +752,6 @@ void SP_target_fog (edict_t *self)
     fog->Trigger = false;
     fog->Model   = self->fog_model;
     if(fog->Model < 0 || fog->Model > 2) fog->Model = 0;
-    fog->GL_Model = GLModels[fog->Model];
     VectorCopy(self->fog_color,fog->Color);
     if(self->spawnflags & FOG_TURNOFF)
     {
@@ -873,7 +852,6 @@ void SP_trigger_fog (edict_t *self)
     fog->Trigger = true;
     fog->Model   = self->fog_model;
     if(fog->Model < 0 || fog->Model > 2) fog->Model = 0;
-    fog->GL_Model = GLModels[fog->Model];
     VectorCopy(self->fog_color,fog->Color);
     if(self->spawnflags & FOG_TURNOFF)
     {
@@ -961,7 +939,6 @@ void SP_trigger_fog_bbox (edict_t *self)
     fog->Trigger = true;
     fog->Model   = self->fog_model;
     if(fog->Model < 0 || fog->Model > 2) fog->Model = 0;
-    fog->GL_Model = GLModels[fog->Model];
     VectorCopy(self->fog_color,fog->Color);
     if(self->spawnflags & FOG_TURNOFF)
     {
