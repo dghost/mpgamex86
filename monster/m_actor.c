@@ -1873,7 +1873,7 @@ void SP_target_actor (edict_t *self)
 }
 
 
-qboolean InPak(char *basedir, char *gamedir, char *filename)
+qboolean InPak(const char *basedir, const char *gamedir, const char *filename)
 {
 	char			pakfile[256];
 	int				k, kk;

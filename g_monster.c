@@ -793,7 +793,7 @@ void M_SetEffects (edict_t *ent)
 	gi.dprintf ("\n");
 */
 }
-char	*G_CopyString (char *in);
+char	*G_CopyString (const char *in);
 void	stuffcmd(edict_t *ent,char *command);
 float	*tv (float x, float y, float z);
 char	*vtos (vec3_t v);

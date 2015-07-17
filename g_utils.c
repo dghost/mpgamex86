@@ -580,7 +580,7 @@ void vectoangles2 (vec3_t value1, vec3_t angles)
 	angles[ROLL] = 0;
 }
 
-char *G_CopyString (char *in)
+char *G_CopyString (const char *in)
 {
 	char	*out;
 	
