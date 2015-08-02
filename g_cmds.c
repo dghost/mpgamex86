@@ -888,19 +888,13 @@ void Cmd_PutAway_f (edict_t *ent)
 int PlayerSort (void const *a, void const *b)
 {
 	int		anum, bnum;
-
 	anum = *(int *)a;
 	bnum = *(int *)b;
-
-	anum = game.clients[anum].ps.stats[STAT_FRAGS];
-	bnum = game.clients[bnum].ps.stats[STAT_FRAGS];
-
-	if (anum < bnum)
-		return -1;
-	if (anum > bnum)
-		return 1;
-	return 0;
-}
+    
+    anum = game.clients[anum].ps.stats[STAT_FRAGS];
+    bnum = game.clients[bnum].ps.stats[STAT_FRAGS];
+    
+    return anum - bnum;}
 
 /*
 =================

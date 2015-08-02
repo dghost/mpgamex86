@@ -199,7 +199,7 @@ void Tag_DropToken (edict_t *ent, gitem_t *item)
 {
 	trace_t	trace;
 	vec3_t	forward, right;
-	vec3_t	offset;
+    vec3_t	offset = {24, 0, -16};
 
 //	if(ent->client)
 //		gi.dprintf("%s dropped the tag token\n", ent->client->pers.netname);
@@ -226,8 +226,8 @@ void Tag_DropToken (edict_t *ent, gitem_t *item)
 	tag_token->owner = ent;
 
 	AngleVectors (ent->client->v_angle, forward, right, NULL);
-	VectorSet(offset, 24, 0, -16);
-	G_ProjectSource (ent->s.origin, offset, forward, right, tag_token->s.origin);
+
+    G_ProjectSource (ent->s.origin, offset, forward, right, tag_token->s.origin);
 	trace = gi.trace (ent->s.origin, tag_token->mins, tag_token->maxs,
 		tag_token->s.origin, ent, CONTENTS_SOLID);
 	VectorCopy (trace.endpos, tag_token->s.origin);

@@ -1585,7 +1585,6 @@ edict_t *Drop_Item (edict_t *ent, gitem_t *item)
 {
 	edict_t	*dropped;
 	vec3_t	forward, right;
-	vec3_t	offset;
 
 	dropped = G_Spawn();
 
@@ -1611,9 +1610,9 @@ edict_t *Drop_Item (edict_t *ent, gitem_t *item)
 	if (ent->client)
 	{
 		trace_t	trace;
+        vec3_t	offset = {24, 0, -16};
 
 		AngleVectors (ent->client->v_angle, forward, right, NULL);
-		VectorSet(offset, 24, 0, -16);
 		G_ProjectSource (ent->s.origin, offset, forward, right, dropped->s.origin);
 		trace = gi.trace (ent->s.origin, dropped->mins, dropped->maxs,
 			dropped->s.origin, ent, CONTENTS_SOLID);
