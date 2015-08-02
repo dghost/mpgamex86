@@ -1907,7 +1907,6 @@
 {"floater_fire_blaster", (byte *)floater_fire_blaster},
 {"Nbomb_Explode", (byte *)Nbomb_Explode},
 {"Own_Sphere", (byte *)Own_Sphere},
-{"fade_child", (byte *)fade_child},
 {"SP_trigger_switch", (byte *)SP_trigger_switch},
 {"SP_trigger_teleporter", (byte *)SP_trigger_teleporter},
 {"SP_crane_control", (byte *)SP_crane_control},
@@ -2305,4 +2304,7 @@
 {"infantry_smack", (byte *)infantry_smack},
 {"WidowDouble", (byte *)WidowDouble},
 {"gladiator_blocked", (byte *)gladiator_blocked},
+#ifdef KMQUAKE2_ENGINE_MOD
+{"fade_child", (byte *)fade_child},
+#endif
 {0, 0}

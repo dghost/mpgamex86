@@ -277,7 +277,8 @@ void Do_Text_Display (edict_t *activator, int flags, char *message)
 		FILE			*f;
 		pak_header_t	pakheader;
 		pak_item_t		pakitem;
-		
+        int i;
+        
 		basedir = gi.cvar("basedir", "", 0);
 		gamedir = gi.cvar("gamedir", "", 0);
 		strcpy(filename,basedir->string);
