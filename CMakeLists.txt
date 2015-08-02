@@ -1,6 +1,7 @@
 set(GAME_SOURCES
 	../qcommon/shared/m_flash.c
 	../qcommon/shared/q_shared.c
+	../qcommon/murmur3/murmur3.c
 	dm_ball.c
 	dm_tag.c
 	g_ai.c
