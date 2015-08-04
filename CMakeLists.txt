@@ -145,7 +145,15 @@ set(GAME_HEADERS
 	z_sentien.h
 )
 
+# check 64 bit
+# this will break on non-x86 processors
+if( CMAKE_SIZEOF_VOID_P EQUAL 4 )
+	set( ARCH "x86" )
+else()
+	set(  ARCH "x64" )
+endif()
+
 #add_definitions(-DDISABLE_FOG)
-add_library(mpgamex86 MODULE ${GAME_SOURCES} ${GAME_HEADERS})
-set_target_properties(mpgamex86 PROPERTIES PREFIX "")
-target_compile_options(mpgamex86 PRIVATE -fvisibility=hidden)
+add_library(game_mp MODULE ${GAME_SOURCES} ${GAME_HEADERS})
+set_target_properties(game_mp PROPERTIES PREFIX "" OUTPUT_NAME "mpgame${ARCH}")
+target_compile_options(game_mp PRIVATE -fvisibility=hidden)
