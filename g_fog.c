@@ -92,7 +92,7 @@ void fog_fade (edict_t *self);
 
 void Fog_Off (edict_t *player_ent)
 {
-    if (!player_ent->client || player_ent->is_bot)
+    if (!g_edicts || !player_ent->client || player_ent->is_bot)
         return;
     
     gi.WriteByte (svc_fog); // svc_fog = 21
@@ -143,7 +143,7 @@ void Fog_Off()
         return;
     
     
-    if (!player_ent->client)
+    if (!g_edicts || !player_ent->client)
         return;
     
     gi.WriteByte (svc_fog); // svc_fog = 21
