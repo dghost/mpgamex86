@@ -981,7 +981,7 @@ qboolean LoadAliasFile (char *name)
 		basedir = gi.cvar("basedir", "", 0);
 		gamedir = gi.cvar("gamedir", "", 0);
 		strcpy(filename,basedir->string);
-		sprintf(textname, name);
+		strcpy(textname, name);
 
 		if(strlen(gamedir->string))
 			strcpy(filename,gamedir->string);
