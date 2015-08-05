@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\qcommon\murmur3\murmur3.c" />
     <ClCompile Include="..\qcommon\shared\m_flash.c" />
     <ClCompile Include="..\qcommon\shared\q_shared.c" />
     <ClCompile Include="dm_ball.c" />
@@ -227,6 +228,7 @@
     <ClCompile Include="z_sentien.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\qcommon\murmur3\murmur3.h" />
     <ClInclude Include="..\qcommon\shared\q_shared.h" />
     <ClInclude Include="fmod.h" />
     <ClInclude Include="g_local.h" />
