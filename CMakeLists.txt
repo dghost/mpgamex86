@@ -156,4 +156,6 @@ endif()
 #add_definitions(-DDISABLE_FOG)
 add_library(game_mp MODULE ${GAME_SOURCES} ${GAME_HEADERS})
 set_target_properties(game_mp PROPERTIES PREFIX "" OUTPUT_NAME "mpgame${ARCH}")
+set_target_properties(game_mp PROPERTIES XCODE_ATTRIBUTE_OTHER_CFLAGS[variant=Debug] "-D_DEBUG" )
+
 target_compile_options(game_mp PRIVATE -fvisibility=hidden)
